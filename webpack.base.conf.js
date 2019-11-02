@@ -1,4 +1,5 @@
 const path = require('path')
+const fs = require('fs')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -14,13 +15,17 @@ const PATHS = {
   const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.html'))
 
 module.exports = {
+  externals: {
+    paths: PATHS
+    //module: `${PATHS.src}/your-module.js`,
+  },
   entry: {
-    app: './src/index.js'
+    app: PATHS.src,
   },
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist'
+    filename: `${PATHS.assets}js/[name].[hash].js`,
+    path: PATHS.dist,
+    publicPath: '/'
   },
   optimization: {
     splitChunks: {
@@ -77,7 +82,11 @@ module.exports = {
         options: {
           name: '[name].[ext]'
         }
-      }]
+      },{
+        test: /\.pug$/,
+        loader: 'pug-loader'
+      }
+    ]
   },
   plugins: [
     new MiniCssExtractPlugin({
