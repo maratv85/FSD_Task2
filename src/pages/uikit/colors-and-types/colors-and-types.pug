@@ -1,0 +1,21 @@
+extends ../../layout.pug
+
+block variables
+    - var pageTitle = 'Colors & Type'
+
+block content
+    include ../../../blocks/logo-ui-kit/logo-ui-kit.pug
+    include ../../../blocks/color-block/color-block.pug
+
+    .colors-and-type
+        .colors-and-type__container
+            .colors-and-type__logo-ui-kit
+                +logo-ui-kit()
+            article.colors-and-type__colors
+                +color-block({text: 'Dark Shade 100%', description: '#1F2041', Color: 'darkest shade'})
+                +color-block({ text: 'Dark Shade 75%', description: '#1F2041', Color: 'dark shade' })
+                +color-block({ text: 'Dark Shade 50%', description: '#1F2041', Color: 'shade' })
+                +color-block({ text: 'Dark Shade 25%', description: '#1F2041', Color: 'light shade' })
+                +color-block({ text: 'Dark Shade 5%', description: '#1F2041', Color: 'lightest shade' })
+                +color-block({ text: 'Purple', description: '#BC9CFF', Color: 'purple' })
+                +color-block({ text: 'Green', description: '#6FCF97', Color: 'green' })

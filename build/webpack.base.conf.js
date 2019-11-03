@@ -103,7 +103,7 @@ module.exports = {
           loader: 'sass-loader',
           options: {
             sourceMap: true,
-            data: '@import \'./src/styles/main-presets\';',
+            //data: '@import \'./src/styles/main-presets\';',
             includePaths: [path.join(__dirname, 'src')],
           },
         },

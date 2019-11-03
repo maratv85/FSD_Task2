@@ -1,0 +1,24 @@
+mixin color-block({ text = 'Color', description = 'Description', Color = 'darkest-shade' } = {})
+  - let colorModifier = ''
+
+  case Color
+    when 'darkest shade'
+      - colorModifier = 'color-block_color_darkest-shade'
+    when 'dark shade'
+      - colorModifier = 'color-block_color_dark-shade'
+    when 'shade'
+      - colorModifier = 'color-block_color_shade'
+    when 'light shade'
+      - colorModifier = 'color-block_color_light-shade'
+    when 'lightest shade'
+      - colorModifier = 'color-block_color_lightest-shade'
+    when 'purple'
+      - colorModifier = 'color-block_color_purple'
+    when 'green'
+      - colorModifier = 'color-block_color_green'
+
+  .color-block
+    div(class=`color-block__rect ${colorModifier}`)
+    .color-block__text
+      p.color-block__title=text
+      p.color-block__description=description
