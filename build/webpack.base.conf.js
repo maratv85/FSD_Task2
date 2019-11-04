@@ -3,6 +3,7 @@ const fs = require('fs');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+// const CopyPlugin = require('copy-webpack-plugin');
 
 const PATHS = {
   src: path.join(__dirname, '../src'),
@@ -14,15 +15,17 @@ const PAGES_DIR = `${PATHS.src}/pages/`;
 function getFiles(dir, files_, folder = '') {
   const filesArray = files_ || [];
   let folderPath = folder;
-  fs.readdirSync(dir).forEach((filePath) => {
-    const name = path.join(dir, filePath);
-    if (fs.statSync(name).isDirectory()) {
-      folderPath = path.join(folder, filePath);
-      getFiles(name, filesArray, folderPath);
-    } else if (filePath.endsWith('.pug')) {
-      filesArray.push(path.join(folder, filePath));
-    }
-  });
+  fs.readdirSync(dir)
+    .forEach((filePath) => {
+      const name = path.join(dir, filePath);
+      if (fs.statSync(name)
+        .isDirectory()) {
+        folderPath = path.join(folder, filePath);
+        getFiles(name, filesArray, folderPath);
+      } else if (filePath.endsWith('.pug')) {
+        filesArray.push(path.join(folder, filePath));
+      }
+    });
   return filesArray;
 }
 const PAGES = getFiles(PAGES_DIR);
@@ -61,7 +64,7 @@ module.exports = {
     },
     {
       test: /\.(eot|svg|ttf|woff|woff2)$/,
-      exclude: [/blocks/, /img/, /static/],
+      exclude: [/blocks/, /img/],
       use: {
         loader: 'file-loader',
         options: {
@@ -73,7 +76,7 @@ module.exports = {
     {
       test: /\.(png|jpg|gif|svg)$/,
       loader: 'file-loader',
-      exclude: [/fonts/, /static/],
+      exclude: [/fonts/],
       options: {
         name: './img/[name].[ext]',
         publicPath: '../',
@@ -103,7 +106,7 @@ module.exports = {
           loader: 'sass-loader',
           options: {
             sourceMap: true,
-            //data: '@import \'./src/styles/main-presets\';',
+            data: '@import \'./src/styles/common\';',
             includePaths: [path.join(__dirname, 'src')],
           },
         },
@@ -140,8 +143,13 @@ module.exports = {
     ...PAGES.map((page) => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,
       filename: `./${page.replace(/.*[\\]/, '').replace(/\.pug/, '.html')}`,
+      // filename: `./${page.replace(/\.pug/, '.html')}`,
       inject: true,
     })),
 
+    // new CopyPlugin([
+    //  { from: 'static', to: 'static' },
+    //  { from: 'index.html', to: 'index.html', toType: 'file'},
+    // ]),
   ],
 };
