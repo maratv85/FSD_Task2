@@ -55,7 +55,7 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.pug$/,
+      test: /\.(pug|lpug)$/,
       loader: 'pug-loader',
     }, {
       test: /\.js$/,
