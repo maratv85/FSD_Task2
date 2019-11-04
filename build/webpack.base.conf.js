@@ -142,8 +142,7 @@ module.exports = {
 
     ...PAGES.map((page) => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,
-      filename: `./${page.replace(/.*[\\]/, '').replace(/\.pug/, '.html')}`,
-      // filename: `./${page.replace(/\.pug/, '.html')}`,
+      filename: `./pages/${page.replace(/\.pug/, '.html')}`,
       inject: true,
     })),
 
