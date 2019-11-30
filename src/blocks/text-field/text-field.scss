@@ -12,4 +12,10 @@
   border: 1px solid $ight-shade;
   box-sizing: border-box;
 
+  &:hover,
+  &:focus {
+    border: 1px solid $shade;
+    color: $dark-shade;
+
+  }
 }
