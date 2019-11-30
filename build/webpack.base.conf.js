@@ -83,7 +83,7 @@ module.exports = {
       },
     },
     {
-      test: /\.(svg|png|ico|xml|json)$/,
+      test: /\.(svg|png|ico)$/,
       exclude: [/fonts/, /blocks/, /img/, /node_modules/],
       use: [{
         loader: 'file-loader',

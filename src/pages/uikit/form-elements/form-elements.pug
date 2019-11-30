@@ -2,4 +2,11 @@ extends ../layout.pug
 
 block variables
   - var pageTitle = 'Form elements'
-  
+
+block content
+  include ../../../blocks/logo-ui-kit/logo-ui-kit.pug  
+  include ../../../blocks/heading/heading.pug
+  include ../../../blocks/text-field/text-field.pug
+
+  section.form-elements
+    .form-elements__container  

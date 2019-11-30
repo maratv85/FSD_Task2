@@ -1,0 +1,17 @@
+.form-elements {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  
+  &__logo-ui-kit {
+    position: absolute;
+    top: 30px;
+    left: 30px;    
+  }
+  &__container {
+    display: grid; 
+    width: 1440px;    
+  }
+
+}
