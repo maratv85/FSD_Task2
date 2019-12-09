@@ -1,5 +1,30 @@
-mixin heading({type = undefined, text = undefined})
-  #{type}.heading(class = `heading_type_${type} 'heading_color_light-shade' 'heading_weight_normal'`)=text
+mixin heading(props = {})
+  - const {type, text, weight, color} = props;
+  - let weightModifier = ''
+  - let colorModifier = ''
+  
+  case weight
+    when 'normal'
+      - weightModifier = 'heading_weight_normal'
+    when 'bold'
+      - weightModifier = 'heading_weight_bold'  
 
+  case color
+    when 'dark-shade-25'
+      - colorModifier = 'heading_color_dark-shade-25' 
+    when 'dark-shade-75'
+      - colorModifier = 'heading_color_dark-shade-75'       
+
+  #{type}.heading(class = `heading_type_${type} ${colorModifier} ${weightModifier}`)=text
+
+
+
+
+//- Example:
+ +heading({
+   type: 'h3',
+   text: 'some text',
+   weight: 'bold',
+   color: 'dark-shade-25' })
 
 
