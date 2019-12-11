@@ -8,14 +8,11 @@
   font-family: 'Montserrat', Arial, helvetica, sans-serif;
   background: #FFFFFF;
   font-size: 14px;
-  color: $light-shade;
-  border: 1px solid $light-shade;
+  color: $dark-shade-25;
+  border: 1px solid $dark-shade-25;
   box-sizing: border-box;
 
-  &:hover,
-  &:focus {
-    border: 1px solid $shade;
-    color: $dark-shade;
-
+  &_default {
+    color: $dark-shade-25;
   }
 }

@@ -3,6 +3,7 @@
   justify-content: center;
   width: 100%;
   align-items: center;
+  padding-top: 140px;
   
   &__logo-ui-kit {
     position: absolute;
@@ -12,8 +13,18 @@
   &__container {
     display: grid; 
     width: 1440px; 
-    //margin-right:   
-    
+    grid-template-columns: 1fr 1fr 1fr;   
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:  'fields         check-buttons     buttons' 
+                          'dropdown-left  dropdown-center   dropdown-right'
+                          'exp-checkbox   checkbox-buttons  bullet-list' 
+                          'signs          comments          comments'
+                          ;
   }
-
+  &__heading-text {
+    display: flex;
+    justify-content: space-between;
+    width: 320px;
+    height: 15px;
+  }
 }

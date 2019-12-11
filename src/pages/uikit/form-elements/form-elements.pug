@@ -8,11 +8,20 @@ block content
   include ../../../blocks/heading/heading.pug
   include ../../../blocks/text-field/text-field.pug
 
-  section.form-elements
+  main.form-elements
     .form-elements__container
       .form-elements__logo-ui-kit
         +logo-ui-kit() 
-      article.form-elements__fields  
+      article.form-elements__fields 
+        .form-elements__heading-text 
+          +heading({
+            type: 'h3',
+            text: 'text field'})
+          +heading({
+            type: 'h3',
+            text: 'default',
+            weight: 'normal',
+            color: 'dark-shade-50' })
         +text-field({
           type: 'email',
           placeholder: 'Email',

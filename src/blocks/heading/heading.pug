@@ -2,7 +2,14 @@ mixin heading(props = {})
   - const {type, text, weight, color} = props;
   - let weightModifier = ''
   - let colorModifier = ''
+  - let typeModifier = ''
   
+  case type 
+    when 'body'
+      - typeModifier ='p'
+    default
+      - typeModifier = type 
+    
   case weight
     when 'normal'
       - weightModifier = 'heading_weight_normal'
@@ -15,9 +22,7 @@ mixin heading(props = {})
     when 'dark-shade-75'
       - colorModifier = 'heading_color_dark-shade-75'       
 
-  #{type}.heading(class = `heading_type_${type} ${colorModifier} ${weightModifier}`)=text
-
-
+  #{typeModifier}.heading(class = `heading_type_${type} ${colorModifier} ${weightModifier}`)=text
 
 
 //- Example:

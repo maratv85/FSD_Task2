@@ -1,6 +1,7 @@
-mixin text-field({type='text', text='', placeholder='', name='', fieldView = undefined,}={})
+mixin text-field({type='text', text='', placeholder='', name='', fieldView = ''}={})
   
   - let fieldViewMod = ''  
+
   case fieldView
     when 'masked'
       - fieldViewMod = 'text-field_masked'
