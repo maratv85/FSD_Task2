@@ -37,24 +37,24 @@
 
   &_color {
 
-    &_darkest-shade {
-      background: $darkest-shade;
+    &_dark-shade-100 {
+      background: $darkest-shade-100;
     }
 
-    &_dark-shade {
-      background: rgba(31, 32, 65, 0.75);
+    &_dark-shade-75 {
+      background: $dark-shade-75;
     }
 
-    &_shade {
-      background: rgba(31, 32, 65, 0.5);
+    &_dark-shade-50 {
+      background: $dark-shade-50;
     }
 
-    &_light-shade {
-      background: rgba(31, 32, 65, 0.25);
+    &_dark-shade-25 {
+      background: $dark-shade-25;
     }
 
-    &_lightest-shade {
-      background: rgba(31, 32, 65, 0.05);
+    &_dark-shade-5 {
+      background: $dark-shade-5;
     }
 
     &_purple {

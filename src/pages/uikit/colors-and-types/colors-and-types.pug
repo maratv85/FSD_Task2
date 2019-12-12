@@ -12,11 +12,11 @@ block content
       .colors-and-type__logo-ui-kit
         +logo-ui-kit()
       article.colors-and-type__colors
-        +color-block({text: 'Dark Shade 100%', description: '#1F2041', Color: 'darkest'})
-        +color-block({ text: 'Dark Shade 75%', description: '#1F2041', Color: 'dark' })
-        +color-block({ text: 'Dark Shade 50%', description: '#1F2041', Color: 'shade' })
-        +color-block({ text: 'Dark Shade 25%', description: '#1F2041', Color: 'light' })
-        +color-block({ text: 'Dark Shade 5%', description: '#1F2041', Color: 'lightest' })
+        +color-block({text: 'Dark Shade 100%', description: '#1F2041', Color: 'dark-shade-100'})
+        +color-block({ text: 'Dark Shade 75%', description: '#1F2041', Color: 'dark-shade-75' })
+        +color-block({ text: 'Dark Shade 50%', description: '#1F2041', Color: 'dark-shade-50' })
+        +color-block({ text: 'Dark Shade 25%', description: '#1F2041', Color: 'dark-shade-25' })
+        +color-block({ text: 'Dark Shade 5%', description: '#1F2041', Color: 'dark-shade-5' })
         +color-block({ text: 'Purple', description: '#BC9CFF', Color: 'purple' })
         +color-block({ text: 'Green', description: '#6FCF97', Color: 'green' })
       article.colors-and-type__headers
@@ -36,5 +36,7 @@ block content
           .colors-and-type__text
             +heading({ type: 'h3', text: 'This is a label or CTA text'})
         .colors-and-type__item
-          p.colors-and-type__h.colors-and-type__h-body Body
-          p.colors-and-type__text.colors-and-type__text-body This is the body text which is used for most of the design, like paragraphs, lists, etc.
+          .colors-and-type__h
+		    +heading({ type: 'body', text: 'Body'})
+          .colors-and-type__text
+            +heading({ type: 'body', text: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.'})

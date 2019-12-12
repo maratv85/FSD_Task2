@@ -1,17 +1,17 @@
-mixin color-block({ text = 'Color', description = 'Description', Color = 'darkest-shade' } = {})
+mixin color-block({ text = 'Color', description = 'Description', Color = 'dark-shade-100' } = {})
   - let colorModifier = ''
 
   case Color
-    when 'darkest'
-      - colorModifier = 'color-block_color_darkest-shade'
-    when 'dark'
-      - colorModifier = 'color-block_color_dark-shade'
-    when 'shade'
-      - colorModifier = 'color-block_color_shade'
-    when 'light'
-      - colorModifier = 'color-block_color_light-shade'
-    when 'lightest'
-      - colorModifier = 'color-block_color_lightest-shade'
+    when 'dark-shade-100'
+      - colorModifier = 'color-block_color_dark-shade-100'
+    when 'dark-shade-75'
+      - colorModifier = 'color-block_color_dark-shade-75'
+    when 'dark-shade-50'
+      - colorModifier = 'color-block_color_dark-shade-50'
+    when 'dark-shade-25'
+      - colorModifier = 'color-block_color_dark-shade-25'
+    when 'dark-shade-5'
+      - colorModifier = 'color-block_color_dark-shade-5'
     when 'purple'
       - colorModifier = 'color-block_color_purple'
     when 'green'
