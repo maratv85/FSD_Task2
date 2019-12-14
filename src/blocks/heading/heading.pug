@@ -3,6 +3,7 @@ mixin heading(props = {})
   - let weightModifier = ''
   - let colorModifier = ''
   - let typeModifier = ''
+  - let heghtModifier = ''
   
   case type 
     when 'body'
@@ -29,7 +30,7 @@ mixin heading(props = {})
  +heading({
    type: 'h3',
    text: 'some text',
-   weight: 'bold',
-   color: 'dark-shade-25' })
+   color: 'dark-shade-25',
+   weight: 'bold'})
 
 

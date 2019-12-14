@@ -19,16 +19,17 @@
     margin: 0;
     font-family: 'Quicksand', 'Open Sans', Arial, Helvetica, sans-serif;
     font-weight: bold;
-    font-size: rem(19px);
+    font-size: 19px;
     line-height: 29px;
-    color: $darkest-shade;
+    color: $dark-shade-100;
   }
 
   &__description {
     margin: 0;
     font-family: 'Quicksand', 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 19px;
     line-height: 29px;
-    color: $darkest-shade;
+    color: $dark-shade-100;
   }
 
   &__description {
@@ -38,7 +39,7 @@
   &_color {
 
     &_dark-shade-100 {
-      background: $darkest-shade-100;
+      background: $dark-shade-100;
     }
 
     &_dark-shade-75 {
@@ -58,11 +59,11 @@
     }
 
     &_purple {
-      background: #BC9CFF;
+      background: $purple;
     }
 
     &_green {
-      background: #6FCF97;
+      background: $green;
     }
   }
 }
