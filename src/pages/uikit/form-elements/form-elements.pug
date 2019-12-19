@@ -13,17 +13,43 @@ block content
       .form-elements__logo-ui-kit
         +logo-ui-kit() 
       article.form-elements__fields 
-        .form-elements__heading-text 
-          +heading({
-            type: 'h3',
-            text: 'text field'})
-          +heading({
-            type: 'h3',
-            text: 'default',
-            weight: 'normal',
-            color: 'dark-shade-50' })
-        +text-field({
-          type: 'email',
-          placeholder: 'Email',
-          name: 'email-input'
-        })
+        .form-elements__little-wrapper
+          .form-elements__heading-text 
+            +heading({
+              type: 'h3',
+              text: 'text field'})
+            +heading({
+              type: 'h3',
+              text: 'default',
+              weight: 'normal',
+              color: 'dark-shade-50' })        
+          +text-field({
+            type: 'default',
+            placeholder: 'Email'})
+        .form-elements__little-wrapper
+          .form-elements__heading-text 
+            +heading({
+              type: 'h3',
+              text: 'text field'})
+            +heading({
+              type: 'h3',
+              text: 'hover / focus',
+              weight: 'normal',
+              color: 'dark-shade-50' })        
+          +text-field({
+            type: 'hover/focus',
+            placeholder: 'This is pretty awesome'})  
+        .form-elements__little-wrapper
+        //дропдаун тут
+        .form-elements__wrapper
+          .form-elements__heading-text 
+            +heading({
+              type: 'h3',
+              text: 'masked text field'})
+            +heading({
+              type: 'h3',
+              text: 'default',
+              weight: 'normal',
+              color: 'dark-shade-50' })        
+          +text-field({
+            type: 'date'})            

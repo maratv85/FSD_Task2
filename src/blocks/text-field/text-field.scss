@@ -11,8 +11,31 @@
   color: $dark-shade-25;
   border: 1px solid $dark-shade-25;
   box-sizing: border-box;
+  padding-left: 15px;
+
+  &:focus, 
+  &:hover {
+    border: 1px solid $dark-shade-50;
+    color: $dark-shade-75;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $dark-shade-50;
+  }
 
   &_default {
     color: $dark-shade-25;
+    &::placeholder {
+      color: $dark-shade-25;
+    }
+  }
+
+  &_hover-state {
+    color: $dark-shade-75;
+    border: 1px solid $dark-shade-50;
+    &::placeholder {
+      color: $dark-shade-50;
+    }
   }
 }

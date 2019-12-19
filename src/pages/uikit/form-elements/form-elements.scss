@@ -21,10 +21,20 @@
                           'signs          comments          comments'
                           ;
   }
+
+  &__little-wrapper {
+    margin-bottom: 20px;
+  }
+
+  &__wrapper {
+    margin-bottom: 40px;
+  }
+
   &__heading-text {
     display: flex;
     justify-content: space-between;
     width: 320px;
-    height: 15px;
+    height: 15x;
+    margin-bottom: 5px;
   }
 }

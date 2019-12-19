@@ -1,17 +1,18 @@
-mixin text-field({type='text', text='', placeholder='', name='', fieldView = ''})
+mixin text-field({type='text', placeholder=''})
   
-  - let fieldViewMod = ''  
+  - let ViewModifier = ''  
 
-  case fieldView
-    when 'masked'
-      - fieldViewMod = 'text-field_masked'
-      - placeholder = 'ДД.ММ.ГГГГ'
+  case type
+    when 'default'
+      - ViewModifier = 'text-field_default'
+    when 'hover/focus'
+      - ViewModifier = 'text-field_hover-state'
+    when 'date'
+      - ViewModifier = 'text-field_input-mask' 
+      - placeholder  = 'ДД.ММ.ГГГГ'   
+
   input(
-    class=`text-field ${fieldViewMod}`
+    class=`text-field ${ViewModifier}`
     type=type,  
-    text=text,
-    placeholder=placeholder,
-    readonly=readonly,
-    name=name
-    
+    placeholder=placeholder
   )
