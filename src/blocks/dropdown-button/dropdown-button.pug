@@ -1,0 +1,10 @@
+mixin dropdown-button(props ={})
+  - const {type = 'apply', text = 'Применить'} = props
+   
+  .dropdown-button(class=`dropdown-button__${type}`)=text
+
+
+//-
+  +dropdown-button({
+      type: 'clear',
+      text: 'Очистить'})  

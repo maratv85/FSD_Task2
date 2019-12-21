@@ -21,10 +21,10 @@
   }
 
   &::placeholder {
-    color: $dark-shade-50;
+    color: $dark-shade-25;
   }
 
-  &_default {
+  &_default-state {
     color: $dark-shade-25;
     &::placeholder {
       color: $dark-shade-25;

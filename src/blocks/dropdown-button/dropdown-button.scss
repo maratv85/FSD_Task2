@@ -1,0 +1,20 @@
+.dropdown-button {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  // &_hidden {
+  //     display: none;    
+  // } 
+  
+  &__apply {
+      color: $purple;
+  }
+
+  &__clear {
+     color: $dark-shade-50;
+  }
+}

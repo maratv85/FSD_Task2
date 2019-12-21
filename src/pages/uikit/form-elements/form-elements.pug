@@ -7,6 +7,7 @@ block content
   include ../../../blocks/logo-ui-kit/logo-ui-kit.pug  
   include ../../../blocks/heading/heading.pug
   include ../../../blocks/text-field/text-field.pug
+  include ../../../blocks/dropdown/dropdown.pug
 
   main.form-elements
     .form-elements__container
@@ -24,7 +25,7 @@ block content
               weight: 'normal',
               color: 'dark-shade-50' })        
           +text-field({
-            type: 'default',
+            view: 'default',
             placeholder: 'Email'})
         .form-elements__little-wrapper
           .form-elements__heading-text 
@@ -37,10 +38,26 @@ block content
               weight: 'normal',
               color: 'dark-shade-50' })        
           +text-field({
-            type: 'hover/focus',
+            view: 'hover/focus',
             placeholder: 'This is pretty awesome'})  
         .form-elements__little-wrapper
-        //дропдаун тут
+          .form-elements__heading-text 
+            +heading({
+              type: 'h3',
+              text: 'dropdown'})
+            +heading({
+              type: 'h3',
+              text: 'default',
+              weight: 'normal',
+              color: 'dark-shade-50' }) 
+          +dropdown({
+            desc: 'Сколько гостей',
+            hasApply: false,
+            hasClear: false,
+            options :[
+              { name: 'взрослые', group: 'гости' },
+              { name: 'дети', group: 'гости' },
+              { name: 'младенцы' }]  })  
         .form-elements__wrapper
           .form-elements__heading-text 
             +heading({
@@ -52,4 +69,4 @@ block content
               weight: 'normal',
               color: 'dark-shade-50' })        
           +text-field({
-            type: 'date'})            
+            view: 'date'})            

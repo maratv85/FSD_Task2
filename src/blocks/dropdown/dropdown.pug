@@ -1,0 +1,40 @@
+include ../material-icons/material-icons.pug
+include ../heading/heading.pug
+include ../dropdown-button/dropdown-button.pug
+
+mixin dropdown(props = {})
+  - const {desc = '', width = '', options = [], hasApply = false, hasClear = false} = props;
+
+  - let widthModifier = ''
+
+  case width
+    when 'decreased'
+      - widthModifier = 'dropdown_width_decreased'
+  
+  .dropdown(class=widthModifier) 
+    .dropdown__name
+      span.dropdown__name-text=desc
+    .dropdown__options
+      each option in options
+        .dropdown__option
+          if option.number < 0
+            - option.number = 0
+          if option.group === undefined
+            - option.group = option.name
+          .dropdown-option__header
+            +heading({ type: 'h3', text: option.name})  
+          .dropdown-option__container  
+            .dropdown-option__round -
+            .dropdown-option__number=option.number
+            .dropdown-option__round +
+
+      if hasApply 
+        .dropdown__option-button
+          +dropdown-button({type: 'apply', text: 'применить'}) 
+      if hasClear     
+          +dropdown-button({type: 'clear', text: 'очистить'})      
+
+    .dropdown__expander
+      +material-icons({
+        type: 'expand_more',
+        color: 'dark-shade-50'})     

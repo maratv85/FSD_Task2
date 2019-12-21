@@ -1,18 +1,22 @@
-mixin text-field({type='text', placeholder=''})
+mixin text-field({view='text', placeholder=''})
   
   - let ViewModifier = ''  
 
-  case type
+  case view
     when 'default'
-      - ViewModifier = 'text-field_default'
+      - ViewModifier = 'text-field_default-state'
     when 'hover/focus'
       - ViewModifier = 'text-field_hover-state'
     when 'date'
-      - ViewModifier = 'text-field_input-mask' 
+      - ViewModifier = 'text-field_date-state' 
       - placeholder  = 'ДД.ММ.ГГГГ'   
 
   input(
-    class=`text-field ${ViewModifier}`
-    type=type,  
+    class=`text-field ${ViewModifier}`, 
     placeholder=placeholder
   )
+
+//- +text-field({
+      view: 'default',
+      placeholder: 'Enter what you want'
+    })  
