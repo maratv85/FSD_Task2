@@ -13,11 +13,15 @@
   box-sizing: border-box;
   padding-left: 15px;
 
-  &:focus, 
   &:hover {
-    border: 1px solid $dark-shade-50;
-    color: $dark-shade-75;
+    @extend %hover-focus;
     outline: none;
+  }
+
+  &:focus {
+    @extend %hover-focus;
+    outline: none;
+    box-shadow: 0 0 0.4 $purple;
   }
 
   &::placeholder {
@@ -38,4 +42,9 @@
       color: $dark-shade-50;
     }
   }
+}
+
+%hover-focus {
+  border: 1px solid $dark-shade-50;
+  color: $dark-shade-75;
 }

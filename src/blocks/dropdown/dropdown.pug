@@ -28,11 +28,13 @@ mixin dropdown(props = {})
             .dropdown-option__number=option.number
             .dropdown-option__round +
 
-      if hasApply 
+      if hasApply || hasClear
         .dropdown__option-button
-          +dropdown-button({type: 'apply', text: 'применить'}) 
-      if hasClear     
-          +dropdown-button({type: 'clear', text: 'очистить'})      
+          if hasApply 
+            .dropdown__option-button
+              +dropdown-button({type: 'apply', text: 'применить'}) 
+          if hasClear     
+              +dropdown-button({type: 'clear', text: 'очистить'})      
 
     .dropdown__expander
       +material-icons({
