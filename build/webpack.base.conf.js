@@ -64,7 +64,7 @@ module.exports = {
     },
     {
       test: /\.(eot|svg|ttf|woff|woff2)$/,
-      exclude: [/blocks/, /img/],
+      exclude: [/blocks/, /img/, /favicons/],
       use: {
         loader: 'file-loader',
         options: {
@@ -76,7 +76,7 @@ module.exports = {
     {
       test: /\.(png|jpg|gif|svg)$/,
       loader: 'file-loader',
-      exclude: [/fonts/],
+      exclude: [/fonts/,/favicons/],
       options: {
         name: './img/[name].[ext]',
         publicPath: '../',
@@ -123,12 +123,12 @@ module.exports = {
     },
     ],
   },
-  /*resolve: {
+  /* resolve: {
     extensions: ['.js', '.jsx', '.scss'],
     alias: {
       './dependencyLibs/inputmask.dependencyLib': './dependencyLibs/inputmask.dependencyLib.jquery',
     },
-  },*/
+  }, */
   plugins: [
     new MiniCssExtractPlugin({
       filename: './css/[name].[hash].css',

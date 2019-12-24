@@ -1,0 +1,21 @@
+extends ../templates/layout.pug
+
+
+
+block variables
+  - var pageTitle = 'Frontend education - Powered by FSD'
+  
+block content
+  include ../blocks/heading/heading.pug
+
+  - const colorsAndTypes = {title: 'Colors & Type', href: '/pages/uikit/colors-and-types/colors-and-types.html'}
+  - const formElements = {title: 'Form Elements', href: '/pages/uikit/form-elements/form-elements.html'}
+  - const uikitPages = [colorsAndTypes, formElements]
+
+  ul.menu-page__list
+    li.menu-page__item-header
+      +heading({type: 'h1', text: 'UI-kit & Pages'})
+    each page in uikitPages
+      li.menu-page__item
+        a.menu-page__link(href=page.href)=page.title
+
