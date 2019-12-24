@@ -3,14 +3,17 @@ extends ../templates/layout.pug
 
 
 block variables
-  - var pageTitle = 'Frontend education - Powered by FSD'
+  - var pageTitle = 'Frontend education'
   
 block content
   include ../blocks/heading/heading.pug
 
   - const colorsAndTypes = {title: 'Colors & Type', href: '/pages/uikit/colors-and-types/colors-and-types.html'}
   - const formElements = {title: 'Form Elements', href: '/pages/uikit/form-elements/form-elements.html'}
-  - const uikitPages = [colorsAndTypes, formElements]
+  - const cards = {title: 'Cards', href: '/pages/uikit/cards/cards.html'}
+  - const headersAndFooters = {title: 'Headers & Footers', href: '/pages/uikit/headers-and-footers/headers-and-footers.html'}
+  - const uikitPages = [colorsAndTypes, formElements, cards, headersAndFooters]
+ 
 
   ul.menu-page__list
     li.menu-page__item-header
@@ -18,4 +21,6 @@ block content
     each page in uikitPages
       li.menu-page__item
         a.menu-page__link(href=page.href)=page.title
+    li.menu-page__item-footer
+      +heading({type: 'h3', text: 'Powered by FSD', color: 'dark-shade-75'})      
 
