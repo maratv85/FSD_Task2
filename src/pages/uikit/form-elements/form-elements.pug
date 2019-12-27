@@ -4,14 +4,14 @@ block variables
   - var pageTitle = 'Form elements'
 
 block content
-  include ../../../blocks/logo-ui-kit/logo-ui-kit.pug  
+  include ../../../blocks/logo/logo.pug  
   include ../../../blocks/heading/heading.pug
   include ../../../blocks/text-field/text-field.pug
   include ../../../blocks/dropdown/dropdown.pug
 
   main.form-elements
     .form-elements__container
-      .form-elements__logo-ui-kit
+      .form-elements__logo
         +logo-ui-kit({}) 
       article.form-elements__fields 
         .form-elements__little-wrapper
@@ -55,9 +55,9 @@ block content
             hasApply: false,
             hasClear: false,
             options :[
-              { name: 'взрослые', group: 'гости' },
-              { name: 'дети', group: 'гости' },
-              { name: 'младенцы' }]  })  
+              { name: 'взрослые', group: 'гости', number: '0' },
+              { name: 'дети', group: 'гости', number: '0' },
+              { name: 'младенцы', number: '0' }]  })  
         .form-elements__wrapper
           .form-elements__heading-text 
             +heading({

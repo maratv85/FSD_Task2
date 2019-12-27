@@ -12,11 +12,12 @@
     max-width: 1160px;
     width: 100%;
     max-height: 900px;
-    height: 100%; 
-    height: max-content;
+    /*height: 100%; 
+    height: max-content;*/
     box-sizing: border-box;
     @media (max-width: 684px) {
       flex-direction: column;
+      height: 750px;
     }
   }
 
@@ -71,16 +72,12 @@
     display: flex;
     justify-content: flex-end;
     margin-bottom: 50px;
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
   }
 
-  &__logo-ui-kit {
+  &__logo {
     position: absolute;
     top: 30px;
-    left: 30px;
+    left: 30px;   
   }
 
   @media (max-width: 684px) {

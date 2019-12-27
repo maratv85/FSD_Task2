@@ -4,13 +4,13 @@ block variables
   - var pageTitle = 'Colors & Type'
   
 block content
-  include ../../../blocks/logo-ui-kit/logo-ui-kit.pug
+  include ../../../blocks/logo/logo.pug
   include ../../../blocks/color-block/color-block.pug
   include ../../../blocks/heading/heading.pug
   .colors-and-type
+    .colors-and-type__logo
+      +logo-ui-kit({})
     .colors-and-type__container
-      .colors-and-type__logo-ui-kit
-        +logo-ui-kit({})
       article.colors-and-type__colors
         +color-block({text: 'Dark Shade 100%', description: '#1F2041', Color: 'dark-shade-100'})
         +color-block({ text: 'Dark Shade 75%', description: '#1F2041', Color: 'dark-shade-75' })
