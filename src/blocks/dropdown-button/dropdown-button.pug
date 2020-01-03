@@ -1,5 +1,5 @@
 mixin dropdown-button(props ={})
-  - const {type = 'apply', text = 'Применить'} = props
+  - const {type = 'apply', text = 'Применить', isVisible = true} = props
    
   .dropdown-button(class=`dropdown-button__${type}`)=text
 

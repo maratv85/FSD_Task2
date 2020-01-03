@@ -3,7 +3,7 @@ include ../heading/heading.pug
 include ../dropdown-button/dropdown-button.pug
 
 mixin dropdown(props = {})
-  - const {desc = '', width = '', options = [], hasApply = false, hasClear = false} = props;
+  - const {desc = '', width = '', options = [], hasButtons = false} = props;
 
   - let widthModifier = ''
 
@@ -21,24 +21,21 @@ mixin dropdown(props = {})
     .dropdown__options
       each option in options
         .dropdown__option
-          if option.number < 0
-            - option.number = 0
-          if option.group === undefined
-            - option.group = option.name
-          .dropdown__option-header
-            +heading({ type: 'h3', text: option.name})  
-          .dropdown__option-container  
-            .dropdown__option-round -
-            .dropdown__option-number=option.number
-            .dropdown__option-round +
+          .dropdown__container-for-options
+            if option.number < 0
+              - option.number = 0
+            if option.group === undefined
+              - option.group = option.name
+            +heading({type: 'h3', text: option.name})  
+            .dropdown__option-container  
+              .dropdown__option-round -
+              .dropdown__option-number=option.number
+              .dropdown__option-round +
 
-      if hasApply || hasClear
+      if hasButtons
         .dropdown__option-button
-          if hasClear 
-            .dropdown__option-button
-              +dropdown-button({type: 'clear', text: 'очистить'}) 
-          if hasApply      
-              +dropdown-button({type: 'apply', text: 'применить'})      
+          +dropdown-button({type: 'clear', text: 'очистить', isVisible: false})      
+          +dropdown-button({type: 'apply', text: 'применить'})      
 //-
   +dropdown({
     desc:'Сколько гостей', 
