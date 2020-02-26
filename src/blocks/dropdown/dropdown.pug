@@ -12,7 +12,7 @@ mixin dropdown(props = {})
       - widthModifier = 'dropdown_width_decreased'
   
   .dropdown(class=widthModifier) 
-    .dropdown__name.js-dropdown__name
+    .dropdown__name
       span.dropdown__name-text=desc
       .dropdown__expander
         +material-icons({
