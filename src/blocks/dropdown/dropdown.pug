@@ -21,14 +21,14 @@ mixin dropdown(props = {})
     .dropdown__options
       each option in options
         .dropdown__option
-          .dropdown__container-for-options
+          .dropdown__container-for-options(data-group=group)
             if option.number < 0
               - option.number = 0
             if option.group === undefined
               - option.group = option.name
             +heading({type: 'h3', text: option.name})  
             .dropdown__option-container  
-              .dropdown__option-round -
+              .dropdown__option-round.dropdown__option-round_zero-counted -
               .dropdown__option-number=option.number
               .dropdown__option-round +
 

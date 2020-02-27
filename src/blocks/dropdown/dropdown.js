@@ -1,25 +1,27 @@
 import DropdownButton from '../dropdown-button/dropdown-button.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const OPTIONS = {
-    гости:    ['гость', 'гостя', 'гостей'],
-    младенцы: ['младенец', 'младенца', 'младенцев'],
-    спальни:  ['спальня, ', 'спальни, ', 'спален, '],
-    кровати:  ['кровать, ', 'кровати, ', 'кроватей, '],
-    'ванные комнаты': ['ванная комната ', 'ванные комнаты ', 'ванных комнат ']
-  };
-
-  const GUESTS = document.querySelectorAll('.dropdown');
-  GUESTS.forEach( (val) => new Dropdown(val, OPTIONS));
-});
 
 //dropdown options class
 class Option {
   constructor(container) {
     this.container = container;
+    this.getHTMLElementsOpt();
     this.getValues();
-    this.getHTMLElements();
     this.eventListeners();
+  }
+
+  getHTMLElementsOpt() {
+    const plusMinuSigns = {
+      Increase: '+',
+      Decrease: '-'
+    };
+
+    this.option = this.container.querySelector('.dropdown__container-for-options');
+    this.option.querySelectorAll('.dropdown__option-round').forEach( (val) => {
+      if (val.textContent === plusMinuSigns.Decrease) {this.minusButton = val;}
+      if (val.textContent === plusMinuSigns.Increase) {this.plusButton = val;}
+    });
+    this.number = this.option.querySelector('.dropdown-option-number');
   }
 
   getValues() {
@@ -32,20 +34,6 @@ class Option {
         this.group = group;
       }
     }
-  }
-
-  getHTMLElements() {
-    this.number = this.option.querySelector('.dropdown__option-number');
-    const plusMinuSigns = {
-      Increase: '+',
-      Decrease: '-',
-    };
-
-    this.option = this.container.querySelector('.dropdown__option');
-    this.option.querySelectorAll('.dropdown__option-round').forEach((val) => {
-      if (val.textContent === plusMinuSigns.Decrease) {this.minusButton = val;}
-      if (val.textContent === plusMinuSigns.Increase) {this.plusButton = val;}
-    });
   }
 
   eventListeners() {
@@ -93,7 +81,9 @@ class Option {
     this.number.textContent = this.value;
   }
 }
+//=====================================
 //--- End class Option description ---
+//=====================================
 class Dropdown {
   constructor(elem, title) {
     this.dropdown = elem;
@@ -262,3 +252,5 @@ class Dropdown {
     return tmp;
   }
 }  
+
+export {Option, Dropdown}
