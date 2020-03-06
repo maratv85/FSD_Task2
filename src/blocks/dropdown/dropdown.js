@@ -15,20 +15,19 @@ class Option {
       Increase: '+',
       Decrease: '-'
     };
-
     this.option = this.container.querySelector('.dropdown__container-for-options');
     this.option.querySelectorAll('.dropdown__option-round').forEach( (val) => {
       if (val.textContent === plusMinuSigns.Decrease) {this.minusButton = val;}
       if (val.textContent === plusMinuSigns.Increase) {this.plusButton = val;}
-    });
+    } );
     this.number = this.option.querySelector('.dropdown-option-number');
   }
 
   getValues() {
     this.value = parseInt(this.number.textContent, 10);
-    if (this.value === '') this.value = 0;
-    if (this.value > 0) this.activateMinus();
-    if (this.option.hasAttribute('data-group')) {
+    if (this.value === '') {this.value = 0;}
+    if (this.value > 0)    {this.activateMinus();}
+    if (this.option.hasAttribute('data-group') ) {
       const { group } = this.option.dataset;
       if (group) {
         this.group = group;
@@ -45,7 +44,7 @@ class Option {
     if (this.value > 0) {this.value -= 1;}
     if (this.value === 0) {this.deactivateMinus();}
     this.number.textContent = this.value;
-    document.dispatchEvent(
+    this.container.dispatchEvent(
       new CustomEvent('changeOption', {
         bubbles: true,
         detail: this,
@@ -57,9 +56,9 @@ class Option {
     if (this.value === 0) {
       this.activateMinus(this.minusButton);
     }
-    this.value += Number(1);
+    this.value += 1;
     this.number.textContent = this.value;
-    document.dispatchEvent(
+    this.container.dispatchEvent(
       new CustomEvent('changeOption', {
         bubbles: true,
         detail: this,
@@ -100,42 +99,42 @@ class Dropdown {
     this.setSelectText(this.selectText);
   }
 
-  setEventListeners() {
-    this.select.addEventListener('click', this.setSelectClick.bind(this));
-    document.addEventListener('changeOption', this.DocumentChangeOption.bind(this));
-    if (this.clearButton) {this.clearButton.setEventListenerButton('click', this.clearButtonClick.bind(this))};
-    if (this.applyButton) {this.applyButton.setEventListenerButton('click', this.applyButtonClick.bind(this))};
-  }
-
   getHTMLElements() {
     this.select = this.dropdown.querySelector('.dropdown__name');
     this.clearButton = new DropdownButton('clear', this.dropdown);
     this.applyButton = new DropdownButton('apply', this.dropdown);
-    if (!this.clearButton.getButton()) {this.clearButton = undefined};
-    if (!this.applyButton.getButton()) {this.applyButton = undefined};
+    if (!this.clearButton.getButton()) {this.clearButton = null};
+    if (!this.applyButton.getButton()) {this.applyButton = null};
+  }
+
+  setEventListeners() {
+    this.select.addEventListener('click', this.setSelectClick.bind(this));
+    this.dropdown.addEventListener('changeOption', this.DocumentChangeOption.bind(this));
+    if (this.clearButton) {this.clearButton.setEventListenerButton('click', this.clearButtonClick.bind(this))};
+    if (this.applyButton) {this.applyButton.setEventListenerButton('click', this.applyButtonClick.bind(this))};
   }
  
   setOptions() {
     const options = this.dropdown.querySelectorAll('.dropdown__option');
-    options.forEach((currentOption) => {
+    options.forEach( (currentOption) => {
       const newOption    = new Option(currentOption);
       const targetOption = this.options.find( (optionItem) => {
         if (optionItem.group === newOption.group) {return true;}
-        else {return false;}
+        return false;
       });
       if (targetOption) {
         targetOption.options.push(newOption);
       } else {
         this.options.push({group: newOption.group, options: [newOption]});
       }
-    });
+    } );
   }
   
   DocumentChangeOption() {
     this.setClear();
     this.calcText();
   }
-
+//start from here 03/06/2020
   calcText() {
     let summaryText = [];
     summaryText = this.options.map( (option, item) => {
