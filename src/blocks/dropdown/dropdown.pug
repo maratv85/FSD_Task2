@@ -1,36 +1,28 @@
 include ../material-icons/material-icons.pug
-include ../heading/heading.pug
 include ../dropdown-button/dropdown-button.pug
+include ../dropdown-option-row.pug
 
 mixin dropdown(props = {})
-  - const {desc = '', width = '', options = [], hasButtons = false} = props;
+  - const {desc = '', width = '', options = [], hasButtons = false, isExpanded = false} = props;
 
   - let widthModifier = ''
 
   case width
     when 'decreased'
-      - widthModifier = 'dropdown_width_decreased'
+      - widthModifier = 'dropdown_width-decreased'
   
-  .dropdown(class=widthModifier) 
-    .dropdown__name
-      span.dropdown__name-text=desc
-      .dropdown__expander
-        +material-icons({
-          type: 'expand_more',
-          color: 'dark-shade-75'}) 
-    .dropdown__options
+  .dropdown.js-dropdown(class=widthModifier) 
+    .dropdown__selected-options.js-dropdown__selected-options
+      span.dropdown__selected-options-text=desc
+    .dropdown__expander
+      +material-icons({
+        type: 'expand_more',
+        color: 'dark-shade-75'}) 
+    .dropdown__options.js-dropdown__options
       each option in options
-        .dropdown__option
-          .dropdown__container-for-options(data-group=group)
-            if option.number < 0
-              - option.number = 0
-            if option.group === undefined
-              - option.group = option.name
-            +heading({type: 'h3', text: option.name})  
-            .dropdown__option-container  
-              .dropdown__option-round.dropdown__option-round_zero-counted -
-              .dropdown__option-number=option.number
-              .dropdown__option-round +
+        - const {text, group, number} = option
+        .dropdown__option.js-dropdown__option
+          +dropdown-option-row({text, group, number})
 
       if hasButtons
         .dropdown__option-button

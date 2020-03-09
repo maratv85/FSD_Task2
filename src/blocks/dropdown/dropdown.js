@@ -2,84 +2,7 @@ import DropdownButton from '../dropdown-button/dropdown-button.js';
 
 
 //dropdown options class
-class Option {
-  constructor(container) {
-    this.container = container;
-    this.getHTMLElementsOpt();
-    this.getValues();
-    this.eventListeners();
-  }
 
-  getHTMLElementsOpt() {
-    const plusMinuSigns = {
-      Increase: '+',
-      Decrease: '-'
-    };
-    this.option = this.container.querySelector('.dropdown__container-for-options');
-    this.option.querySelectorAll('.dropdown__option-round').forEach( (val) => {
-      if (val.textContent === plusMinuSigns.Decrease) {this.minusButton = val;}
-      if (val.textContent === plusMinuSigns.Increase) {this.plusButton = val;}
-    } );
-    this.number = this.option.querySelector('.dropdown-option-number');
-  }
-
-  getValues() {
-    this.value = parseInt(this.number.textContent, 10);
-    if (this.value === '') {this.value = 0;}
-    if (this.value > 0)    {this.activateMinus();}
-    if (this.option.hasAttribute('data-group') ) {
-      const { group } = this.option.dataset;
-      if (group) {
-        this.group = group;
-      }
-    }
-  }
-
-  eventListeners() {
-    this.minusButton.addEventListener('click', this.MinusButtonClick.bind(this));
-    this.plusButton.addEventListener('click', this.PlusButtonClick.bind(this));
-  }
-
-  MinusButtonClick() {
-    if (this.value > 0) {this.value -= 1;}
-    if (this.value === 0) {this.deactivateMinus();}
-    this.number.textContent = this.value;
-    this.container.dispatchEvent(
-      new CustomEvent('changeOption', {
-        bubbles: true,
-        detail: this,
-      }),
-    );
-  }
-
-  PlusButtonClick() {
-    if (this.value === 0) {
-      this.activateMinus(this.minusButton);
-    }
-    this.value += 1;
-    this.number.textContent = this.value;
-    this.container.dispatchEvent(
-      new CustomEvent('changeOption', {
-        bubbles: true,
-        detail: this,
-      }),
-    );
-  }
-
-  activateMinus() {
-    this.minusButton.classList.remove('.dropdown__option-round_zero-counted');
-  }
-
-  deactivateMinus() {
-    this.minusButton.classList.add('.dropdown__option-round_zero-counted');
-  }
-
-  clear() {
-    this.deactivateMinus();
-    this.value = 0;
-    this.number.textContent = this.value;
-  }
-}
 //=====================================
 //--- End class Option description ---
 //=====================================
@@ -117,7 +40,7 @@ class Dropdown {
   setOptions() {
     const options = this.dropdown.querySelectorAll('.dropdown__option');
     options.forEach( (currentOption) => {
-      const newOption    = new Option(currentOption);
+      const newOption    = new DropdownOptionRow(currentOption);
       const targetOption = this.options.find( (optionItem) => {
         if (optionItem.group === newOption.group) {return true;}
         return false;
@@ -134,12 +57,12 @@ class Dropdown {
     this.setClear();
     this.calcText();
   }
-//start from here 03/06/2020
+
   calcText() {
-    let summaryText = [];
+    let summaryText = '';
     summaryText = this.options.map( (option, item) => {
-      let groupValue = 0;
       const groupName = option.group.toLowerCase();
+      let groupValue = 0;
 
       option.options.forEach( (val) => {
         groupValue += parseInt(val.value, 10);
@@ -168,26 +91,26 @@ class Dropdown {
   }
 
   setSelectClick() {
-    if (this.select.classList.contains('.dropdown__name_active')) 
+    if (this.select.classList.contains('dropdown__name_active')) 
       {this.hideDropdown();} 
     else {this.showDropdown();}
   }
 
   showDropdown() {
-    this.select.classList.add('.dropdown__name_active');
+    this.select.classList.add('dropdown__name_active');
     const dropdown = this.select.parentNode;
     const selectOptions = dropdown.querySelector('.dropdown__options');
-    selectOptions.classList.add('.dropdown__options_active');
+    selectOptions.classList.add('dropdown__options_active');
 
     this.handleDocumentClick = this.handleDocumentClick.bind(this);
     document.addEventListener('click', this.handleDocumentClick);
   }
 
   hideDropdown() {
-    this.select.classList.remove('.dropdown__name_active');
+    this.select.classList.remove('dropdown__name_active');
     const dropdown = this.select.parentNode;
     const selectOptions = dropdown.querySelector('.dropdown__options');
-    selectOptions.classList.remove('.dropdown__options_active');
+    selectOptions.classList.remove('dropdown__options_active');
     document.removeEventListener('click', this.handleDocumentClick);
   }
 
@@ -252,4 +175,4 @@ class Dropdown {
   }
 }  
 
-export {Option, Dropdown}
+export default Dropdown

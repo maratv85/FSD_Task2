@@ -2,11 +2,11 @@ class DropdownButton {
   constructor(type, container) {
     this.type = type;
     this.container = container;
-    this.opening(); 
+    this.start(); 
   }
  
-  opening() {
-    this.button = this.container.querySelector(`.dropdown-button__${this.type}`);
+  start() {
+    this.button = this.container.querySelector(`.js-dropdown-button__${this.type}`);
   };
 
   setEventListenerButton(type, func) {
@@ -18,11 +18,11 @@ class DropdownButton {
   }
   
   hideButton() {
-    if(this.button) {this.button.classList.add('.dropdown-button_hidden')};
+    if(this.button) {this.button.classList.add('dropdown-button_invisible')};
   }
   
   showButton() {
-    if(this.button) {this.button.classList.remove('.dropdown-button_hidden')};
+    if(this.button) {this.button.classList.remove('dropdown-button_invisible')};
   }
 }
 

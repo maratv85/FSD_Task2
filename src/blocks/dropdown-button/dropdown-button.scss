@@ -6,15 +6,16 @@
   cursor: pointer;
   text-transform: uppercase;
 
-  // &_hidden {
-  //     display: none;    
-  // } 
+  &_invisible {
+      opacity: 0; 
+      pointer-events: none;   
+   } 
   
   &__apply {
       color: $purple;
   }
 
   &__clear {
-     color: $dark-shade-50;
+      color: $dark-shade-50;
   }
 }

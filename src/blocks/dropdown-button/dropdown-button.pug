@@ -1,7 +1,8 @@
 mixin dropdown-button(props ={})
   - const {type = 'apply', text = 'Применить', isVisible = true} = props
    
-  .dropdown-button(class=`dropdown-button__${type}`)=text
+  .dropdown-button.js-dropdown-button
+    div(class=`dropdown-button__${type} js-dropdown-button__${type}` class= isVisible ? 'dropdown-button_visible' : null)=text
 
 
 //-

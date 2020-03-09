@@ -1,4 +1,4 @@
-import {Dropdown, DropdownButton} from './dropdown.js';
+import Dropdown from './dropdown.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const OPTIONS = {
