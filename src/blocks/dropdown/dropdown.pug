@@ -1,23 +1,28 @@
 include ../material-icons/material-icons.pug
 include ../dropdown-button/dropdown-button.pug
-include ../dropdown-option-row.pug
+include ../dropdown-option-row/dropdown-option-row.pug
 
 mixin dropdown(props = {})
-  - const {desc = '', width = '', options = [], hasButtons = false, isExpanded = false} = props;
+  - const {desc = '', width = '', options = [], hasButtons = false, isExpanded = true} = props;
 
   - let widthModifier = ''
-
+  
   case width
     when 'decreased'
       - widthModifier = 'dropdown_width-decreased'
+
+  - let expandModifier = ''
+  case isExpanded
+    when false   
+      - expandModifier = 'dropdown__options_active'
   
-  .dropdown.js-dropdown(class=widthModifier) 
-    .dropdown__selected-options.js-dropdown__selected-options
-      span.dropdown__selected-options-text=desc
+  section.dropdown.js-dropdown(class=widthModifier class=expandModifier) 
     .dropdown__expander
       +material-icons({
         type: 'expand_more',
         color: 'dark-shade-75'}) 
+    .dropdown__selected-options.js-dropdown__selected-options
+      span.dropdown__selected-options-text=desc
     .dropdown__options.js-dropdown__options
       each option in options
         - const {text, group, number} = option

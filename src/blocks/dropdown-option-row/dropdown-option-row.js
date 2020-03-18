@@ -5,38 +5,6 @@ class DropdownOptionRow {
       this.getValues();
       this.setEventListeners();
     }
-  
-    activateMinus() {
-        this.minusButton.classList.remove('dropdown-option-row__round_set-zero');
-      }
-    
-    deactivateMinus() {
-        this.minusButton.classList.add('dropdown-option-row__round_set-zero');
-      }
-
-    PlusButtonClick() {
-        if (this.value === 0) {this.activateMinus();}
-        this.value += 1;
-        this.number.textContent = this.value;
-        this.container.dispatchEvent(
-          new CustomEvent('changeOption', {
-            bubbles: true,
-            detail: this,
-          }),
-        );
-      }
-
-    MinusButtonClick() {
-        if (this.value > 0) {this.value -= 1;}
-        if (this.value === 0) {this.activateMinus();}
-        this.number.textContent = this.value;
-        this.container.dispatchEvent(
-          new CustomEvent('changeOption', {
-            bubbles: true,
-            detail: this,
-          }),
-        );
-      }
 
     getElements() {
       const plusMinuSigns = {
@@ -65,15 +33,48 @@ class DropdownOptionRow {
     }
   
     setEventListeners() {
-      this.minusButton.addEventListener('click', this.MinusButtonClick.bind(this));
-      this.plusButton.addEventListener('click', this.PlusButtonClick.bind(this));
+      this.minusButton.addEventListener('click', this.minusButtonClick.bind(this));
+      this.plusButton.addEventListener('click', this.plusButtonClick.bind(this));
     }
   
+    plusButtonClick() {
+      if (this.value === 0) {this.activateMinus();}
+      this.value += 1;
+      this.number.textContent = this.value;
+      this.container.dispatchEvent(
+        new CustomEvent('changeOption', {
+          bubbles: true,
+          detail: this,
+        }),
+      );
+    }
+
+    minusButtonClick() {
+      if (this.value > 0) {this.value -= 1;}
+      if (this.value === 0) {this.activateMinus();}
+      this.number.textContent = this.value;
+      this.container.dispatchEvent(
+        new CustomEvent('changeOption', {
+          bubbles: true,
+          detail: this,
+        }),
+      );
+    }
+
     clear() {
       this.deactivateMinus();
       this.value = 0;
       this.number.textContent = this.value;
     }
+
+    activateMinus() {
+      this.minusButton.classList.remove('dropdown-option-row__round_set-zero');
+    }
+  
+    deactivateMinus() {
+      this.minusButton.classList.add('dropdown-option-row__round_set-zero');
+    }
+
   }
 
   export default DropdownOptionRow;

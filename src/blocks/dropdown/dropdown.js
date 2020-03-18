@@ -1,11 +1,6 @@
-import DropdownButton from '../dropdown-button/dropdown-button.js';
+import DropdownOptionRow from '../dropdown-option-row/dropdown-option-row';
+import DropdownButton from '../dropdown-button/dropdown-button';
 
-
-//dropdown options class
-
-//=====================================
-//--- End class Option description ---
-//=====================================
 class Dropdown {
   constructor(elem, title) {
     this.dropdown = elem;
@@ -23,7 +18,7 @@ class Dropdown {
   }
 
   getHTMLElements() {
-    this.select = this.dropdown.querySelector('.dropdown__name');
+    this.select = this.dropdown.querySelector('.js-dropdown__selected-options');
     this.clearButton = new DropdownButton('clear', this.dropdown);
     this.applyButton = new DropdownButton('apply', this.dropdown);
     if (!this.clearButton.getButton()) {this.clearButton = null};
@@ -32,13 +27,13 @@ class Dropdown {
 
   setEventListeners() {
     this.select.addEventListener('click', this.setSelectClick.bind(this));
-    this.dropdown.addEventListener('changeOption', this.DocumentChangeOption.bind(this));
+    this.dropdown.addEventListener('changeOption', this.documentChangeOption.bind(this));
     if (this.clearButton) {this.clearButton.setEventListenerButton('click', this.clearButtonClick.bind(this))};
     if (this.applyButton) {this.applyButton.setEventListenerButton('click', this.applyButtonClick.bind(this))};
   }
  
   setOptions() {
-    const options = this.dropdown.querySelectorAll('.dropdown__option');
+    const options = this.dropdown.querySelectorAll('.js-dropdown-option-row');
     options.forEach( (currentOption) => {
       const newOption    = new DropdownOptionRow(currentOption);
       const targetOption = this.options.find( (optionItem) => {
@@ -53,7 +48,7 @@ class Dropdown {
     } );
   }
   
-  DocumentChangeOption() {
+  documentChangeOption() {
     this.setClear();
     this.calcText();
   }
@@ -71,17 +66,17 @@ class Dropdown {
       if (groupValue === 0 && item !== 0) return '';
 
       const cases = this.checkOpt(groupValue);
-      const isTitleAvailable = this.titleCases
-        || this.titleCases[groupName]
-        || this.titleCases[groupName][cases];
+      const isTitleAvailable = this.title
+        || this.title[groupName]
+        || this.title[groupName][cases];
 
       if (!isTitleAvailable) {return ` ${groupValue} ${groupName}`;}
-      const groupText = this.titleCases[groupName][cases];
+      const groupText = this.title[groupName][cases];
       return ` ${groupValue} ${groupText}`;
     });
     summaryText = summaryText.filter( (entry) => entry.trim() !== '');
 
-    let finalText;
+    let finalText = '';
     summaryText.forEach( (item, i) => {
       if (i === summaryText.length - 1) 
         {finalText += item.replace(/,\s/g, '');}
@@ -91,15 +86,16 @@ class Dropdown {
   }
 
   setSelectClick() {
-    if (this.select.classList.contains('dropdown__name_active')) 
+    if (this.select.classList.contains('dropdown__selected-options_active')) 
       {this.hideDropdown();} 
-    else {this.showDropdown();}
+    else 
+      {this.showDropdown();}
   }
 
   showDropdown() {
-    this.select.classList.add('dropdown__name_active');
+    this.select.classList.add('dropdown__selected-options_active');
     const dropdown = this.select.parentNode;
-    const selectOptions = dropdown.querySelector('.dropdown__options');
+    const selectOptions = dropdown.querySelector('.js-dropdown__options');
     selectOptions.classList.add('dropdown__options_active');
 
     this.handleDocumentClick = this.handleDocumentClick.bind(this);
@@ -107,10 +103,10 @@ class Dropdown {
   }
 
   hideDropdown() {
-    this.select.classList.remove('dropdown__name_active');
+    this.select.classList.remove('dropdown__selected-options_active');
     const dropdown = this.select.parentNode;
-    const selectOptions = dropdown.querySelector('.dropdown__options');
-    selectOptions.classList.remove('dropdown__options_active');
+    const selectOptions = dropdown.querySelector('.js-dropdown__options');
+    selectOptions.classList.remove('dropdown__option_active');
     document.removeEventListener('click', this.handleDocumentClick);
   }
 
@@ -123,11 +119,11 @@ class Dropdown {
   }
 
   setClear() {
-    if (this.clearButton) this.clearButton.show();
+    if (this.clearButton) this.clearButton.showButton();
   }
 
   unsetClear() {
-    if (this.clearButton) this.clearButton.hide();
+    if (this.clearButton) this.clearButton.hideButton();
   }
 
   clearButtonClick() {
@@ -140,7 +136,7 @@ class Dropdown {
     if (this.selectText) {
       this.setText(this.selectText);
     } else {
-      this.calText();
+      this.calcText();
     }
   }
 
@@ -175,4 +171,4 @@ class Dropdown {
   }
 }  
 
-export default Dropdown
+export default Dropdown;

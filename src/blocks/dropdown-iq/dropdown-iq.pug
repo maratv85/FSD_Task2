@@ -1,0 +1,19 @@
+mixin dropdown-iq(props = {})
+  - const {item1 = '', item2 = '', item3 = ''} = props
+
+  .iqdropdown
+    p.iqdropdown-selection
+    .iqdropdown-menu
+      .iqdropdown-menu-option(data-id=item1 data-defaultcount="0" data-mincount="0" data-maxcount="10")
+        .wrap-class
+          p.iqdropdown-item Item 1
+          p.iqdropdown-description A short description
+      .iqdropdown-menu-option(data-id=item2 data-defaultcount="0" data-mincount="0" data-maxcount="10")
+        .wrap-class
+          p.iqdropdown-item Item 2
+          p.iqdropdown-description A short description    
+      .iqdropdown-menu-option(data-id=item3 data-defaultcount="0" data-mincount="0" data-maxcount="10")
+        .wrap-class
+          p.iqdropdown-item Item 3
+          p.iqdropdown-description A short description
+        

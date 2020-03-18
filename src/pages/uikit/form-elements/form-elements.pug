@@ -8,6 +8,7 @@ block content
   include ../../../blocks/heading/heading.pug
   include ../../../blocks/text-field/text-field.pug
   include ../../../blocks/dropdown/dropdown.pug
+  include ../../../blocks/dropdown-iq/dropdown-iq.pug
 
   main.form-elements
     .form-elements__container
@@ -53,10 +54,12 @@ block content
           +dropdown({
             desc: 'Сколько гостей',
             hasButtons: true,
-            options :[
-              { name: 'взрослые', group: 'гости', number: '0' },
-              { name: 'дети', group: 'гости', number: '0' },
-              { name: 'младенцы', number: '0' }]  })  
+            options:[
+              { name: 'взрослые', group: 'гости'},
+              { name: 'дети', group: 'гости'},
+              { name: 'младенцы'}, ],  })  
+        //- .form-elements__wrapper
+        //-   +dropdown-iq({item1: 'item 1', item2: 'item 2', item3: 'item 3'})      
         .form-elements__wrapper
           .form-elements__heading-text 
             +heading({
