@@ -8,7 +8,7 @@ block content
   include ../../../blocks/heading/heading.pug
   include ../../../blocks/text-field/text-field.pug
   include ../../../blocks/dropdown/dropdown.pug
-  include ../../../blocks/dropdown-iq/dropdown-iq.pug
+  //-include ../../../blocks/dropdown-iq/dropdown-iq.pug
 
   main.form-elements
     .form-elements__container
@@ -52,14 +52,13 @@ block content
               weight: 'normal',
               color: 'dark-shade-50' }) 
           +dropdown({
-            desc: 'Сколько гостей',
-            hasButtons: true,
+            text: 'Сколько гостей',
+            haveButtons: true,
+            isExpanded: true,
             options:[
-              { name: 'взрослые', group: 'гости'},
-              { name: 'дети', group: 'гости'},
-              { name: 'младенцы'}, ],  })  
-        //- .form-elements__wrapper
-        //-   +dropdown-iq({item1: 'item 1', item2: 'item 2', item3: 'item 3'})      
+              {text: 'взрослые', group: 'гости'},
+              {text: 'дети', group: 'гости'},
+              {text: 'младенцы'}, ],  })       
         .form-elements__wrapper
           .form-elements__heading-text 
             +heading({

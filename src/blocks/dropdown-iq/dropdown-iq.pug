@@ -1,19 +1,63 @@
-mixin dropdown-iq(props = {})
-  - const {item1 = '', item2 = '', item3 = ''} = props
+include ../material-icons/material-icons.pug
+include ../dropdown-button/dropdown-button.pug
 
-  .iqdropdown
-    p.iqdropdown-selection
-    .iqdropdown-menu
-      .iqdropdown-menu-option(data-id=item1 data-defaultcount="0" data-mincount="0" data-maxcount="10")
-        .wrap-class
+mixin dropdown-iq(props = {})
+  - const {desc = '', width = '', options = [], hasButtons = false, isExpanded = true} = props;
+
+  - let widthModifier = '' 
+  case width
+    when 'short'
+      - widthModifier = 'dropdown_width-short'
+
+  - let expandModifier = ''
+  case isExpanded
+    when fal   
+      - expandModifier = 'dropdown__options_active'      
+
+  section.dropdown.js-dropdown(class=widthModifier class=expandModifier) 
+    .dropdown__expander
+      +material-icons({
+        type: 'expand_more',
+        color: 'dark-shade-75'}) 
+    .dropdown__selected-options.js-dropdown__selected-options
+      span.dropdown__selected-options-text=desc
+    .dropdown__options.js-dropdown__options
+      each option in options
+        - const {text, group, number} = option
+        .dropdown__option.js-dropdown__option
+            .dropdown__option-row.js-dropdown-option-row(data-group=group)
+              .dropdown__option-row__header
+                +heading({type: 'h3', text: optionName})
+              .dropdown__option-row__container
+                .dropdown__option-row___round.dropdown-option-row__round_set-zero.js-dropdown-option-row__round -
+                .dropdown__option-row___number.js-dropdown-option-row__number=number
+                .dropdown__option-row___round.js-dropdown-option-row__round +
+
+      
+
+  section.dropdown.iqdropdown
+    .dropdown__expander
+      +material-icons({
+        type: 'expand_more',
+        color: 'dark-shade-75'}) 
+    .dropdown__selected-options.js-dropdown__selected-options
+      p.iqdropdown-selection
+    .dropdown__options.iqdropdown-menu
+      .dropdown__option.iqdropdown-menu-option(data-id=item1 data-defaultcount="0" data-mincount="0" data-maxcount="10")
+        .dropdown__option-row.wrap-class
           p.iqdropdown-item Item 1
-          p.iqdropdown-description A short description
+          //- p.iqdropdown-description 
       .iqdropdown-menu-option(data-id=item2 data-defaultcount="0" data-mincount="0" data-maxcount="10")
-        .wrap-class
+        .dropdown__option-row.wrap-class
           p.iqdropdown-item Item 2
-          p.iqdropdown-description A short description    
+          //- p.iqdropdown-description    
       .iqdropdown-menu-option(data-id=item3 data-defaultcount="0" data-mincount="0" data-maxcount="10")
-        .wrap-class
+        .dropdown__option-row.wrap-class
           p.iqdropdown-item Item 3
-          p.iqdropdown-description A short description
+          //- p.iqdropdown-description 
+
+      if hasButtons
+        .dropdown__option-button
+          +dropdown-button({type: 'clear', text: 'очистить', isVisible: false})      
+          +dropdown-button({type: 'apply', text: 'применить'})     
         

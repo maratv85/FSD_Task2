@@ -1,99 +1,101 @@
-import DropdownOptionRow from '../dropdown-option-row/dropdown-option-row';
+import DropdownOption from '../dropdown-option/dropdown-option';
 import DropdownButton from '../dropdown-button/dropdown-button';
 
 class Dropdown {
-  constructor(elem, title) {
+  constructor(elem, titleCases) {
     this.dropdown = elem;
     this.options = [];
-    this.title = title;
-    this.opening();
+    this.titleCases = titleCases;
+    this.start();
   }
 
-  opening() {
+  start() {
     this.getHTMLElements();
-    this.setEventListeners();
+    this.bindEventListeners();
     this.setOptions();
     this.selectText = this.select.textContent;
     this.setSelectText(this.selectText);
   }
 
   getHTMLElements() {
-    this.select = this.dropdown.querySelector('.js-dropdown__selected-options');
+    this.select = this.dropdown.querySelector('.js-dropdown__select');
     this.clearButton = new DropdownButton('clear', this.dropdown);
     this.applyButton = new DropdownButton('apply', this.dropdown);
-    if (!this.clearButton.getButton()) {this.clearButton = null};
-    if (!this.applyButton.getButton()) {this.applyButton = null};
   }
 
-  setEventListeners() {
-    this.select.addEventListener('click', this.setSelectClick.bind(this));
-    this.dropdown.addEventListener('changeOption', this.documentChangeOption.bind(this));
-    if (this.clearButton) {this.clearButton.setEventListenerButton('click', this.clearButtonClick.bind(this))};
-    if (this.applyButton) {this.applyButton.setEventListenerButton('click', this.applyButtonClick.bind(this))};
+  bindEventListeners() {
+    this.select.addEventListener('click', this.handleSelectClick.bind(this));
+    this.dropdown.addEventListener('changeOption', this.handleDocumentChangeOption.bind(this));
+    if (this.clearButton) this.clearButton.eventListenerBind('click', this.handleClearButtonClick.bind(this));
+    if (this.applyButton) this.applyButton.eventListenerBind('click', this.handleApplyButtonClick.bind(this));
   }
- 
+
   setOptions() {
-    const options = this.dropdown.querySelectorAll('.js-dropdown-option-row');
-    options.forEach( (currentOption) => {
-      const newOption    = new DropdownOptionRow(currentOption);
-      const targetOption = this.options.find( (optionItem) => {
-        if (optionItem.group === newOption.group) {return true;}
+    const optionsList = this.dropdown.querySelectorAll('.js-dropdown__option');
+    optionsList.forEach((currentOption) => {
+      const newOption = new DropdownOption(currentOption);
+      const desiredOption = this.options.find((optionIterationItem) => {
+        if (optionIterationItem.group === newOption.group) return true;
         return false;
       });
-      if (targetOption) {
-        targetOption.options.push(newOption);
+      if (desiredOption) {
+        desiredOption.options.push(newOption);
       } else {
-        this.options.push({group: newOption.group, options: [newOption]});
+        this.options.push({ group: newOption.group, options: [newOption] });
       }
-    } );
-  }
-  
-  documentChangeOption() {
-    this.setClear();
-    this.calcText();
+    });
   }
 
-  calcText() {
+  handleDocumentChangeOption() {
+    this.activateClear();
+    this.calculateSelectText();
+  }
+
+  calculateSelectText() {
     let summaryText = '';
-    summaryText = this.options.map( (option, item) => {
+    summaryText = this.options.map((option, item) => {
       const groupName = option.group.toLowerCase();
       let groupValue = 0;
 
-      option.options.forEach( (val) => {
+      option.options.forEach((val) => {
         groupValue += parseInt(val.value, 10);
       });
 
       if (groupValue === 0 && item !== 0) return '';
 
-      const cases = this.checkOpt(groupValue);
-      const isTitleAvailable = this.title
-        || this.title[groupName]
-        || this.title[groupName][cases];
+      const cases = this.checkPad(groupValue);
+      const isTitlesAvailable = this.titleCases
+        || this.titleCases[groupName]
+        || this.titleCases[groupName][cases];
 
-      if (!isTitleAvailable) {return ` ${groupValue} ${groupName}`;}
-      const groupText = this.title[groupName][cases];
+      if (!isTitlesAvailable) {
+        return ` ${groupValue} ${groupName}`;
+      }
+      const groupText = this.titleCases[groupName][cases];
+
       return ` ${groupValue} ${groupText}`;
     });
-    summaryText = summaryText.filter( (entry) => entry.trim() !== '');
+    summaryText = summaryText.filter((entry) => entry.trim() !== '');
 
     let finalText = '';
-    summaryText.forEach( (item, i) => {
-      if (i === summaryText.length - 1) 
-        {finalText += item.replace(/,\s/g, '');}
-      else {finalText += `${item.replace(/,\s/g, '')}, `;}
+    summaryText.forEach((item, i) => {
+      if (i === summaryText.length - 1) finalText += item.replace(/,\s/g, '');
+      else finalText += `${item.replace(/,\s/g, '')}, `;
     });
-    return this.setText(finalText);
+      
+    return this.setSelectText(finalText);
   }
 
-  setSelectClick() {
-    if (this.select.classList.contains('dropdown__selected-options_active')) 
-      {this.hideDropdown();} 
-    else 
-      {this.showDropdown();}
+  handleSelectClick() {
+    if (this.select.classList.contains('dropdown__select_active')) {
+      this.hideDropdown();
+    } else {
+      this.showDropdown();
+    }
   }
 
   showDropdown() {
-    this.select.classList.add('dropdown__selected-options_active');
+    this.select.classList.add('dropdown__select_active');
     const dropdown = this.select.parentNode;
     const selectOptions = dropdown.querySelector('.js-dropdown__options');
     selectOptions.classList.add('dropdown__options_active');
@@ -103,10 +105,10 @@ class Dropdown {
   }
 
   hideDropdown() {
-    this.select.classList.remove('dropdown__selected-options_active');
+    this.select.classList.remove('dropdown__select_active');
     const dropdown = this.select.parentNode;
     const selectOptions = dropdown.querySelector('.js-dropdown__options');
-    selectOptions.classList.remove('dropdown__option_active');
+    selectOptions.classList.remove('dropdown__options_active');
     document.removeEventListener('click', this.handleDocumentClick);
   }
 
@@ -115,49 +117,58 @@ class Dropdown {
     const itsMenu = target === this.dropdown || this.dropdown.contains(target);
     if (!itsMenu) {
       this.hideDropdown(event);
-    }
+      
+      if(this.dropdown.querySelector('.js-dropdown__select')
+          .textContent.match(/\d{1}/).shift() === "0") 
+        {this.setSelectText(this.selectText);
+         this.deactivateClear();
+        this.clearOptions();
+        }
+      }
+
   }
 
-  setClear() {
-    if (this.clearButton) this.clearButton.showButton();
+  activateClear() {
+    if (this.clearButton) this.clearButton.show();
   }
 
-  unsetClear() {
-    if (this.clearButton) this.clearButton.hideButton();
+  deactivateClear() {
+    if (this.clearButton) this.clearButton.hide();
   }
 
-  clearButtonClick() {
-    this.options.forEach( (val) => {
-      val.options.forEach( (option) => {
+  clearOptions() {
+    this.options.forEach((val) => {
+      val.options.forEach((option) => {
         option.clear();
       });
     });
-    this.setClear();
+  }
+
+  handleClearButtonClick() {
+    this.clearOptions();
+    this.deactivateClear();
     if (this.selectText) {
-      this.setText(this.selectText);
+      this.setSelectText(this.selectText);
     } else {
-      this.calcText();
+      this.calculateSelectText();
     }
   }
 
-  applyButtonClick() {
+  handleApplyButtonClick() {
     this.hideDropdown();
   }
 
-  setText(text) {
+  setSelectText(text) {
     if (text || text !== '') {
       this.select.textContent = text;
       return text;
     }
     this.select.textContent = this.selectText;
-    return this.calcText();
+    return this.calculateSelectText();
   }
 
-  checkOpt(num) {
-    const lastOne = num
-      .toString()
-      .split('')
-      .pop();
+  checkPad(num) {
+    const lastOne = num.toString().split('').pop();
     const isNumBetweenOneAndFive = Number(lastOne) > 1 && Number(lastOne) < 5;
     const isNumBetweenNineAndTwentyOne = Number(num) > 9 && Number(num) < 21;
     let tmp;
@@ -169,6 +180,6 @@ class Dropdown {
     }
     return tmp;
   }
-}  
+}
 
 export default Dropdown;

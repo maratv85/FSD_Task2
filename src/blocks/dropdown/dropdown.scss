@@ -3,63 +3,6 @@
   display: inline-block;
   width: 100%;
   max-width: 320px;
-  
-  &__selected-options {
-    position: relative;
-    height: max-content;
-    padding-left: 15px;
-    border: 1px solid $dark-shade-50;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 42px;
-    color: $dark-shade-50;
-    user-select: none;
-
-    &_active {
-      border: 1px solid $dark-shade-50;
-      border-radius: 4px 4px 0 0;
-      outline: none;
-    }
-  }
-
-  &__option {
-    margin-top: 7px;
-  }
-
-  &__options {
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    box-shadow: 0px 10px 20px $dark-shade-5;
-    border: 1px solid $dark-shade-50;
-    box-sizing: border-box;  
-    border-radius: 0 0 2px 2px;
-    border-top: none;
-    padding-right: 7px;
-    padding-left: 15px;
-    padding-bottom: 7px;
-    height: auto;
-    width: 100%;
-    max-width: 320px;
-    z-index: 3;
-    background: #FFFFFF;
-
-    &_active {
-      display: flex;
-      height: auto;
-    }
-  }
-
-  &__option-button {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 19px;
-    padding-bottom: 13px;
-  }
 
   &__expander {
     display: flex;
@@ -70,14 +13,71 @@
     justify-content: center;
     align-items: center;
     pointer-events: none;
-    z-index: 2;
+    z-index: 1;
   }
 
-  &_width-decreased {
+  &__option {
+    margin-top: 7px;
+  }
+
+  &__option-button {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 19px;
+    padding-bottom: 13px;
+  }
+
+  &__options {
+    display: none;
+    flex-direction: column;
+    height: 0;
+    width: 100%;
+    max-width: 320px;
+    position: absolute;
+    padding-right: 7px;
+    padding-left: 15px;
+    background: #FFFFFF;
+    border: 1px solid $dark-shade-50;
+    border-top: none;
+    box-sizing: border-box;
+    box-shadow: 0px 10px 20px $dark-shade-5;
+    border-radius: 0 0 4px 4px;
+    z-index: 2;
+
+    &_active {
+      display: flex;
+      height: auto;
+    }
+  }
+
+  &__select {
+    position: relative;
+    height: max-content;
+    padding-left: 15px;
+    border: 1px solid $dark-shade-25;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 42px;
+    color: $dark-shade-75;
+    cursor: pointer;
+    user-select: none;   
+
+   &_active {
+      border: 1px solid $dark-shade-50;
+      border-radius: 4px 4px 0 0;
+      outline: none;
+    }
+  }
+
+  &_width-short {
     max-width: 266px;
   }
 
-  &_width-decreased & { 
+  &_width-short & { 
     
     &__options {
       min-width: 266px;
@@ -85,7 +85,7 @@
       padding-bottom: 8px;
     }
 
-    &__selected_options {
+    &__select {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;

@@ -1,47 +1,33 @@
-include ../material-icons/material-icons.pug
+include ../dropdown-option/dropdown-option.pug
 include ../dropdown-button/dropdown-button.pug
-include ../dropdown-option-row/dropdown-option-row.pug
+include ../material-icons/material-icons.pug
 
-mixin dropdown(props = {})
-  - const {desc = '', width = '', options = [], hasButtons = false, isExpanded = true} = props;
-
-  - let widthModifier = ''
-  
+mixin dropdown({text, options = [], haveButtons = false, width, isExpanded = false, isClearButtonHidden = true} = {})
+  - let widthModifier
   case width
-    when 'decreased'
-      - widthModifier = 'dropdown_width-decreased'
+    when 'short'
+      - widthModifier = 'dropdown_width-short'
 
-  - let expandModifier = ''
+  - let ExpandedMod
   case isExpanded
-    when false   
-      - expandModifier = 'dropdown__options_active'
-  
-  section.dropdown.js-dropdown(class=widthModifier class=expandModifier) 
+    when true
+      - ExpandedMod = 'dropdown__options_active'
+
+  section.dropdown.js-dropdown(class=widthModifier)
     .dropdown__expander
       +material-icons({
-        type: 'expand_more',
-        color: 'dark-shade-75'}) 
-    .dropdown__selected-options.js-dropdown__selected-options
-      span.dropdown__selected-options-text=desc
-    .dropdown__options.js-dropdown__options
+        type: 'expand_more', 
+        color: 'dark-shade-50',
+      })
+    .dropdown__select.js-dropdown__select
+      span.dropdown__select-text=text
+    .dropdown__options.js-dropdown__options(class=ExpandedMod)
       each option in options
-        - const {text, group, number} = option
+        - const { text, group, number } = option
         .dropdown__option.js-dropdown__option
-          +dropdown-option-row({text, group, number})
+          +dropdown-option({ text, group, number }) 
 
-      if hasButtons
+      if haveButtons
         .dropdown__option-button
-          +dropdown-button({type: 'clear', text: 'очистить', isVisible: false})      
-          +dropdown-button({type: 'apply', text: 'применить'})      
-//-
-  +dropdown({
-    desc:'Сколько гостей', 
-    width: 'decreased',
-    options: [{ name: 'взрослые', group: 'гости', number: '0' },
-              { name: 'дети', group: 'гости', number: '0' },
-              { name: 'младенцы', number: '0' }], 
-    hasApply: false, 
-    hasClear: true
-    })
-  
-        
+          +dropdown-button({ type: 'clear', text: 'Очистить', isHidden: isClearButtonHidden })
+          +dropdown-button({ text: 'apply', text: 'Применить', })

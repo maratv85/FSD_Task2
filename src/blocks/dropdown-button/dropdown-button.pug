@@ -1,11 +1,4 @@
-mixin dropdown-button(props ={})
-  - const {type = 'apply', text = 'Применить', isVisible = true} = props
-   
+mixin dropdown-button({ type = 'apply', text = '', isHidden = false} = {})
+  
   .dropdown-button.js-dropdown-button
-    div(class=`dropdown-button__${type} js-dropdown-button__${type}` class= isVisible ? 'dropdown-button_visible' : null)=text
-
-
-//-
-  +dropdown-button({
-      type: 'clear',
-      text: 'Очистить'})  
+    div(class=`dropdown-button__${type} js-dropdown-button__${type}` class= isHidden ? 'dropdown-button_hidden' : null)=text
