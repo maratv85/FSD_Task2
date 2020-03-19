@@ -110,6 +110,13 @@ class Dropdown {
     const selectOptions = dropdown.querySelector('.js-dropdown__options');
     selectOptions.classList.remove('dropdown__options_active');
     document.removeEventListener('click', this.handleDocumentClick);
+
+    if(this.dropdown.querySelector('.js-dropdown__select')
+          .textContent.match(/\d{1}/).shift() === "0") 
+        {this.setSelectText(this.selectText);
+         this.deactivateClear();
+        this.clearOptions();
+        }
   }
 
   handleDocumentClick(event) {
