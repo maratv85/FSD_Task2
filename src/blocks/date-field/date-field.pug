@@ -1,5 +1,6 @@
 include ../heading/heading.pug
 include ../text-field/text-field.pug
+include ../material-icons/material-icons.pug
 
 mixin date-text-field({title = 'date dropdown', type = 'start', placeholder, width = '' } = {})
   - let widthModifier
@@ -8,12 +9,12 @@ mixin date-text-field({title = 'date dropdown', type = 'start', placeholder, wid
     when 'wide'
       - widthModifier = 'date-field__input_wide'
 
-  .date-text-field
+  .date-field
     +heading({type: 'h3', text: title})
     .date-field__input(class = widthModifier)
-      .date-field__keyboard-arrow
+      .date-field__arrow
         +material-icons({type: 'expand_more'})
-      div(class=`date-text-field__input-${type}-date js-date-text-field__input-${type}-date`)
+      div(class=`date-field__input-${type}-date`)
         +text-field({
           type: 'text',
           readonly: 'readonly',

@@ -1,4 +1,4 @@
-mixin text-field({view='text', placeholder='', type, isClickable = false, readonly = false, placeholder = ''})
+mixin text-field({view='text', placeholder='', type = 'text', isClickable = false, readonly = false})
   
   - let ViewModifier = ''  
 
@@ -11,7 +11,7 @@ mixin text-field({view='text', placeholder='', type, isClickable = false, readon
       - ViewModifier = 'text-field_date-state' 
       - placeholder  = 'ДД.ММ.ГГГГ' 
 
-  - let clickableModifier
+  - let clickableModifier = ''
   case isClickable
     when true
       - clickableModifier = 'text-field_clickable'
@@ -20,8 +20,7 @@ mixin text-field({view='text', placeholder='', type, isClickable = false, readon
     class=`text-field ${ViewModifier} ${clickableModifier}`, 
     type=type,
     placeholder=placeholder,
-    readonly=readonly,
-    placeholder=placeholder
+    readonly=readonly
   )
 
 //- +text-field({

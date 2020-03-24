@@ -1,0 +1,27 @@
+.date-field {
+
+    &__input {
+      max-width: 150px;
+      width: 100%;
+      position: relative;
+      margin-top: 5.44px;
+  
+      &_wide {
+          max-width: 266px;
+      }
+    }
+  
+    &__arrow {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      color: $dark-shade-50;
+      pointer-events: none;
+    }
+  }
