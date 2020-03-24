@@ -1,0 +1,22 @@
+include ../heading/heading.pug
+include ../text-field/text-field.pug
+
+mixin date-text-field({title = 'date dropdown', type = 'start', placeholder, width = '' } = {})
+  - let widthModifier
+
+  case width
+    when 'wide'
+      - widthModifier = 'date-field__input_wide'
+
+  .date-text-field
+    +heading({type: 'h3', text: title})
+    .date-field__input(class = widthModifier)
+      .date-field__keyboard-arrow
+        +material-icons({type: 'expand_more'})
+      div(class=`date-text-field__input-${type}-date js-date-text-field__input-${type}-date`)
+        +text-field({
+          type: 'text',
+          readonly: 'readonly',
+          isClickable: true,
+          placeholder
+        })

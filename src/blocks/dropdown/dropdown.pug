@@ -2,7 +2,7 @@ include ../dropdown-option/dropdown-option.pug
 include ../dropdown-button/dropdown-button.pug
 include ../material-icons/material-icons.pug
 
-mixin dropdown({text, options = [], haveButtons = false, width, isExpanded = false, isClearButtonHidden = true} = {})
+mixin dropdown({text, options = [], hasButtons = false, width, isExpanded = false, isClearButtonHidden = true} = {})
   - let widthModifier
   case width
     when 'short'
@@ -27,7 +27,7 @@ mixin dropdown({text, options = [], haveButtons = false, width, isExpanded = fal
         .dropdown__option.js-dropdown__option
           +dropdown-option({ text, group, number }) 
 
-      if haveButtons
+      if hasButtons
         .dropdown__option-button
           +dropdown-button({ type: 'clear', text: 'Очистить', isHidden: isClearButtonHidden })
           +dropdown-button({ text: 'apply', text: 'Применить', })

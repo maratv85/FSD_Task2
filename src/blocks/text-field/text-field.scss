@@ -12,6 +12,7 @@
   border: 1px solid $dark-shade-25;
   box-sizing: border-box;
   padding-left: 15px;
+  text-overflow: ellipsis;
 
   &:hover {
     @extend %hover-focus;
@@ -42,6 +43,10 @@
     &::placeholder {
       color: $dark-shade-50;
     }
+  }
+
+  &_clickable {
+    cursor: pointer;
   }
 }
 

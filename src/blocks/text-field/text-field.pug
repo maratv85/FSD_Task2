@@ -1,4 +1,4 @@
-mixin text-field({view='text', placeholder=''})
+mixin text-field({view='text', placeholder='', type, isClickable = false, readonly = false, placeholder = ''})
   
   - let ViewModifier = ''  
 
@@ -9,10 +9,18 @@ mixin text-field({view='text', placeholder=''})
       - ViewModifier = 'text-field_hover-state'
     when 'date'
       - ViewModifier = 'text-field_date-state' 
-      - placeholder  = 'ДД.ММ.ГГГГ'   
+      - placeholder  = 'ДД.ММ.ГГГГ' 
+
+  - let clickableModifier
+  case isClickable
+    when true
+      - clickableModifier = 'text-field_clickable'
 
   input(
-    class=`text-field ${ViewModifier}`, 
+    class=`text-field ${ViewModifier} ${clickableModifier}`, 
+    type=type,
+    placeholder=placeholder,
+    readonly=readonly,
     placeholder=placeholder
   )
 

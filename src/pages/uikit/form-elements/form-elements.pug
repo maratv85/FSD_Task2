@@ -8,7 +8,7 @@ block content
   include ../../../blocks/heading/heading.pug
   include ../../../blocks/text-field/text-field.pug
   include ../../../blocks/dropdown/dropdown.pug
-  //-include ../../../blocks/dropdown-iq/dropdown-iq.pug
+  include ../../../blocks/air-datepicker-custom/air-datepicker-custom.pug
 
   main.form-elements
     .form-elements__container
@@ -53,8 +53,8 @@ block content
               color: 'dark-shade-50' }) 
           +dropdown({
             text: 'Сколько гостей',
-            haveButtons: true,
-            isExpanded: true,
+            hasButtons: true,
+            isExpanded: false,
             options:[
               {text: 'взрослые', group: 'гости'},
               {text: 'дети', group: 'гости'},
@@ -70,4 +70,6 @@ block content
               weight: 'normal',
               color: 'dark-shade-50' })        
           +text-field({
-            view: 'date'})            
+            view: 'date'})    
+        .form-elements__little-wrapper       
+          +air-datepicker-custom()             
