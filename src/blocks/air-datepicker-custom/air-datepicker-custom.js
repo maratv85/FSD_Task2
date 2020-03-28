@@ -11,7 +11,8 @@ $('.air-datepicker-custom').datepicker({
       years: 'yyyy1 - yyyy2'},
     multipleDates: true,
     multipleDatesSeparator: ' - ' ,
-    range: true
+    range: true,
+    clearButton: true,
     })
 
 $.fn.datepicker.language.ru = {
@@ -25,4 +26,10 @@ $.fn.datepicker.language.ru = {
         dateFormat: 'dd.mm.yyyy',
         timeFormat: 'hh:ii',
         firstDay: 1
-      }    
+      }  
+ 
+this.buttonsContainer = document.querySelector('.datepicker--buttons');      
+this.buttonApply = document.createElement('span');      
+buttonApply.classList.add('air-datepicker-custom__apply-button');
+buttonApply.innerText = 'применить';
+buttonsContainer.append(this.buttonApply);
