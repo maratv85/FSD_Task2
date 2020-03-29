@@ -49,7 +49,7 @@
     text-transform: uppercase;
     cursor: pointer;
     background: none;
-
+    user-select: none;
   }  
   /* -------------------------------------------------
       Datepicker cells
@@ -225,6 +225,7 @@
     font-weight: bold;
     font-size: 12px;
     line-height: 15px;
+    user-select: none;
     text-transform: uppercase;}
 
     .datepicker--button:hover {
