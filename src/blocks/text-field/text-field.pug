@@ -8,7 +8,7 @@ mixin text-field({view='text', placeholder='', type = 'text', isClickable = fals
     when 'hover/focus'
       - ViewModifier = 'text-field_hover-state'
     when 'date'
-      - ViewModifier = 'text-field_date-state' 
+      - ViewModifier = 'js-text-field_date-state' 
       - placeholder  = 'ДД.ММ.ГГГГ' 
 
   - let clickableModifier = ''
@@ -17,7 +17,7 @@ mixin text-field({view='text', placeholder='', type = 'text', isClickable = fals
       - clickableModifier = 'text-field_clickable'
 
   input(
-    class=`text-field ${ViewModifier} ${clickableModifier}`, 
+    class=`text-field ${ViewModifier} ${clickableModifier} js-text-field`, 
     type=type,
     placeholder=placeholder,
     readonly=readonly

@@ -1,7 +1,7 @@
 import 'air-datepicker';
 import 'air-datepicker/dist/css/datepicker.min.css';
 
-class airDatepickerCustom {
+class AirDatepickerCustom {
   constructor(elementDOM) {
     this.elementDOM = elementDOM;
     this.initPlugin();
@@ -64,9 +64,9 @@ class airDatepickerCustom {
 
 }
 
-export default airDatepickerCustom
+export default AirDatepickerCustom
 
-document.addEventListener('DOMContentLoaded', () => {
-  const airDatepickers = document.querySelectorAll('.air-datepicker-custom');
-  airDatepickers.forEach((val) => new airDatepickerCustom(val));
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//   const airDatepickers = document.querySelectorAll('.air-datepicker-custom');
+//   airDatepickers.forEach((val) => new AirDatepickerCustom(val));
+// });

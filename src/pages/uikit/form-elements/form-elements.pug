@@ -8,7 +8,7 @@ block content
   include ../../../blocks/heading/heading.pug
   include ../../../blocks/text-field/text-field.pug
   include ../../../blocks/dropdown/dropdown.pug
-  include ../../../blocks/air-datepicker-custom/air-datepicker-custom.pug
+  include ../../../blocks/date-dropdown/date-dropdown.pug
 
   main.form-elements
     .form-elements__container
@@ -71,5 +71,6 @@ block content
               color: 'dark-shade-50' })        
           +text-field({
             view: 'date'})    
-        .form-elements__little-wrapper       
-          +air-datepicker-custom()   
+        .form-elements__wrapper       
+          +date-dropdown()   
+ 

@@ -14,7 +14,7 @@ mixin date-field({title = 'date dropdown', type = 'start', placeholder, width = 
     .date-field__input(class = widthModifier)
       .date-field__arrow
         +material-icons({type: 'expand_more'})
-      div(class=`date-field__input-${type}-date`)
+      div(class=`js-date-field__input-${type}-date`)
         +text-field({
           type: 'text',
           readonly: 'readonly',
