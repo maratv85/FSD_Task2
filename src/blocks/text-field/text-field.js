@@ -1,7 +1,7 @@
 import IMask from 'imask';
 
 var overwriteMask = IMask(
-    document.querySelectorAll('.js-text-field_date-state'),
+    document.querySelector('.js-text-field_date-state'),
     {
       mask: Date,
       lazy: true, /*was false*/
@@ -14,3 +14,4 @@ var overwriteMask = IMask(
       }
     }
   );
+

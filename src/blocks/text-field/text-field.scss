@@ -48,9 +48,17 @@
   &_clickable {
     cursor: pointer;
   }
-}
+
+  &_sharp {
+    color: $dark-shade-75;
+      &::placeholder {
+        color: $dark-shade-75;
+      }
+  }
 
 %hover-focus {
   border: 1px solid $dark-shade-50;
   color: $dark-shade-75;
+}
+
 }
