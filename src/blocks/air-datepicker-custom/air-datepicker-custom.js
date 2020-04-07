@@ -2,51 +2,59 @@ import 'air-datepicker';
 import 'air-datepicker/dist/css/datepicker.min.css';
 
 class AirDatepickerCustom {
-  constructor(elementDOM) {
-    this.elementDOM = elementDOM;
+  constructor(pluginInstance, secondInput, type) {
+    this.pluginInstance = pluginInstance;
+    this.secondInput = secondInput;
+    this.type = type;
     this.initPlugin();
   }
 
   initPlugin() {
-    this.initPluginSettings();
-    this.initRegionalDateTimeSettings();
+    this.decoratePlugin();
     this.createApplyButton();
     this.bindButtonApplyEventListener();
+    this.datepickerTypeOptions();
   }
 
-  initPluginSettings() {
-    $(this.elementDOM).datepicker({
-        startDate: new Date(),
+
+
+  decoratePlugin() {
+    $(this.pluginInstance).datepicker({
         prevHtml: '<i class="air-datepicker-custom__material-icon">arrow_back</i>',
         nextHtml: '<i class="air-datepicker-custom__material-icon">arrow_forward</i>',
         navTitles: {
-          days: 'MM yyyy',
-          months: 'yyyy',
-          years: 'yyyy1 - yyyy2'},
-        multipleDates: true,
-        multipleDatesSeparator: ' - ' ,
-        range: true,
-        clearButton: true
-        })
-  }      
+          days: 'MM <i>yyyy</i>'}
+    })
+  }  
   
-  initRegionalDateTimeSettings() {
-    $.fn.datepicker.language.ru = {
-            days: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
-            daysShort: ['Вос', 'Пон', 'Вто', 'Сре', 'Чет', 'Пят', 'Суб'],
-            daysMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-            months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-            monthsShort: ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'],
-            today: 'Сегодня',
-            clear: 'Очистить',
-            dateFormat: 'dd.mm.yyyy',
-            timeFormat: 'hh:ii',
-            firstDay: 1
-          }  
-  }          
+  datepickerTypeOptions() {
+    if (this.type === 'range') {
+      $(this.pluginInstance).datepicker({
+        range: true,
+        language: 'ru',
+        multipleDatesSeparator: ' - ',
+        clearButton: true,
+        onSelect(formattedDate) {
+          this.pluginInstance.val(formattedDate.split('-')[0]);
+          this.secondInput.val(formattedDate.split('-')[1]);
+        }
+      });
+    } else 
+    if (this.type === 'standalone') {
+      $(this.pluginInstance).datepicker({
+        range: true,
+        language: 'ru', 
+        dateFormat: 'dd M',
+        clearButton: true,
+        multipleDatesSeparator: ' - ',
+      });
+      this.datepickerPluginInstance = $(this.pluginInstance).datepicker().data('datepicker');
+      this.datepickerInput.show();
+    }
+  }       
   
   createApplyButton() {
-    this.datepickerContainer = this.elementDOM.querySelector('.datepicker');
+    this.datepickerContainer = this.pluginInstance.querySelector('.datepicker');
     this.buttonsContainer = this.datepickerContainer.querySelector('.datepicker--buttons');      
     this.buttonApply = document.createElement('span');      
     this.buttonApply.classList.add('air-datepicker-custom__apply-button');
@@ -55,7 +63,7 @@ class AirDatepickerCustom {
   }
 
   _handleApplyButtonClick() {
-    $(this.elementDOM).datepicker().data('datepicker').hide();
+    this.pluginInstance.datepicker().data('datepicker').hide();
   }
 
   bindButtonApplyEventListener() {

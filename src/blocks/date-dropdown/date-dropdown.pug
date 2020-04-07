@@ -1,14 +1,15 @@
+include ../text-field/text-field.pug
 include ../date-field/date-field.pug
 include ../air-datepicker-custom/air-datepicker-custom.pug
 
-mixin date-dropdown({fieldType = 'single', firstHeader = '', secondHeader = ''} = {})
+mixin date-dropdown( { fieldType = '', firstHeader = '', secondHeader = ''} = {} )
   section.date-dropdown.js-date-dropdown
     case fieldType
       when 'single'
         .date-dropdown__input
-          +date-field({header: firstHeader, type: 'standalone', placeholder: 'ДД.МЕС - ДД.МЕС', width: 'wide'})
+          +date-field({title: firstHeader, type: 'standalone', placeholder: 'ДД.МЕС - ДД.МЕС', width: 'wide'})
       when 'range'
         .date-dropdown__inputs
-          +date-field({header: firstHeader, type: 'start', placeholder: 'ДД.ММ.ГГГГ'})
-          +date-field({header: secondHeader, type: 'end', placeholder: 'ДД.ММ.ГГГГ'})
+          +date-field({title: firstHeader, type: 'start', placeholder: 'ДД.ММ.ГГГГ'})
+          +date-field({title: secondHeader, type: 'end', placeholder: 'ДД.ММ.ГГГГ'})
     +air-datepicker-custom()
