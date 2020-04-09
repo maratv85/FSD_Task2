@@ -3,7 +3,7 @@ const fs = require('fs');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-// const CopyPlugin = require('copy-webpack-plugin');
+const Autoprefixer = require('autoprefixer');
 
 const PATHS = {
   src: path.join(__dirname, '../src'),
@@ -113,7 +113,6 @@ module.exports = {
         {
           loader: 'webpack-px-to-rem',
           query: {
-            // 1rem=npx default 10
             basePx: 14,
             min: 1,
             floatWidth: 3,
@@ -123,13 +122,9 @@ module.exports = {
     },
     ],
   },
-  /* resolve: {
-    extensions: ['.js', '.jsx', '.scss'],
-    alias: {
-      './dependencyLibs/inputmask.dependencyLib': './dependencyLibs/inputmask.dependencyLib.jquery',
-    },
-  }, */
   plugins: [
+    Autoprefixer,
+	
     new MiniCssExtractPlugin({
       filename: './css/[name].[hash].css',
     }),
@@ -146,9 +141,5 @@ module.exports = {
       inject: true,
     })),
 
-    // new CopyPlugin([
-    //  { from: 'static', to: 'static' },
-    //  { from: 'index.html', to: 'index.html', toType: 'file'},
-    // ]),
   ],
 };
