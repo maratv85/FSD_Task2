@@ -1,19 +1,7 @@
 .air-datepicker-custom {
-    position: relative;
+    position: absolute;
     top: 0px;
     left: 0px;
-
-  &__calendar-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 320px;
-    max-height: 369px;
-    height: max-content;
-    width: max-content;
-    box-sizing: border-box;
-    border-radius: 4px;
-  }  
 
   &__material-icon {
       font-family: 'Material Icons';
@@ -51,6 +39,28 @@
     background: none;
     user-select: none;
   }  
+
+
+  &__modifier {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 320px;
+    //max-height: 369px;
+    //height: max-content;
+    width: max-content;
+    box-sizing: border-box;
+    padding: 19px;
+    border-radius: 4px;
+
+    .datepicker.inactive {
+      opacity: 0;
+      -webkit-transform: translate(0);
+              transform: translate(0);
+      transition: opacity 0.3s ease, left 0s 0s, -webkit-transform 0.3s ease;
+      transition: opacity 0.3s ease, transform 0.3s ease, left 0s 0s;
+      transition: opacity 0.3s ease, transform 0.3s ease, left 0s 0s, -webkit-transform 0.3s ease; }
+
   /* -------------------------------------------------
       Datepicker cells
      ------------------------------------------------- */ 
@@ -163,17 +173,17 @@
   /* -------------------------------------------------
       Datepicker
      ------------------------------------------------- */
-  .datepicker {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 320px;
-    //max-height: 369px;
-    width: 100%;
-    padding: 19px;
-    box-sizing: border-box;
-   }
+  // .datepicker {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   max-width: 320px;
+  //   //max-height: 369px;
+  //   width: 100%;
+  //   padding: 19px;
+  //   box-sizing: border-box;
+  //  }
 
   .datepicker--pointer {
     display: none;
@@ -231,5 +241,5 @@
     .datepicker--button:hover {
       color: $dark-shade-50;
       background: none; }
-  
-    }
+  }
+}

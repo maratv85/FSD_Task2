@@ -2,72 +2,55 @@ import 'air-datepicker';
 import 'air-datepicker/dist/css/datepicker.min.css';
 
 class AirDatepickerCustom {
-  constructor(pluginInstance, secondInput, type) {
+  constructor(pluginInstance) {
     this.pluginInstance = pluginInstance;
-    this.secondInput = secondInput;
-    this.type = type;
+    //this.secondInput = secondInput;
+    //this.type = type;
     this.initPlugin();
   }
 
   initPlugin() {
-    this.decoratePlugin();
+    this.findElements();
+    this.setPluginOptions();
+    this.addAirDatepickerCustomClass();
     this.createApplyButton();
-    this.bindButtonApplyEventListener();
-    this.datepickerTypeOptions();
+    //this.bindButtonApplyEventListener();
+    //this.datepickerTypeOptions();
   }
 
+  findElements() {
+    this.$datepicker = this.pluginInstance.$datepicker;
+    this.$input = this.pluginInstance.$el;
+  }
 
-
-  decoratePlugin() {
-    $(this.pluginInstance).datepicker({
+  setPluginOptions() {
+    this.$input.datepicker({
         prevHtml: '<i class="air-datepicker-custom__material-icon">arrow_back</i>',
         nextHtml: '<i class="air-datepicker-custom__material-icon">arrow_forward</i>',
         navTitles: {
           days: 'MM <i>yyyy</i>'}
     })
-  }  
-  
-  datepickerTypeOptions() {
-    if (this.type === 'range') {
-      $(this.pluginInstance).datepicker({
-        range: true,
-        language: 'ru',
-        multipleDatesSeparator: ' - ',
-        clearButton: true,
-        onSelect(formattedDate) {
-          this.pluginInstance.val(formattedDate.split('-')[0]);
-          this.secondInput.val(formattedDate.split('-')[1]);
-        }
-      });
-    } else 
-    if (this.type === 'standalone') {
-      $(this.pluginInstance).datepicker({
-        range: true,
-        language: 'ru', 
-        dateFormat: 'dd M',
-        clearButton: true,
-        multipleDatesSeparator: ' - ',
-      });
-      this.datepickerPluginInstance = $(this.pluginInstance).datepicker().data('datepicker');
-      this.datepickerInput.show();
-    }
-  }       
+  }   
   
   createApplyButton() {
-    this.datepickerContainer = this.pluginInstance.querySelector('.datepicker');
-    this.buttonsContainer = this.datepickerContainer.querySelector('.datepicker--buttons');      
-    this.buttonApply = document.createElement('span');      
-    this.buttonApply.classList.add('air-datepicker-custom__apply-button');
-    this.buttonApply.innerText = 'применить';
-    this.buttonsContainer.append(this.buttonApply);
+    this.$buttonsContainer = this.$datepicker.find('.datepicker--buttons');      
+    this.$buttonApply = $('<span class="air-datepicker-custom__apply-button">Применить</span>'
+    ).appendTo(this.$buttonsContainer);      
   }
-
-  _handleApplyButtonClick() {
-    this.pluginInstance.datepicker().data('datepicker').hide();
-  }
-
+ 
   bindButtonApplyEventListener() {
-    this.buttonApply.addEventListener('click', this._handleApplyButtonClick());
+    this.$buttonApply.on('click', this.handleApplyButtonClick().bind(this));
+  }
+
+  handleApplyButtonClick() {
+    //this.pluginInstance.hide();
+    this.$datepicker.toggleClass('active');
+  }
+
+  addAirDatepickerCustomClass() {
+    this.$input.datepicker({
+      classes: 'air-datepicker-custom__modifier'
+    })
   }
 
 }

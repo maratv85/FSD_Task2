@@ -9,6 +9,7 @@ block content
   include ../../../blocks/text-field/text-field.pug
   include ../../../blocks/dropdown/dropdown.pug
   include ../../../blocks/date-dropdown/date-dropdown.pug
+  include ../../../blocks/air-datepicker-custom/air-datepicker-custom.pug
 
   main.form-elements
     .form-elements__container
@@ -74,5 +75,7 @@ block content
         .form-elements__wrapper       
           +date-dropdown({fieldType: 'single'})   
         .form-elements__wrapper       
-          +date-dropdown({fieldType: 'range'})    
+          +date-dropdown({fieldType: 'range'}) 
+       
+          
  
