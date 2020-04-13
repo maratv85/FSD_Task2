@@ -1,0 +1,9 @@
+include ../material-icons/material-icons.pug
+include ../heading/heading.pug
+
+mixin checkbox-list({title = 'expandable checkbox list', })
+  .checkbox-list.js-checkbox-list
+    .checkbox-list__arrow.js-checkbox-list__arrow
+      +material-icons({type: 'expand_more', color: 'dark-shade-50'})
+    .checkbox-list__header.js-checkbox-list__header
+      +heading({type: 'h3', text: title})  

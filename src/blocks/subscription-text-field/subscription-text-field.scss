@@ -1,0 +1,45 @@
+.subscription-text-field {
+  max-width: 267px;
+  position: relative;
+
+  &__input {
+    width: 100%;
+    display: block;
+    position: relative;
+    padding-left: 15px;
+    border: 1px solid $dark-shade-25;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: $dark-shade-25;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 44px;
+    outline: none;
+    
+    &:focus, &:hover {
+      border: 1px solid $dark-shade-50;
+      color: $dark-shade-75;
+    }
+
+    &::placeholder {
+      color: $dark-shade-25;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 24px;
+    right: 0;
+    bottom: 0;
+  }
+
+}

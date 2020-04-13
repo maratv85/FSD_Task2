@@ -10,6 +10,8 @@ block content
   include ../../../blocks/dropdown/dropdown.pug
   include ../../../blocks/date-dropdown/date-dropdown.pug
   include ../../../blocks/air-datepicker-custom/air-datepicker-custom.pug
+  include ../../../blocks/subscription-text-field/subscription-text-field.pug
+  include ../../../blocks/checkbox-list/checkbox-list.pug
 
   main.form-elements
     .form-elements__container
@@ -73,9 +75,21 @@ block content
           +text-field({
             view: 'date'})    
         .form-elements__wrapper       
-          +date-dropdown({fieldType: 'single'})   
+          +date-dropdown({fieldType: 'range', firstHeader: 'date dropdown', secondHeader: 'date dropdown'})   
         .form-elements__wrapper       
-          +date-dropdown({fieldType: 'range'}) 
+          +date-dropdown({fieldType: 'single', firstHeader : 'filter date dropdown'}) 
+        .form-elements__wrapper
+          .form-elements__heading-text 
+            +heading({
+              type: 'h3',
+              text: 'subscription text field'})
+          +subscription-text-field({})  
+        .form-elements__wrapper
+          //- .form-elements__heading-text 
+          //-   +heading({
+          //-     type: 'h3',
+          //-     text: 'expandable checkbox list'})
+          +checkbox-list({})           
        
           
  
