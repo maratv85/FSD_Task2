@@ -19,24 +19,25 @@ class DateDropdown {
       this.$endInput = this.$end.find('input.js-text-field');
 
       this.isRange = true;
-      this.datepickerPluginInstance = this.$startInput.datepicker().data('datepicker');
+      this.startInputInstance = this.$startInput.datepicker().data('datepicker');
     }
    }  
 
   initCalendar() {
     if (this.isRange) {
-      this.$startInput.datepicker({
+      const { $startInput, $endInput } = this;
+      $startInput.datepicker({
         range: true,
         language: 'ru',
         multipleDatesSeparator: ' - ',
         clearButton: true,
-        onSelect(formattedDate) {
-          this.$startInput.val(formattedDate.split('-')[0]);
-          this.$endInput.val(formattedDate.split('-')[1]);
+        onSelect: function (formattedDate) { 
+          $startInput.val(formattedDate.split("-")[0]);
+          $endInput.val(formattedDate.split("-")[1]);
         }
      });
      new AirDatepickerCustom(this.$startInput.datepicker().data('datepicker'));
-     //this.$end.on('click', _handleEndInputClick())
+     this.handleEndInput();
     }
     else {
       this.$standaloneInput.datepicker({
@@ -46,15 +47,20 @@ class DateDropdown {
         clearButton: true,
         multipleDatesSeparator: ' - ',
       });
-      this.datepickerPluginInstance = this.$standaloneInput.datepicker().data('datepicker');
-      new AirDatepickerCustom(this.$standaloneInput.data('datepicker'));
+      new AirDatepickerCustom(this.$standaloneInput.datepicker().data('datepicker'));
     };
+
   }; 
   
-  // _handleEndInputClick() {
-  //   this.datepickerPluginInstance.show();
-  // }
-  }
+  _handleEndInputClick() {
+    this.startInputInstance.show();
+  };
+
+  handleEndInput() {
+    this.$end.on('click', this._handleEndInputClick.bind(this))
+  };
+
+}
 
   export default DateDropdown;
 

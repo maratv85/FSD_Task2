@@ -53,14 +53,6 @@
     padding: 19px;
     border-radius: 4px;
 
-    .datepicker.inactive {
-      opacity: 0;
-      -webkit-transform: translate(0);
-              transform: translate(0);
-      transition: opacity 0.3s ease, left 0s 0s, -webkit-transform 0.3s ease;
-      transition: opacity 0.3s ease, transform 0.3s ease, left 0s 0s;
-      transition: opacity 0.3s ease, transform 0.3s ease, left 0s 0s, -webkit-transform 0.3s ease; }
-
   /* -------------------------------------------------
       Datepicker cells
      ------------------------------------------------- */ 

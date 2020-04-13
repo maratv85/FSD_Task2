@@ -6,7 +6,7 @@ mixin date-dropdown( { fieldType = '', firstHeader = '', secondHeader = ''} = {}
     case fieldType
       when 'single'
         .date-dropdown__input
-          +date-field({title: firstHeader, type: 'standalone', placeholder: 'ДД.МЕС - ДД.МЕС', width: 'wide'})
+          +date-field({title: firstHeader, type: 'standalone', placeholder: 'ДД.МЕС - ДД.МЕС', width: 'wide'}) 
       when 'range'
         .date-dropdown__inputs
           +date-field({title: firstHeader, type: 'start', placeholder: 'ДД.ММ.ГГГГ'})
