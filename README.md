@@ -16,7 +16,7 @@ Run build production
 ## The libraries which were used in the project
 
 [jQuery](https://github.com/jquery/jquery),
-[air-datepicker](https://github.com/t1m0n/air-datepicker)
+[Air-Datepicker](https://github.com/t1m0n/air-datepicker)
 
 ---
 ## UI kit
