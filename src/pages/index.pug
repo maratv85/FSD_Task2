@@ -1,0 +1,23 @@
+extends ../templates/layout.pug
+
+
+
+block variables
+  - var pageTitle = 'Frontend education'
+  
+block content
+  include ../blocks/heading/heading.pug
+
+  - const colorsAndTypes = {title: 'Colors & Type', href: 'colors-and-types.html'}
+  - const formElements = {title: 'Form Elements', href: 'form-elements.html'}
+  - const cards = {title: 'Cards', href: 'cards.html'}
+  - const headersAndFooters = {title: 'Headers & Footers', href: 'headers-and-footers.html'}
+  - const uikitPages = [colorsAndTypes, formElements, cards, headersAndFooters]
+ 
+
+  ul.menu-page__list
+    li.menu-page__item-header
+      +heading({type: 'h1', text: 'UI-kit & Pages'})
+    each page in uikitPages
+      li.menu-page__item
+        a.menu-page__link(href=page.href)=page.title
