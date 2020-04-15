@@ -15,6 +15,7 @@ module.exports = (env, options) => {
 
   const production = options.mode === 'production';
   const publicDir = production ? 'https://maratv85.github.io/FSD_Task2/' : '/';
+  //const publicDir = '/';
 
   return {
     entry: {

@@ -2,7 +2,7 @@ include ../material-icons/material-icons.pug
 
 mixin subscription-text-field({placeholder = 'Email'})
 
-  form.subscription-text-field
+  .subscription-text-field
     input(type = 'email', class = 'subscription-text-field__input', placeholder = placeholder, name = 'subscription-email')
     .subscription-text-field__arrow
       +material-icons({

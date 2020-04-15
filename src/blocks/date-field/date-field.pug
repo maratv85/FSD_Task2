@@ -9,7 +9,7 @@ mixin date-field({title = 'date dropdown', type = 'start', placeholder, width = 
     when 'wide'
       - widthModifier = 'date-field__input_wide'
 
-  form.date-field
+  .date-field
     +heading({type: 'h3', text: title})
     .date-field__input(class = widthModifier)
       .date-field__arrow
