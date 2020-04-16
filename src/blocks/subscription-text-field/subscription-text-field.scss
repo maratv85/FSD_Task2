@@ -18,9 +18,17 @@
     line-height: 44px;
     outline: none;
     
-    &:focus, &:hover {
+    &:hover {
       border: 1px solid $dark-shade-50;
       color: $dark-shade-75;
+    }
+
+    &:focus {
+      border: 1px solid $dark-shade-50;
+      color: $dark-shade-75;
+      outline: none;
+      box-shadow: 0 0 0.5px 0.4px $purple;
+      -o-box-shadow: 0 0 0.5px 0.4px $purple;
     }
 
     &::placeholder {

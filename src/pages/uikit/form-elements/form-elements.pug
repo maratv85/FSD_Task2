@@ -14,6 +14,7 @@ block content
   include ../../../blocks/checkbox-list/checkbox-list.pug
   include ../../../blocks/checkbox-button/checkbox-button.pug
   include ../../../blocks/room-information/room-information.pug
+  include ../../../blocks/radio-button/radio-button.pug
 
   main.form-elements
     .form-elements__container
@@ -107,6 +108,26 @@ block content
           +room-information({icon: 'insert_emoticon', header: 'Комфорт', description: 'Шумопоглощающие стены'})
         .form-elements__wrapper  
           +room-information({icon: 'location_city', header: 'Удобство', description: 'Окно в каждой из спален'})  
-       
+        .form-elements__wrapper
+          .form-elements__heading-text 
+            +heading({
+              type: 'h3',
+              text: 'checkbox buttons'})
+          .form-elements__checkbox    
+            +checkbox-button({name: 'checkbox8', text: 'Можно курить'})
+          .form-elements__checkbox    
+            +checkbox-button({name: 'checkbox9', text: 'Можно с питомцами'}) 
+          .form-elements__checkbox  
+            +checkbox-button({name: 'checkbox10', text: 'Можно пригласить гостей (до 10 человек)'}) 
+        .form-elements__wrapper
+          .form-elements__heading-text 
+            +heading({
+              type: 'h3',
+              text: 'radio buttons'})    
+          .form-elements__radio-buttons
+            .form-elements__radio-button
+              +radio-button({value: 'man', text: 'Мужчина', isChecked: true}) 
+            .form-elements__radio-button     
+              +radio-button({value: 'woman', text: 'Женщина'})
           
  
