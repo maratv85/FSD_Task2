@@ -35,6 +35,7 @@
 
     &_purple-gradient {
       background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+      background-clip: content-box;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }

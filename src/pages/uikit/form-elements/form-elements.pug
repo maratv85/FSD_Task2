@@ -13,6 +13,7 @@ block content
   include ../../../blocks/subscription-text-field/subscription-text-field.pug
   include ../../../blocks/checkbox-list/checkbox-list.pug
   include ../../../blocks/checkbox-button/checkbox-button.pug
+  include ../../../blocks/room-information/room-information.pug
 
   main.form-elements
     .form-elements__container
@@ -101,7 +102,11 @@ block content
               ['checkbox6', 'Телевизор'],
               ['checkbox7', 'Шампунь']
             ]
-          })         
+          })
+        .form-elements__big-wrapper  
+          +room-information({icon: 'insert_emoticon', header: 'Комфорт', description: 'Шумопоглощающие стены'})
+        .form-elements__wrapper  
+          +room-information({icon: 'location_city', header: 'Удобство', description: 'Окно в каждой из спален'})  
        
           
  
