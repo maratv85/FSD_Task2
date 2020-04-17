@@ -15,6 +15,8 @@ block content
   include ../../../blocks/checkbox-button/checkbox-button.pug
   include ../../../blocks/room-information/room-information.pug
   include ../../../blocks/radio-button/radio-button.pug
+  include ../../../blocks/toggle/toggle.pug
+  include ../../../blocks/like-button/like-button.pug
 
   main.form-elements
     .form-elements__container
@@ -109,7 +111,7 @@ block content
         .form-elements__wrapper  
           +room-information({icon: 'location_city', header: 'Удобство', description: 'Окно в каждой из спален'})  
         .form-elements__wrapper
-          .form-elements__heading-text 
+          .form-elements__heading-text-button  
             +heading({
               type: 'h3',
               text: 'checkbox buttons'})
@@ -120,7 +122,7 @@ block content
           .form-elements__checkbox  
             +checkbox-button({name: 'checkbox10', text: 'Можно пригласить гостей (до 10 человек)'}) 
         .form-elements__wrapper
-          .form-elements__heading-text 
+          .form-elements__heading-text-button  
             +heading({
               type: 'h3',
               text: 'radio buttons'})    
@@ -129,5 +131,22 @@ block content
               +radio-button({value: 'man', text: 'Мужчина', isChecked: true}) 
             .form-elements__radio-button     
               +radio-button({value: 'woman', text: 'Женщина'})
+        .form-elements__wrapper
+          .form-elements__heading-text-button 
+            +heading({
+              type: 'h3',
+              text: 'toggle'}) 
+          .form-elements__toggle-buttons
+            .form-elements__toggle-button              
+              +toggle({text: 'Получать спецпредложения', isChecked: true})                  
+            .form-elements__toggle-button              
+              +toggle({text: 'Получать спецпредложения', isChecked: false})  
+        .form-elements__wrapper
+          .form-elements__heading-text-button 
+            +heading({
+              type: 'h3',
+              text: 'like button'})   
+            +like-button({likeCount: 2, isLiked: false})                          
+            +like-button({likeCount: 13, isLiked: true})             
           
  

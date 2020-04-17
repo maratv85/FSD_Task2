@@ -1,0 +1,53 @@
+.toggle {
+ display: inline-block;
+ position: relative;
+ box-sizing: border-box;
+ white-space: nowrap;
+
+ &__text {
+   display: inline-block;
+   margin-left: 10px;
+   font-family: 'Montserrat', Arial, sans-serif;
+   font-size: 14px;
+   color: $dark-shade-75;
+   white-space: pre-wrap;
+   vertical-align: middle;
+   cursor: pointer;
+ }
+
+ &__ellipse {
+   display: inline-block;
+   width: 40px;
+   height: 20px;
+   padding-right: 4px;
+   padding-left: 4px;
+   border: 1px solid $dark-shade-25;
+   border-radius: 10px;
+   box-sizing: border-box;
+   cursor: pointer;
+   vertical-align: middle;
+   text-align: left;
+ }
+
+ &__circle {
+   display: inline-block;
+   width: 12px;
+   height: 12px;
+   background: $dark-shade-25;
+   border-radius: 50%;
+   vertical-align: middle;
+ }
+
+ &__input {
+   display: none;
+ 
+   &:checked ~ .toggle__ellipse {
+     border: 1px solid $purple;
+     text-align: right;
+   }
+   
+   &:checked ~ .toggle__ellipse > .toggle__circle {
+     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+   }
+ }
+}

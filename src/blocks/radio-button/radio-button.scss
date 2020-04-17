@@ -21,7 +21,7 @@
     box-sizing: border-box;
     border-radius: 10px;
     cursor: pointer;
-    vertical-align: middle;
+    //line-height: 15px;
     text-align: center;
   }
 
@@ -31,6 +31,7 @@
     height: 12px;
     border-radius: 10px;
     vertical-align: middle;
+    text-align: center;
   }
 
   &__input {

@@ -1,0 +1,11 @@
+include ../material-icons/material-icons.pug
+
+mixin like-button({likeCount = 0, isLiked = false})
+  .like-button.js-like-button(data-isliked = `${isLiked}`)
+    .like-button__icon.js-like-button__icon
+      +material-icons({
+        type: 'favorite_border', 
+        color: 'dark-shade-25',
+        size: 'small',
+      })
+    span.like-button__text-number.js-like-button__text-number=likeCount
