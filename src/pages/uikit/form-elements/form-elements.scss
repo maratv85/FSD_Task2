@@ -73,6 +73,14 @@
     margin-bottom: 10px;
   }
 
+  &__like-buttons {
+    display: flex;
+  }
+
+  &__like-button {
+    margin-right: 10px;
+  }
+
   &__fields { 
     grid-area: fields;
   }

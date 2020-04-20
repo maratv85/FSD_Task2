@@ -1,0 +1,10 @@
+.rate-button {
+  display: inline-block;
+  align-items: center;
+  max-width: 120px;
+  user-select: none;
+
+  &__input {
+    display: none;
+  }
+}

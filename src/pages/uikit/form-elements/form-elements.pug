@@ -17,6 +17,9 @@ block content
   include ../../../blocks/radio-button/radio-button.pug
   include ../../../blocks/toggle/toggle.pug
   include ../../../blocks/like-button/like-button.pug
+  include ../../../blocks/rate-button/rate-button.pug
+  include ../../../blocks/rich-checkbox-button/rich-checkbox-button.pug  
+  include ../../../blocks/comment/comment.pug   
 
   main.form-elements
     .form-elements__container
@@ -145,8 +148,30 @@ block content
           .form-elements__heading-text-button 
             +heading({
               type: 'h3',
-              text: 'like button'})   
-            +like-button({likeCount: 2, isLiked: false})                          
-            +like-button({likeCount: 13, isLiked: true})             
-          
- 
+              text: 'like button'})  
+          .form-elements__like-buttons
+            .form-elements__like-button                
+              +like-button({likeCount: 2, isLiked: false}) 
+            .form-elements__like-button                            
+              +like-button({likeCount: 13, isLiked: true})       
+        .form-elements__wrapper
+          .form-elements__heading-text-button  
+            +heading({
+              type: 'h3',
+              text: 'rate button'})    
+          .form-elements__radio-buttons
+            .form-elements__radio-button
+              +rate-button({rating: 4}) 
+            .form-elements__radio-button     
+              +rate-button({rating: 5})                    
+        .form-elements__wrapper
+          .form-elements__heading-text-button  
+            +heading({
+              type: 'h3',
+              text: 'rich checkbox buttons'})
+          .form-elements__checkbox    
+            +rich-checkbox-button({name: 'checkbox11', header: 'Широкий коридор', description: 'Ширина коридоров в номере не менее 91 см.'})
+          .form-elements__checkbox    
+            +rich-checkbox-button({name: 'checkbox12', header: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист и проводит до номера.'})           
+        .form-elements__wrapper
+          +comment({avatarImg: './img/murad_avatar.png', likeCount: 12, isLiked: true, authorName: 'Мурад Сарафанов', daysAgo: '5 дней назад', text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'}) 

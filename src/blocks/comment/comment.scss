@@ -1,0 +1,54 @@
+.comment {
+  display: flex;
+  max-width: 711px;
+
+  &__picture-container {
+   display: flex;
+   flex-direction: column;
+   max-width: 48px;
+ }
+
+ &__avatar {
+   max-width: 48px;
+   max-height: 48px;
+   border-radius: 32px;
+   border: 2px solid #FFFFFF;
+   box-sizing: border-box;
+   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.1);
+ }
+
+ &__like-button {
+   margin-top: 9px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+ &__text-container {
+   display: flex;
+   flex-direction: column;
+   margin-left: 10px;
+ }
+
+ &__name {
+   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+   font-size: 14px;
+   line-height: 24px;
+   color: $dark-shade-75;
+   font-weight: bold;
+ }
+
+ &__daysAgo {
+   margin-top: 3px;
+   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+   font-size: 14px;
+   color: $dark-shade-75;
+}
+
+ &__text {
+   margin-top: 13px;
+   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+   font-size: 14px;
+   line-height: 24px;
+   color: $dark-shade-75;
+ }
+}
