@@ -21,6 +21,7 @@ block content
   include ../../../blocks/rich-checkbox-button/rich-checkbox-button.pug  
   include ../../../blocks/comment/comment.pug  
   include ../../../blocks/range-slider/range-slider.pug   
+  include ../../../blocks/button/button.pug 
 
   main.form-elements
     .form-elements__container
@@ -177,3 +178,16 @@ block content
         .form-elements__wrapper
           +comment({avatarImg: './img/murad_avatar.png', likeCount: 12, isLiked: true, authorName: 'Мурад Сарафанов', daysAgo: '5 дней назад', text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'}) 
         +range-slider({})
+        .form-elements__wrapper
+          .form-elements__heading-text-button 
+            +heading({
+              type: 'h3',
+              text: 'button'})  
+        .form-elements__wrapper
+          +button({buttonType: 'purple-button'})
+        .form-elements__wrapper
+          +button({buttonType: 'pale-button'}) 
+        .form-elements__wrapper
+          +button({buttonType: 'text-button'})       
+        .form-elements__wrapper
+          +button({buttonType: 'submit-button'})                

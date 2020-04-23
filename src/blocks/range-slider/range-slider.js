@@ -26,11 +26,11 @@ class RangeSlider {
      hide_from_to: true,
      onStart(data) {
        const {from, to} = data;
-       $priceRange.val(`${from}₽ - ${to}₽`);
+       $priceRange.text(`${from}₽ - ${to}₽`);
      },
      onChange(data) {
        const {from, to} = data;
-       $priceRange.val(`${from}₽ - ${to}₽`);
+       $priceRange.text(`${from}₽ - ${to}₽`);
      },
    });
  }

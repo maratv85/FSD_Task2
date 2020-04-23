@@ -1,0 +1,19 @@
+include ../material-icons/material-icons.pug
+
+mixin button({buttonType = 'purple-button', href = '/mock-address/change-me', text = 'click me'})
+
+  case buttonType
+    when 'purple-button'
+      a(class='button button__purple' href=href)=text  
+    when 'pale-button'
+      .button(class='button__container-pale')
+        a(class='button__pale' href=href)=text  
+    when 'text-button'  
+      a(class='button button__frameless' href=href)=text
+    when 'submit-button'
+      button(class='button button__submit' type='submit')=text
+        .button__arrow
+          +material-icons({
+            type: 'arrow_forward', 
+            color: 'white',
+          }) 

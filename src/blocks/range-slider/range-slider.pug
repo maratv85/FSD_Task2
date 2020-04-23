@@ -5,6 +5,6 @@ mixin range-slider({headerText = 'range slider'})
     .range-slider__header
       .range-slider__title
         +heading({ type: 'h3', text: headerText})
-      input(type='text' class='range-slider__price-range js-range-slider__price-range' readonly)
+      span.range-slider__price-range.js-range-slider__price-range
     .range-slider__slider-container
       input.range-slider__slider.js-range-slider__slider
