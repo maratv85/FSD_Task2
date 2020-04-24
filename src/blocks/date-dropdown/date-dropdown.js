@@ -36,7 +36,7 @@ class DateDropdown {
           $endInput.val(formattedDate.split("-")[1]);
         }
      });
-     new AirDatepickerCustom(this.$startInput.datepicker().data('datepicker'));
+     new AirDatepickerCustom(this.$startInput.datepicker().data('datepicker'), this.$calendar);
      this.handleEndInput();
     }
     else {
@@ -47,7 +47,7 @@ class DateDropdown {
         clearButton: true,
         multipleDatesSeparator: ' - ',
       });
-      new AirDatepickerCustom(this.$standaloneInput.datepicker().data('datepicker'));
+      new AirDatepickerCustom(this.$standaloneInput.datepicker().data('datepicker'), this.$calendar);
     };
 
   }; 

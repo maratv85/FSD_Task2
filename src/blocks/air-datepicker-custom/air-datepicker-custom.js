@@ -2,8 +2,9 @@ import 'air-datepicker';
 import 'air-datepicker/dist/css/datepicker.min.css';
 
 class AirDatepickerCustom {
-  constructor(pluginInstance) {
+  constructor(pluginInstance, calendar) {
     this.pluginInstance = pluginInstance;
+    this.calendar = calendar;
     this.initPlugin();
   }
 
@@ -13,6 +14,7 @@ class AirDatepickerCustom {
     this.addAirDatepickerCustomClass();
     this.createApplyButton();
     this.bindButtonApplyEventListener();
+    this.handleCalendarResize();
   }
 
   findElements() {
@@ -34,9 +36,17 @@ class AirDatepickerCustom {
     this.$buttonApply = $('<span class="air-datepicker-custom__apply-button">Применить</span>'
     ).appendTo(this.$buttonsContainer);      
   }
- 
+
   bindButtonApplyEventListener() {
     this.$buttonApply.on('click', this._handleApplyButtonClick.bind(this));
+  }
+
+  handleCalendarResize() {
+    this.containerCalendar = this.calendar.find('.date-dropdown__input');
+    const containerWidth = this.containerCalendar.width();
+    if(containerWidth === 266) {
+      this.$datepicker.css({'transform' : 'scale(0.85)', 'transform-origin' : '0 0 0'});
+    }
   }
 
   _handleApplyButtonClick() {

@@ -56,12 +56,7 @@
   /* -------------------------------------------------
       Datepicker cells
      ------------------------------------------------- */ 
-  .datepicker--cells {
-    display: flex;
-    justify-content: space-between;
-  }
 
-  
   .datepicker--day-name {
     color: $purple;
     width: 38px;
@@ -72,13 +67,18 @@
     font-size: 12px;
     line-height: 15px;
     text-transform: none;}
-  
+
+  .datepicker--cells-days {
+    display: grid;
+    grid-template-columns: repeat(7, auto); 
+  }
+
   .datepicker--cell-day {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 38.859px;
-    height: 38.859px; 
+    width: 38px;
+    height: 38px; 
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -89,10 +89,9 @@
     line-height: 15px; 
     border: none;
     color: $dark-shade-50;
-    background: none;}
-
-
-    
+    background: none;
+   }
+  
     .datepicker--cell-day.-current- {
         background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
         border-radius: 50%;

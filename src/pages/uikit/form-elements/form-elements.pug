@@ -172,9 +172,9 @@ block content
               type: 'h3',
               text: 'rich checkbox buttons'})
           .form-elements__checkbox    
-            +rich-checkbox-button({name: 'checkbox11', header: 'Широкий коридор', description: 'Ширина коридоров в номере не менее 91 см.'})
+            +rich-checkbox-button({name: 'checkbox11', header: 'Широкий коридор', description1: 'Ширина коридоров в номере', description2: 'не менее 91 см.'})
           .form-elements__checkbox    
-            +rich-checkbox-button({name: 'checkbox12', header: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист и проводит до номера.'})           
+            +rich-checkbox-button({name: 'checkbox12', header: 'Помощник для инвалидов', description1: 'На 1 этаже вас встретит специалист', description2: 'и проводит до номера.'})           
         .form-elements__wrapper
           +comment({avatarImg: './img/murad_avatar.png', likeCount: 12, isLiked: true, authorName: 'Мурад Сарафанов', daysAgo: '5 дней назад', text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'}) 
         +range-slider({})
