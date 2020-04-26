@@ -23,6 +23,7 @@ block content
   include ../../../blocks/range-slider/range-slider.pug   
   include ../../../blocks/button/button.pug 
   include ../../../blocks/pagination/pagination.pug   
+  include ../../../blocks/bullet-list/bullet-list.pug
 
   main.form-elements
     .form-elements__container
@@ -204,4 +205,16 @@ block content
               {href: '/mock-address/change-me', number: 3},
               {href: '/mock-address/change-me', number: 15}
             ]
-          })             
+          })   
+        .form-elements__wrapper
+          .form-elements__heading-text-button 
+            +heading({
+              type: 'h3',
+              text: 'bullet list'}) 
+          +bullet-list({
+            values: [
+              {text: 'Нельзя с питомцами'},
+              {text: 'Без вечеринок и мероприятий'},
+              {text: 'Время прибытия — после 13:00, а\u00A0выезд до 12:00'},
+            ]  
+          })                        

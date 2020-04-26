@@ -1,0 +1,21 @@
+mixin bullet-list({values = [{text: 'text', circleColor: 'green'}, { text: 'text', circleColor: 'purple' }]})
+  - let circleColorModifier
+
+  .bullet-list
+    ul.bullet-list__list
+      each value in values
+        - const {circleColor, text} = value
+
+        case circleColor
+          when 'yellow'
+            - colorModifier = 'bullet-list__item_color_yellow'
+          when 'green'
+            - colorModifier = 'bullet-list__item_color_green'
+          when 'purple'
+            - colorModifier = 'bullet-list__item_color_purple'
+          when 'black'
+            - colorModifier = 'bullet-list__item_color_black'
+          default 
+            - colorModifier = ''
+            
+        li.bullet-list__item(class=colorModifier)=text
