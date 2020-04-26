@@ -190,7 +190,8 @@ block content
           .form-elements__checkbox    
             +rich-checkbox-button({name: 'checkbox12', header: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист \u00A0 и проводит до номера.'})           
       section.form-elements__buttons  
-        +range-slider({})
+        .form-elements__wrapper
+          +range-slider({})
         .form-elements__wrapper
           .form-elements__heading-text-button 
             +heading({
@@ -203,7 +204,7 @@ block content
         .form-elements__wrapper
           +button({buttonType: 'text-button'})       
         .form-elements__wrapper
-          +button({buttonType: 'submit-button'})   
+          +button({buttonType: 'submit-button', text: 'перейти к оплате'})   
         .form-elements__wrapper
           .form-elements__heading-text-button 
             +heading({

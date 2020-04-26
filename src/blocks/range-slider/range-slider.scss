@@ -4,16 +4,19 @@
 
   &__header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
   }
 
   &__title {
-    margin: 0;    
+    margin: 0;   
   }
 
   &__price-range {
+    width: auto;
+    max-width: 50%;
     border: none;
-    text-align: right;
+    text-align: end;
+    pointer-events: none;
     text-transform: uppercase;
     color: $dark-shade-50;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
@@ -39,9 +42,9 @@
     }
 
     .irs-handle {
-      width: 14px;
-      height: 14px;
-      margin-top: -1px;
+      width: 16px;
+      height: 16px;
+      margin-top: -2px;
       background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
       border: 2px solid #FFFFFF;
       border-radius: 10px;

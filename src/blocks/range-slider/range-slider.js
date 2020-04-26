@@ -17,30 +17,33 @@ class RangeSlider {
    const {$priceRange} = this;
    this.$slider.ionRangeSlider({
      type: 'double',
-     min: 100,
-     max: 15600,
+     min: 550,
+     max: 15400,
      step: 100,
      from: 5000,
      to: 10000,
      hide_min_max: true,
      hide_from_to: true,
+     prettify_enabled: true,
+     prettify_separator: " ",
      onStart(data) {
        const {from, to} = data;
-       $priceRange.text(`${from}₽ - ${to}₽`);
+       $priceRange.val(`${new Intl.NumberFormat('ru-RU').format(from)}₽ - ${new Intl.NumberFormat('ru-RU').format(to)}₽`);  
      },
      onChange(data) {
        const {from, to} = data;
-       $priceRange.text(`${from}₽ - ${to}₽`);
+       $priceRange.val(`${new Intl.NumberFormat('ru-RU').format(from)}₽ - ${new Intl.NumberFormat('ru-RU').format(to)}₽`);
      },
    });
  }
 }
 
 export default RangeSlider;
- 
+
+
 $(() => {
  const $sliders = $('.js-range-slider');
- $sliders.each((indx, val) => {
+ $sliders.each((index, val) => {
    new RangeSlider(val);
  });
 });

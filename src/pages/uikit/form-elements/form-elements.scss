@@ -21,7 +21,7 @@
                           'signs          comments          comments'
                           ;
     grid-row-gap: 100px; 
-    grid-column-gap: 10px;      
+    grid-column-gap: 0px;      
     
     @media (max-width: 900px) {
       grid-template-columns: auto auto;
