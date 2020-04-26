@@ -21,4 +21,4 @@ Run build production
 ---
 ## UI kit & Website pages
 
-### [UI kit & Website](https://maratv85.github.io/FSD_Task2/index.html)
+### [index](https://maratv85.github.io/FSD_Task2/index.html)
