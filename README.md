@@ -19,7 +19,6 @@ Run build production
 [Air-Datepicker](https://github.com/t1m0n/air-datepicker)
 
 ---
-## UI kit
+## UI kit & Website pages
 
-### [Colors & type](https://maratv85.github.io/FSD_Task2/colors-and-types.html)
-### [Form elements](https://maratv85.github.io/FSD_Task2/form-elements.html)
+### [index](https://maratv85.github.io/FSD_Task2/index.html)
