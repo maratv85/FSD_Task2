@@ -1,9 +1,7 @@
-mixin rich-checkbox-button({name = 'rich-checkbox-button', header = 'input', description1 = '', description2})
+mixin rich-checkbox-button({name = 'rich-checkbox-button', header = 'input', description = ''})
   .rich-checkbox-button
     label.rich-checkbox-button__label
       input(type='checkbox' name=name class='rich-checkbox-button__input')
       span.rich-checkbox-button__checkbox
       span.rich-checkbox-button__header=header
-      span.rich-checkbox-button__description=description1
-      span &nbsp; 
-      span.rich-checkbox-button__description=description2
+      span.rich-checkbox-button__description=description

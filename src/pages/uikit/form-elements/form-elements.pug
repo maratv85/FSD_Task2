@@ -22,6 +22,7 @@ block content
   include ../../../blocks/comment/comment.pug  
   include ../../../blocks/range-slider/range-slider.pug   
   include ../../../blocks/button/button.pug 
+  include ../../../blocks/pagination/pagination.pug   
 
   main.form-elements
     .form-elements__container
@@ -172,9 +173,9 @@ block content
               type: 'h3',
               text: 'rich checkbox buttons'})
           .form-elements__checkbox    
-            +rich-checkbox-button({name: 'checkbox11', header: 'Широкий коридор', description1: 'Ширина коридоров в номере', description2: 'не менее 91 см.'})
+            +rich-checkbox-button({name: 'checkbox11', header: 'Широкий коридор', description: 'Ширина коридоров в номере не\u00A0менее 91 см.'})
           .form-elements__checkbox    
-            +rich-checkbox-button({name: 'checkbox12', header: 'Помощник для инвалидов', description1: 'На 1 этаже вас встретит специалист', description2: 'и проводит до номера.'})           
+            +rich-checkbox-button({name: 'checkbox12', header: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист \u00A0 и проводит до номера.'})           
         .form-elements__wrapper
           +comment({avatarImg: './img/murad_avatar.png', likeCount: 12, isLiked: true, authorName: 'Мурад Сарафанов', daysAgo: '5 дней назад', text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'}) 
         +range-slider({})
@@ -190,4 +191,17 @@ block content
         .form-elements__wrapper
           +button({buttonType: 'text-button'})       
         .form-elements__wrapper
-          +button({buttonType: 'submit-button'})                
+          +button({buttonType: 'submit-button'})   
+        .form-elements__wrapper
+          .form-elements__heading-text-button 
+            +heading({
+              type: 'h3',
+              text: 'pagination'}) 
+          +pagination({ 
+            links: [
+              {href: '/mock-address/change-me', number: 1, isActive: true},
+              {href: '/mock-address/change-me', number: 2},
+              {href: '/mock-address/change-me', number: 3},
+              {href: '/mock-address/change-me', number: 15}
+            ]
+          })             

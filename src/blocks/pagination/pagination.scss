@@ -1,0 +1,70 @@
+.pagination {
+  text-align: center;
+  padding: 0;
+  max-width: 241px;
+
+ &__item {
+   display: inline-block;
+   vertical-align: top;
+ }
+
+ &__divider {
+   display: inline-block;
+   width: 40px;
+   height: 40px;
+   text-align: center;
+   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+   font-size: 12px;
+   color: $dark-shade-50;
+   line-height: 42px;
+   user-select: none;
+ }
+
+ &__link {
+   display: inline-block;
+   width: 40px;
+   height: 40px;
+   position: relative;
+   text-align: center;
+   border-radius: 22px;
+   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+   font-size: 12px;
+   color: $dark-shade-50;
+   line-height: 42px;
+   text-decoration: none;
+   user-select: none;
+
+  &:hover {
+    text-decoration: none;
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+    border-radius: 22px;
+    color: #fff;
+  }
+
+  &_active {
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    text-decoration: none;
+    color: #fff;
+  }
+
+  &_next {
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 22px;
+    text-decoration: none;
+  }
+}
+
+ &__description {
+   margin-top: 10px;
+   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+   font-size: 14px;
+   color: $dark-shade-75;
+   text-align: center;
+ }
+
+}
