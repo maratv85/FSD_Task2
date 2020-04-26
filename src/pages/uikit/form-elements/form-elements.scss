@@ -10,16 +10,81 @@
     top: 30px;
     left: 30px;    
   }
+
   &__container {
     display: grid; 
     width: 1440px; 
     grid-template-columns: 1fr 1fr 1fr;   
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto;
     grid-template-areas:  'fields         check-buttons     buttons' 
-                          'dropdown-left  dropdown-center   dropdown-right'
                           'exp-checkbox   checkbox-buttons  bullet-list' 
                           'signs          comments          comments'
                           ;
+    grid-row-gap: 100px; 
+    grid-column-gap: 10px;      
+    
+    @media (max-width: 900px) {
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto auto auto auto;
+      grid-template-areas:    'fields           check-buttons' 
+                              'buttons          exp-checkbox'
+                              'buttons          signs'
+                              'checkbox-buttons bullet-list'
+                              'comments         comments'
+                              ;
+      grid-row-gap: 0px;
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto auto auto;
+      grid-template-areas:    'fields' 
+                              'check-buttons' 
+                              'buttons'
+                              'exp-checkbox'
+                              'checkbox-buttons'
+                              'bullet-list'
+                              'signs'
+                              'comments'
+                              ;
+      grid-row-gap: 0px;
+    }
+
+    @media (max-width: 380px) {
+      grid-template-columns: 300px;
+    }
+  }
+
+  &__fields {
+    grid-area: fields;
+  }
+
+  &__check-buttons {
+    grid-area: check-buttons;
+  }
+
+  &__buttons {
+    grid-area: buttons;
+  }
+
+  &__exp-checkbox {
+    grid-area: exp-checkbox;
+  }
+
+  &__checkbox-buttons {
+    grid-area: checkbox-buttons;
+  }
+
+  &__bullet-list {
+    grid-area: bullet-list;
+  }
+
+  &__signs {
+    grid-area: signs;
+  }
+
+  &__comments {
+    grid-area: comments;
   }
 
   &__little-wrapper {
@@ -28,12 +93,6 @@
 
   &__wrapper {
     margin-bottom: 40px;
-   // margin-top: 190px;
-  }
-
-  &__big-wrapper {
-    margin-top: 250px;
-    margin-bottom: 20px;
   }
 
   &__heading-text {
@@ -75,6 +134,7 @@
 
   &__like-buttons {
     display: flex;
+
   }
 
   &__like-button {

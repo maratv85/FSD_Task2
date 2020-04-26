@@ -29,7 +29,7 @@ block content
     .form-elements__container
       .form-elements__logo
         +logo-ui-kit({}) 
-      article.form-elements__fields 
+      section.form-elements__fields 
         .form-elements__little-wrapper
           .form-elements__heading-text 
             +heading({
@@ -96,11 +96,20 @@ block content
               type: 'h3',
               text: 'subscription text field'})
           +subscription-text-field({})  
+      section.form-elements__exp-checkbox  
+        .form-elements__little-wrapper
+          .form-elements__heading-text 
+            +heading({
+              type: 'h3',
+              text: 'dropdown'}) 
+          +dropdown({
+            hasButtons: false,
+            width: 'short',
+            options:[
+              {text: 'спальни', number: 2},
+              {text: 'кровати', number: 2},
+              {text: 'ванные комнаты' } ]  })          
         .form-elements__wrapper
-          //- .form-elements__heading-text 
-          //-   +heading({
-          //-     type: 'h3',
-          //-     text: 'expandable checkbox list'})
           +checkbox-list({
             values: [
               ['checkbox0', 'Завтрак'],
@@ -113,10 +122,12 @@ block content
               ['checkbox7', 'Шампунь']
             ]
           })
-        .form-elements__big-wrapper  
+      section.form-elements__signs    
+        .form-elements__wrapper  
           +room-information({icon: 'insert_emoticon', header: 'Комфорт', description: 'Шумопоглощающие стены'})
         .form-elements__wrapper  
           +room-information({icon: 'location_city', header: 'Удобство', description: 'Окно в каждой из спален'})  
+      section.form-elements__check-buttons  
         .form-elements__wrapper
           .form-elements__heading-text-button  
             +heading({
@@ -167,7 +178,8 @@ block content
             .form-elements__radio-button
               +rate-button({rating: 4}) 
             .form-elements__radio-button     
-              +rate-button({rating: 5})                    
+              +rate-button({rating: 5})  
+      section.form-elements__checkbox-buttons                          
         .form-elements__wrapper
           .form-elements__heading-text-button  
             +heading({
@@ -177,8 +189,7 @@ block content
             +rich-checkbox-button({name: 'checkbox11', header: 'Широкий коридор', description: 'Ширина коридоров в номере не\u00A0менее 91 см.'})
           .form-elements__checkbox    
             +rich-checkbox-button({name: 'checkbox12', header: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист \u00A0 и проводит до номера.'})           
-        .form-elements__wrapper
-          +comment({avatarImg: './img/murad_avatar.png', likeCount: 12, isLiked: true, authorName: 'Мурад Сарафанов', daysAgo: '5 дней назад', text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'}) 
+      section.form-elements__buttons  
         +range-slider({})
         .form-elements__wrapper
           .form-elements__heading-text-button 
@@ -205,7 +216,8 @@ block content
               {href: '/mock-address/change-me', number: 3},
               {href: '/mock-address/change-me', number: 15}
             ]
-          })   
+          })  
+      section.form-elements__bullet-list     
         .form-elements__wrapper
           .form-elements__heading-text-button 
             +heading({
@@ -218,3 +230,6 @@ block content
               {text: 'Время прибытия — после 13:00, а\u00A0выезд до 12:00'},
             ]  
           })                        
+      section.form-elements__comments  
+        .form-elements__wrapper
+          +comment({avatarImg: './img/murad_avatar.png', likeCount: 12, isLiked: true, authorName: 'Мурад Сарафанов', daysAgo: '5 дней назад', text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'})           

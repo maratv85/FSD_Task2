@@ -8,7 +8,7 @@ mixin checkbox-list({title = 'expandable checkbox list', values = [['name1', 'te
       +material-icons({type: 'expand_more', color: 'dark-shade-50'})
     .checkbox-list__header.js-checkbox-list__header
       +heading({type: 'h3', text: title})  
-    .checkbox-list__items-list.js-checkbox-list__items-list
+    .checkbox-list__items-list.js-checkbox-list__items-list.checkbox-list__items-list_invisible
       each val in values 
         - const [name, text] = val
         .checkbox-list__item
