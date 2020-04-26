@@ -47,7 +47,8 @@ class DateDropdown {
         clearButton: true,
         multipleDatesSeparator: ' - ',
       });
-      new AirDatepickerCustom(this.$standaloneInput.datepicker().data('datepicker'), this.$calendar);
+      this.datePickercustom = new AirDatepickerCustom(this.$standaloneInput.datepicker().data('datepicker'), this.$calendar);
+      //this.datePickercustom.handleCalendarResize();
     };
 
   }; 

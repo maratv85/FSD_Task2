@@ -14,7 +14,6 @@ class AirDatepickerCustom {
     this.addAirDatepickerCustomClass();
     this.createApplyButton();
     this.bindButtonApplyEventListener();
-    this.handleCalendarResize();
   }
 
   findElements() {
@@ -42,11 +41,7 @@ class AirDatepickerCustom {
   }
 
   handleCalendarResize() {
-    this.containerCalendar = this.calendar.find('.date-dropdown__input');
-    const containerWidth = this.containerCalendar.width();
-    if(containerWidth === 266) {
-      this.$datepicker.css({'transform' : 'scale(0.85)', 'transform-origin' : '0 0 0'});
-    }
+    this.$datepicker.addClass('air-datepicker-custom__modifier_small');
   }
 
   _handleApplyButtonClick() {
@@ -62,8 +57,3 @@ class AirDatepickerCustom {
 }
 
 export default AirDatepickerCustom
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const airDatepickers = document.querySelectorAll('.air-datepicker-custom');
-//   airDatepickers.forEach((val) => new AirDatepickerCustom(val));
-// });
