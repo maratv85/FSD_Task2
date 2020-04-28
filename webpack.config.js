@@ -156,10 +156,10 @@ module.exports = (env, options) => {
         template: `${PAGES_DIR}/uikit/form-elements/form-elements.pug`,
         filename: './form-elements.html',
       }),
-     // new HtmlWebpackPlugin({
-    //    template: `${PAGES_DIR}/uikit/headers-and-footers/headers-and-footers.pug`,
-    //    filename: './headers-and-footers.html',
-    //  }),
+     new HtmlWebpackPlugin({
+       template: `${PAGES_DIR}/uikit/headers-and-footers/headers-and-footers.pug`,
+       filename: './headers-and-footers.html',
+     }),
 
     ],
   };

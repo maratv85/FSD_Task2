@@ -1,0 +1,8 @@
+include ../social-icons/social-icons.pug
+include ../logo-site/logo-site.pug
+
+mixin footer({text = 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.'})
+  footer.footer-unit
+    +logo-site()
+    p.footer-unit__text=text
+    +social-icons()

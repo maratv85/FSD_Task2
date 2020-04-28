@@ -1,0 +1,10 @@
+.logo-site {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+
+  &__icon-text {
+    margin-left: 12.5px;
+  }
+}

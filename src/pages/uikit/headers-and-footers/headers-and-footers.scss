@@ -1,0 +1,15 @@
+.headers-and-footers {
+  background: #F4F4F6;
+  padding-top: 150px;
+  padding-bottom: 90px;
+
+  &__logo-ui-kit {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
+
+  &__unit {
+    margin-bottom: 40px;
+  }
+}

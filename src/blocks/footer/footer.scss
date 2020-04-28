@@ -1,0 +1,23 @@
+.footer-unit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 367px;
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px $dark-shade-5;
+
+  &__text {
+    max-width: 560px;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: $dark-shade-75;
+    margin-top: 20px;
+    margin-bottom: 25px;
+  }
+}
