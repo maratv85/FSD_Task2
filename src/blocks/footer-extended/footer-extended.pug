@@ -1,8 +1,35 @@
 include ../social-icons/social-icons.pug
+include ../logo-site/logo-site.pug
+include ../nav-menu/nav-menu.pug
+include ../subscription-text-field/subscription-text-field.pug
+include ../heading/heading.pug
 
 
-mixin footer-extended({})
+mixin footer-extended({description = '', navMenus = [], subsriptionHeader = '', subcriptionText = '', copyrightText = ''})
   footer.footer-extended
     .footer-extended__container
+      .footer-extended__top-part
 
-    .footer-extended__copyright-bar
+        .footer-extended__description-part
+          .footer-extended__wrapper
+            .footer-extended__logo
+              +logo-site()
+          p.footer-extended__description=description 
+
+        .footer-extended__nav-menus
+          each menu in navMenus
+            - const {header, links} = menu
+            +nav-menu({header: header, links: links})
+
+        .footer-extended__subscription-part 
+          .footer-extended__wrapper
+            +heading({type: 'h3', text: subsriptionHeader}) 
+          .footer-extended__wrapper  
+            p.footer-extended__description=subcriptionText      
+          .footer-extended__subscription-text-field
+            +subscription-text-field() 
+
+    section.footer-extended__copyright-bar
+      .footer-extended__copyright-bar-text=text
+      .footer-extended__social-icons
+        +social-icons()

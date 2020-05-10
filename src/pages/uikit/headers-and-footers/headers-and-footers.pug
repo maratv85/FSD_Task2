@@ -6,12 +6,14 @@ block variables
 block content
   include ../../../blocks/logo-ui-kit/logo-ui-kit.pug   
   include ../../../blocks/footer/footer.pug
+  include ../../../blocks/footer-extended/footer-extended.pug
 
 
   main.headers-and-footers
     .headers-and-footers__logo-ui-kit 
       +logo-ui-kit({})
-    //-2x header and footer above  
+    section.headers-and-footers__unit
+      +footer-extended({})  
     section.headers-and-footers__unit
       +footer({})    
 
