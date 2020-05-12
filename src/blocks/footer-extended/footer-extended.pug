@@ -5,13 +5,13 @@ include ../subscription-text-field/subscription-text-field.pug
 include ../heading/heading.pug
 
 
-mixin footer-extended({description = '', navMenus = [], subsriptionHeader = '', subcriptionText = '', copyrightText = ''})
+mixin footer-extended({description = '', navMenus = [], subsriptionHeader = '', subcriptionText = '', emailPlaceholder = '', copyrightText = ''})
   footer.footer-extended
     .footer-extended__container
       .footer-extended__top-part
 
         .footer-extended__description-part
-          .footer-extended__wrapper
+          .footer-extended__logo-wrapper
             .footer-extended__logo
               +logo-site()
           p.footer-extended__description=description 
@@ -22,14 +22,15 @@ mixin footer-extended({description = '', navMenus = [], subsriptionHeader = '', 
             +nav-menu({header: header, links: links})
 
         .footer-extended__subscription-part 
-          .footer-extended__wrapper
+          .footer-extended__subscribe-wrapper
             +heading({type: 'h3', text: subsriptionHeader}) 
           .footer-extended__wrapper  
             p.footer-extended__description=subcriptionText      
           .footer-extended__subscription-text-field
-            +subscription-text-field() 
+            +subscription-text-field({placeholder: emailPlaceholder}) 
 
     section.footer-extended__copyright-bar
-      .footer-extended__copyright-bar-text=text
-      .footer-extended__social-icons
-        +social-icons()
+      .footer-extended__bar-container
+        .footer-extended__copyright-bar-text=copyrightText
+        .footer-extended__social-icons
+          +social-icons()

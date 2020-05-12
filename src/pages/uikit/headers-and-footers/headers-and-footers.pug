@@ -13,7 +13,41 @@ block content
     .headers-and-footers__logo-ui-kit 
       +logo-ui-kit({})
     section.headers-and-footers__unit
-      +footer-extended({})  
+      +footer-extended({
+        description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.', 
+        navMenus: [
+          {
+            header: 'Navigation',
+            links: [
+              {text: 'About us'},
+              {text: 'News'},
+              {text: 'Support'},
+              {text: 'Products'},
+            ],
+          },
+          {
+            header: 'About us',
+            links: [
+              {text: 'Who we are'},
+              {text: 'Our team'},
+              {text: 'Careers'},
+              {text: 'Investors'},
+            ],
+          },
+          {
+            header: 'Support',
+            links: [
+              {text: 'Documentation'},
+              {text: 'Community'},
+              {text: 'Get in Touch'},
+            ],
+          }
+        ], 
+        subsriptionHeader: 'Subscribe to our newsletter', 
+        subcriptionText: 'Receive our latest news and promotions in your inbox!', 
+        emailPlaceholder: 'Your email address',
+        copyrightText: 'Copyright © 2018 Toxin UI Kit. All rights reserved.'
+      })  
     section.headers-and-footers__unit
       +footer({})    
 
