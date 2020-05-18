@@ -148,10 +148,10 @@ module.exports = (env, options) => {
         template: `${PAGES_DIR}/uikit/colors-and-types/colors-and-types.pug`,
         filename: './pages/colors-and-types.html',
       }),
-     // new HtmlWebpackPlugin({
-     //   template: `${PAGES_DIR}/uikit/cards/cards.pug`,
-     //   filename: './pages/cards.html',
-      //}),
+     new HtmlWebpackPlugin({
+       template: `${PAGES_DIR}/uikit/cards/cards.pug`,
+       filename: './pages/cards.html',
+      }),
       new HtmlWebpackPlugin({
         template: `${PAGES_DIR}/uikit/form-elements/form-elements.pug`,
         filename: './pages/form-elements.html',
