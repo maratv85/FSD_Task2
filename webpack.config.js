@@ -146,19 +146,19 @@ module.exports = (env, options) => {
 
       new HtmlWebpackPlugin({
         template: `${PAGES_DIR}/uikit/colors-and-types/colors-and-types.pug`,
-        filename: './colors-and-types.html',
+        filename: './pages/colors-and-types.html',
       }),
      // new HtmlWebpackPlugin({
      //   template: `${PAGES_DIR}/uikit/cards/cards.pug`,
-     //   filename: './cards.html',
+     //   filename: './pages/cards.html',
       //}),
       new HtmlWebpackPlugin({
         template: `${PAGES_DIR}/uikit/form-elements/form-elements.pug`,
-        filename: './form-elements.html',
+        filename: './pages/form-elements.html',
       }),
      new HtmlWebpackPlugin({
        template: `${PAGES_DIR}/uikit/headers-and-footers/headers-and-footers.pug`,
-       filename: './headers-and-footers.html',
+       filename: './pages/headers-and-footers.html',
      }),
 
     ],
