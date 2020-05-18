@@ -1,0 +1,41 @@
+include ../logo-site/logo-site.pug
+include ../button/button.pug
+include ../material-icons/material-icons.pug
+
+mixin header({loginName = 'Cosmin Negoita', isLogOn = false, links = [], loginText = 'Login', registerText = 'Register', language = 'eng'})
+  - let menuModifier
+  - let itemModifier
+
+  case language
+    when 'rus'
+      - menuModifier = 'header-unit__nav-menu_russian'
+      - itemModifier = 'header-unit__links_russian'
+    default
+      null            
+
+  header.header-unit
+    .header-unit__container
+      +logo-site()   
+      .header-unit__menu-wrapper
+        .header-unit__nav-menu(class=menuModifier)
+          ul.header-unit__links(class=itemModifier)
+            each link in links
+              - const {isCurrent, isMenu, href = '/mock-address/change-me', text} = link
+              li.header-unit__item(class=isMenu ? 'header-unit__item_set-menu-sign' : null)
+                a.header-unit__link(href=href class=isCurrent ? 'header-unit__link_current' : null)=text
+                if isMenu
+                  .header-unit__expand-more
+                    +material-icons({type: 'expand_more', color: 'dark-shade-50'})
+        if isLogOn
+          .header-unit__vertical-line
+          .header-unit__login-name=loginName
+        else
+          .header-unit__login-button
+            +button({buttonType: 'pale-button', text: loginText, href: '/mock-address/change-me'})
+          .header-unit__register-button  
+            +button({buttonType: 'purple-button', text: registerText, href: '/mock-address/change-me'})
+            
+
+          
+         
+   
