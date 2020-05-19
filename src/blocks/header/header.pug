@@ -10,8 +10,7 @@ mixin header({loginName = 'Cosmin Negoita', isLogOn = false, links = [], loginTe
     when 'rus'
       - menuModifier = 'header-unit__nav-menu_russian'
       - itemModifier = 'header-unit__links_russian'
-    default
-      null            
+          
 
   header.header-unit
     .header-unit__container
@@ -31,11 +30,6 @@ mixin header({loginName = 'Cosmin Negoita', isLogOn = false, links = [], loginTe
           .header-unit__login-name=loginName
         else
           .header-unit__login-button
-            +button({buttonType: 'pale-button', text: loginText, href: '/mock-address/change-me'})
+            +button({buttonType: 'pale-button', text: loginText, href: '/mock-address/change-me', size: 'narrow'})
           .header-unit__register-button  
-            +button({buttonType: 'purple-button', text: registerText, href: '/mock-address/change-me'})
-            
-
-          
-         
-   
+            +button({buttonType: 'purple-button', text: registerText, href: '/mock-address/change-me', size: 'narrow'})
