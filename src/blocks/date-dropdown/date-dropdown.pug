@@ -1,7 +1,7 @@
 include ../text-field/text-field.pug
 include ../date-field/date-field.pug
 
-mixin date-dropdown( { fieldType = '', firstHeader = '', secondHeader = ''} = {} )
+mixin date-dropdown({fieldType = '', firstHeader = '', secondHeader = ''})
   section.date-dropdown.js-date-dropdown
     case fieldType
       when 'single'
