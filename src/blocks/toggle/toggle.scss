@@ -40,6 +40,8 @@
 
  &__input {
    display: none;
+   width: 0;
+   margin: 0;
  
    &:checked ~ .toggle__ellipse {
      border: 1px solid $purple;
