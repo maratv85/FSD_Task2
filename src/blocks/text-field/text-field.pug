@@ -1,4 +1,4 @@
-mixin text-field({view='text', placeholder='', type = 'text', fontSharpness = '', isClickable = false, readonly = false})
+mixin text-field({view='text', placeholder='', name = '', type = 'text', fontSharpness = '', isClickable = false, readonly = false})
   
   - let ViewModifier = ''  
 
@@ -24,6 +24,7 @@ mixin text-field({view='text', placeholder='', type = 'text', fontSharpness = ''
   input(
     class=`text-field ${ViewModifier} ${clickableModifier} ${fontSharpnessModifier} js-text-field`, 
     type=type,
+    name=name,
     placeholder=placeholder,
     readonly=readonly
   )

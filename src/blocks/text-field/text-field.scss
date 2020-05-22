@@ -5,7 +5,7 @@
   border-radius: 4px;
   height: 44px;
   position: relative;
-  font-family: 'Montserrat', Arial, helvetica, sans-serif;
+  font-family: $montserrat;
   background: #FFFFFF;
   font-size: 14px;
   color: $dark-shade-25;
@@ -14,16 +14,10 @@
   padding-left: 15px;
   text-overflow: ellipsis;
 
-  &:hover {
-    @extend %hover-focus;
+  &:hover,&:focus {
+    border: 1px solid $dark-shade-50;
+    color: $dark-shade-75;
     outline: none;
-  }
-
-  &:focus {
-    @extend %hover-focus;
-    outline: none;
-    box-shadow: 0 0 0.5px 0.4px $purple;
-    -o-box-shadow: 0 0 0.5px 0.4px $purple;
   }
 
   &::placeholder {
@@ -32,6 +26,7 @@
 
   &_default-state {
     color: $dark-shade-25;
+
     &::placeholder {
       color: $dark-shade-25;
     }
@@ -40,6 +35,7 @@
   &_hover-state {
     color: $dark-shade-75;
     border: 1px solid $dark-shade-50;
+
     &::placeholder {
       color: $dark-shade-50;
     }
@@ -51,14 +47,9 @@
 
   &_sharp {
     color: $dark-shade-75;
+
       &::placeholder {
         color: $dark-shade-75;
       }
   }
-
-%hover-focus {
-  border: 1px solid $dark-shade-50;
-  color: $dark-shade-75;
-}
-
 }
