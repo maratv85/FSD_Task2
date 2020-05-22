@@ -15,6 +15,9 @@
   &__container {
     display: flex;
 
+    @media(max-width: 1150px) {
+      flex-direction: column;
+    }
   }
 
   &__column {
@@ -24,6 +27,11 @@
 
     &:last-of-type {
       margin-right: 0;
+    }
+
+    @media(max-width: 1150px) {
+      margin-right: 10px;
+      margin-left: 10px;
     }
   }
 

@@ -5,7 +5,8 @@ block variables
 
 block content
   include ../../../blocks/logo-ui-kit/logo-ui-kit.pug
-  include ../../../blocks/cards-find-room/cards-find-room.pug 
+  include ../../../blocks/cards-find-room/cards-find-room.pug
+  include ../../../blocks/cards-registration/cards-registration.pug
 
 
   main.cards
@@ -15,4 +16,6 @@ block content
       .cards__column
         .cards__cell
           +cards-find-room({})
+        .cards__cell  
+          +cards-registration({})
       
