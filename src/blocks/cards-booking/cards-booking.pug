@@ -1,0 +1,38 @@
+include ../heading/heading.pug
+include ../button/button.pug
+include ../date-dropdown/date-dropdown.pug
+include ../dropdown/dropdown.pug
+
+//-number.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 })
+mixin cards-booking({ name = 'cards-booking', method = 'get', action = '/mock-address/change-me', roomNumber = '888', typeOfRoom = 'люкс', roomPrice = 9990, currency = '₽', dayCount = 4, serviceFee = 0, discount = 2179, additioanlServiceFee = 0})
+  - let perDay = ' в сутки'
+  form.cards-booking(name=name action=action method=method)
+    .cards-booking__container
+      .cards-booking__title
+        p.cards-booking__title-part
+          span.cards-booking__no №
+          span.cards-booking__number-room=` ${roomNumber}`
+          span.cards-booking__type-room=` ${typeOfRoom}`
+        p.cards-booking__title-part
+          span.cards-booking__price-room.js-cards-booking__price-room=roomPrice
+          span.cards-booking__price-room=currency
+          span.cards-booking__per-day=perDay
+
+      .cards-booking__date-dropdown
+        +date-dropdown({fieldType: 'range', firstHeader: 'прибытие', secondHeader: 'выезд'})      
+      .cards-booking__dropdown
+        +heading({type: 'h3', text: 'Гости'})
+        .cards-booking__dropdown-wrapper
+          +dropdown({
+            text: 'Сколько гостей',
+            hasButtons: true,
+            options: [
+              {text: 'взрослые', group: 'гости'},
+              {text: 'дети', group: 'гости'},
+              {text: 'младенцы'}
+            ]
+          })  
+
+      .cards-booking__submit-button
+        +button({buttonType: 'submit-button', href: '/mock-address/change-me', text: 'забронировать'})
+    
