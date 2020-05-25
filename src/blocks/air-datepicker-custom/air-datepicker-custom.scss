@@ -26,7 +26,7 @@
     display: inline-block;
     max-width: min-content;
     height: min-content;
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: $montserrat;
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
@@ -44,6 +44,7 @@
     flex-direction: column;
     justify-content: center;
     max-width: 320px;
+    width: 100%;
     width: max-content;
     box-sizing: border-box;
     padding: 19px;
@@ -70,6 +71,10 @@
     .datepicker--cells {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .datepicker--pointer {
+      display: none;
     }
 
     .datepicker--cell-day {
