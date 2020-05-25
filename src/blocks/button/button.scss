@@ -19,6 +19,10 @@
   cursor: pointer;
   text-decoration: none;
 
+  &:focus {
+    outline: none;
+  }
+
   &__purple {
     &:hover {
       opacity: 0.5;
