@@ -1,4 +1,5 @@
 # FSD Education Task #2
+[Coded by design](https://www.figma.com/file/MumYcKVk9RkKZEG6dR5E3A)
 ---
 ## Deployment
 Clone the repo
