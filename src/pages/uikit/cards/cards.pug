@@ -8,6 +8,7 @@ block content
   include ../../../blocks/cards-find-room/cards-find-room.pug
   include ../../../blocks/cards-registration/cards-registration.pug
   include ../../../blocks/cards-booking/cards-booking.pug
+  include ../../../blocks/air-datepicker-custom/air-datepicker-custom.pug
 
 
   main.cards
@@ -21,4 +22,7 @@ block content
           +cards-registration({})
       .cards__column
         .cards__cell
-          +cards-booking({})        
+          +cards-booking({})
+      .cards__column
+        .cards__cell
+          //- .js-datepicker
