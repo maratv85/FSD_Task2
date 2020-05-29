@@ -8,5 +8,4 @@ importAll(require.context('../blocks', true, /\.(css|scss|jpg|png|svg|png|ico|xm
 importAll(require.context('../pages', true, /\.(css|scss)$/));
 importAll(require.context('./', true, /\.(js)$/));
 importAll(require.context('../blocks', true, /\.(js)$/));
-importAll(require.context('../pages', true, /\.(js)$/));
 
