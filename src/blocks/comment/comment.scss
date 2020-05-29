@@ -30,7 +30,7 @@
  }
 
  &__name {
-   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+   font-family: $montserrat
    font-size: 14px;
    line-height: 24px;
    color: $dark-shade-75;
@@ -39,14 +39,14 @@
 
  &__daysAgo {
    margin-top: 3px;
-   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+   font-family: $montserrat;
    font-size: 14px;
    color: $dark-shade-75;
 }
 
  &__text {
    margin-top: 13px;
-   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+   font-family: $montserrat;
    font-size: 14px;
    line-height: 24px;
    color: $dark-shade-75;
