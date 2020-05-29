@@ -2,11 +2,11 @@ include ../heading/heading.pug
 include ../button/button.pug
 include ../date-dropdown/date-dropdown.pug
 include ../dropdown/dropdown.pug
+include ../room-info/room-info.pug
 
-//-number.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 })
-mixin cards-booking({ name = 'cards-booking', method = 'get', action = '/mock-address/change-me', roomNumber = '888', typeOfRoom = 'люкс', roomPrice = 9990, currency = '₽', dayCount = 4, serviceFee = 0, discount = 2179, additioanlServiceFee = 0})
+mixin cards-booking({ name = 'cards-booking', method = 'get', action = '/mock-address/change-me', roomNumber = '888', typeOfRoom = 'люкс', roomPrice = 9990, currency = '₽', dayCount = 4, serviceFee = 0, discount = 2179, additioanlServiceFee = 300})
   - let perDay = ' в сутки'
-  form.cards-booking(name=name action=action method=method)
+  form.cards-booking.js-cards-booking(name=name action=action method=method)
     .cards-booking__container
       .cards-booking__title
         p.cards-booking__title-part
@@ -32,6 +32,9 @@ mixin cards-booking({ name = 'cards-booking', method = 'get', action = '/mock-ad
               {text: 'младенцы'}
             ]
           })  
+
+      .cards-booking__room-info
+        +room-info({currency: currency, roomPrice: roomPrice, dayCount: dayCount, serviceFee: serviceFee, discount: discount, additioanlServiceFee: additioanlServiceFee})
 
       .cards-booking__submit-button
         +button({buttonType: 'submit-button', href: '/mock-address/change-me', text: 'забронировать'})
