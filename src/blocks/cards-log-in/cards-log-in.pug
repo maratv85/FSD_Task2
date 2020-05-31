@@ -1,0 +1,20 @@
+include ../heading/heading.pug
+include ../text-field/text-field.pug
+include ../button/button.pug
+
+mixin cards-log-in({action='/mock-address/change-me', name='cards-log-in', method='post'})
+  form.cards-log-in(action=action, name=name, method=method)
+    .cards-log-in__container
+      .cards-log-in__header
+        +heading({type: 'h1', text: 'Войти'})
+      .cards-log-in__email
+        +text-field({type: 'email', name: 'log-in-email', placeholder: 'Email'})  
+      .cards-log-in__password  
+        +text-field({type: 'password', name: 'log-in-password', placeholder: 'Пароль'}) 
+      .cards-log-in__login-button
+        +button({buttonType: 'submit-button', href: '/mock-address/change-me', text:'войти'})
+      .cards-log-in__sign-in-button 
+        p.cards-log-in__sign-in-text Нет аккаунта на Toxin?
+        +button({buttonType: 'pale-button', href: '/mock-address/change-me', text:'создать'})
+
+      
