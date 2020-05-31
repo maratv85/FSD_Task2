@@ -2,9 +2,8 @@ import 'air-datepicker';
 import 'air-datepicker/dist/css/datepicker.min.css';
 
 class AirDatepickerCustom {
-  constructor(pluginInstance, calendar) {
+  constructor(pluginInstance) {
     this.pluginInstance = pluginInstance;
-    this.calendar = calendar;
     this.initPlugin();
   }
 
