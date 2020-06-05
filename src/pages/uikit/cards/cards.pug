@@ -31,6 +31,24 @@ block content
         .cards__cell
           +inline-calendar({})
         .cards__cell
-          +cards-room-preview({})
+          +cards-room-preview({
+            roomNumber: '888', 
+            roomPrice: '9 900', 
+            currency: '₽', 
+            roomImg: '/img/room_888_preview.png', 
+            roomType: 'люкс', 
+            rating: 5, 
+            reviewCount: '145', 
+            name: 'room 888 preview'
+          })
         .cards__cell  
-          +cards-room-preview({})
+          +cards-room-preview({
+            roomNumber: '840', 
+            roomPrice: '9 900', 
+            currency: '₽', 
+            roomImg: '/img/room_840_preview.png', 
+            roomType: '', 
+            rating: 4, 
+            reviewCount: '65', 
+            name: 'room 840 preview'
+          })
