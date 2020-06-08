@@ -164,22 +164,22 @@ module.exports = (env, options) => {
         template: `${PAGES_DIR}/website/landing-page/landing-page.pug`,
         filename: './pages/landing-page.html',
       }),
-      new HtmlWebpackPlugin({
-        template: `${PAGES_DIR}/website/registration/registration.pug`,
-        filename: './pages/registration.html',
-      }),
-      new HtmlWebpackPlugin({
-        template: `${PAGES_DIR}/website/room-details/room-details.pug`,
-        filename: './pages/room-details.html',
-      }),
-      new HtmlWebpackPlugin({
-        template: `${PAGES_DIR}/website/search-room/search-room.pug`,
-        filename: './pages/search-room.html',
-      }),
-      new HtmlWebpackPlugin({
-        template: `${PAGES_DIR}/website/sign-in/sign-in.pug`,
-        filename: './pages/sign-in.html',
-      }),
+      // new HtmlWebpackPlugin({
+      //   template: `${PAGES_DIR}/website/registration/registration.pug`,
+      //   filename: './pages/registration.html',
+      // }),
+      // new HtmlWebpackPlugin({
+      //   template: `${PAGES_DIR}/website/room-details/room-details.pug`,
+      //   filename: './pages/room-details.html',
+      // }),
+      // new HtmlWebpackPlugin({
+      //   template: `${PAGES_DIR}/website/search-room/search-room.pug`,
+      //   filename: './pages/search-room.html',
+      // }),
+      // new HtmlWebpackPlugin({
+      //   template: `${PAGES_DIR}/website/sign-in/sign-in.pug`,
+      //   filename: './pages/sign-in.html',
+      // }),
 
     ],
   };
