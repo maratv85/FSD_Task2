@@ -18,7 +18,8 @@ Run build production
 
 [jQuery](https://github.com/jquery/jquery),
 [Air-Datepicker](https://github.com/t1m0n/air-datepicker),
-[IMask](https://github.com/uNmAnNeR/imaskjs)
+[IMask](https://github.com/uNmAnNeR/imaskjs),
+[Slick](https://github.com/kenwheeler/slick)
 
 ---
 ## UI kit & Website pages
