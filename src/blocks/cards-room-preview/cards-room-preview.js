@@ -5,7 +5,9 @@ import 'slick-carousel/slick/slick.scss';
 class CardsRoomPreview {
   constructor(elem) {
     this.$elem = $(elem);
+    this.hasArrows = false;
     this.findDOMElements();
+    this.checkArrows(this.$carousel);
     this.carouselSettings();
   }
 
@@ -13,11 +15,17 @@ class CardsRoomPreview {
     this.$carousel = this.$elem.find('.js-cards-room-preview__carousel');
   }
 
+  checkArrows(elemWithArrows) {
+    if ($(elemWithArrows).hasClass('cards-room-preview__arrows')) {
+      this.hasArrows = true;
+    }
+  }
+
   carouselSettings() {
     this.$carousel.slick({
       dots: true,
       infinite: true,
-      arrows: true,
+      arrows: this.hasArrows
     })
   }
 }
