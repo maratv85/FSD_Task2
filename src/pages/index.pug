@@ -13,11 +13,23 @@ block content
   - const cards = {title: 'Cards', href: './pages/cards.html'}
   - const headersAndFooters = {title: 'Headers & Footers', href: './pages/headers-and-footers.html'}
   - const uikitPages = [colorsAndTypes, formElements, cards, headersAndFooters]
+
+  - const landingPage = {title: 'Landing Page', href: './pages/landing-page.html'}
+  - const registration = {title: 'Registration', href: './pages/registration.html'}
+  - const roomDetails = {title: 'Room Details', href: './pages/room-details.html'}
+  - const searchRoom = {title: 'Search Room', href: './pages/search-room.html'}
+  - const signIn = {title: 'Sign In', href: './pages/sign-in.html'}
+  - const sitePages = [landingPage, registration, roomDetails, searchRoom, signIn]
  
 
   ul.menu-page__list
     li.menu-page__item-header
-      +heading({type: 'h1', text: 'UI-kit & Pages'})
+      +heading({type: 'h1', text: 'UI kit'})
     each page in uikitPages
       li.menu-page__item
         a.menu-page__link(href=page.href)=page.title
+    li.menu-page__item-pages-header
+      +heading({type: 'h1', text: 'Website pages'})
+    each page in sitePages
+      li.menu-page__item
+        a.menu-page__link(href=page.href)=page.title  

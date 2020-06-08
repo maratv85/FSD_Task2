@@ -8,28 +8,38 @@
     }
   }  
   &__link {
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-family: $montserrat;
     font-size: 14px;
     line-height: 0;
     color: $dark-shade-75;
     text-decoration: none; 
     transition: all 0.3s ease-in-out;
+
     &:hover {
-        color: $purple;
-        text-shadow: 1px 1px 0.5px rgb(90, 57, 85);
-      }
+      color: $purple;
+      text-shadow: 1px 1px 0.5px rgb(90, 57, 85);
+    }
   }
+
   &__item {
     margin-bottom: 20px;
     list-style-type: square;
+
     @media (max-width: 320px) {
       text-align: center;
     }
   }
+
   &__item-header {
     margin-bottom: 30px;
     list-style-type: none;
   }
+
+  &__item-pages-header {
+    margin-top: 30px;
+    list-style-type: none;
+  }
+
   &__item-footer {
     list-style-type: none;
     margin-top: 35px;
