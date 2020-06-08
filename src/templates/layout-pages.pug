@@ -1,0 +1,75 @@
+block variables
+  - keywords = 'frontend, pug, scss, education'
+  - description = 'Страницы сайта макета второго задания'
+
+doctype html
+html(lang='en')
+  head
+    meta(charset="utf-8")
+    meta(name="keywords" content=keywords)
+    meta(name="description" content=description)
+    title=pageTitle
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png")
+    link(rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png")
+    link(rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png")
+    link(rel="manifest" href="./favicons/site.webmanifest")
+    link(rel="mask-icon" href="./favicons/safari-pinned-tab.svg" color="#5bbad5")
+    meta(name="msapplication-TileColor" content="#da532c")
+    meta(name="theme-color" content="#ffffff")
+
+  body
+    include ../../blocks/header/header.pug
+    include ../../blocks/footer-extended/footer-extended.pug
+
+    +header({
+      isLogOn: false, 
+      links: [
+        {text: 'О нас'},
+        {text: 'Услуги', isMenu: true},
+        {text: 'Вакансии'},
+        {text: 'Новости'},
+        {text: 'Соглашения', isMenu: true}
+      ],
+      loginText: 'Войти',
+      registerText: 'Зарегистрироваться',
+      language: 'rus'
+    })
+
+    block content
+    
+    +footer-extended( { 
+      description: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»', 
+      subsriptionHeader: 'Подписка', 
+      subcriptionText: 'Получайте специальные предложения и новости сервиса', 
+      emailPlaceholder: 'Email', 
+      copyrightText: 'Copyright © 2018 Toxin отель. Все права защищены.', 
+      navMenus: [
+        {
+          header: 'Навигация',
+          links: [
+            {text: 'О нас'},
+            {text: 'Новости'},
+            {text: 'Служба поддержки'},
+            {text: 'Услуги'}
+          ],
+        },
+        {
+          header: 'О нас',
+          links: [
+            {text: 'О сервисе'},
+            {text: 'Наша команда'},
+            {text: 'Вакансии'},
+            {text: 'Инвесторы'},
+          ],
+        },
+        {
+          header: 'Служба поддержки',
+          links: [
+            {text: 'Соглашения'},
+            {text: 'Сообщества'},
+            {text: 'Связь с нами'},
+          ]
+        }
+      ]
+    })
