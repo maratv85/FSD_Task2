@@ -82,7 +82,7 @@ class Dropdown {
       if (i === summaryText.length - 1) finalText += item.replace(/,\s/g, '');
       else finalText += `${item.replace(/,\s/g, '')}, `;
     });
-      
+
     return this.setSelectText(finalText);
   }
 
@@ -111,12 +111,12 @@ class Dropdown {
     selectOptions.classList.remove('dropdown__options_active');
     document.removeEventListener('click', this.handleDocumentClick);
 
-    if(this.dropdown.querySelector('.js-dropdown__select')
-          .textContent.match(/\d{1}/).shift() === "0") 
-        {this.setSelectText(this.selectText);
-         this.deactivateClear();
-        this.clearOptions();
-        }
+    if (this.dropdown.querySelector('.js-dropdown__select')
+      .textContent.match(/\d{1}/).shift() === '0') {
+      this.setSelectText(this.selectText);
+      this.deactivateClear();
+      this.clearOptions();
+    }
   }
 
   handleDocumentClick(event) {
@@ -124,15 +124,14 @@ class Dropdown {
     const itsMenu = target === this.dropdown || this.dropdown.contains(target);
     if (!itsMenu) {
       this.hideDropdown(event);
-      
-      if(this.dropdown.querySelector('.js-dropdown__select')
-          .textContent.match(/\d{1}/).shift() === "0") 
-        {this.setSelectText(this.selectText);
-         this.deactivateClear();
-        this.clearOptions();
-        }
-      }
 
+      if (this.dropdown.querySelector('.js-dropdown__select')
+        .textContent.match(/\d{1}/).shift() === '0') {
+        this.setSelectText(this.selectText);
+        this.deactivateClear();
+        this.clearOptions();
+      }
+    }
   }
 
   activateClear() {

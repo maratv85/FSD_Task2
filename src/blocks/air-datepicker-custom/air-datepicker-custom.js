@@ -22,17 +22,15 @@ class AirDatepickerCustom {
 
   setPluginOptions() {
     this.$input.datepicker({
-        prevHtml: '<i class="air-datepicker-custom__material-icon">arrow_back</i>',
-        nextHtml: '<i class="air-datepicker-custom__material-icon">arrow_forward</i>',
-        navTitles: {
-          days: 'MM <i>yyyy</i>'}
-    })
-  }   
-  
+      prevHtml: '<i class="air-datepicker-custom__material-icon">arrow_back</i>',
+      nextHtml: '<i class="air-datepicker-custom__material-icon">arrow_forward</i>',
+      navTitles: { days: 'MM <i>yyyy</i>' },
+    });
+  }
+
   createApplyButton() {
-    this.$buttonsContainer = this.$datepicker.find('.datepicker--buttons');      
-    this.$buttonApply = $('<span class="air-datepicker-custom__apply-button">Применить</span>'
-    ).appendTo(this.$buttonsContainer);      
+    this.$buttonsContainer = this.$datepicker.find('.datepicker--buttons');
+    this.$buttonApply = $('<span class="air-datepicker-custom__apply-button">Применить</span>').appendTo(this.$buttonsContainer);
   }
 
   bindButtonApplyEventListener() {
@@ -49,10 +47,9 @@ class AirDatepickerCustom {
 
   addAirDatepickerCustomClass() {
     this.$input.datepicker({
-      classes: 'air-datepicker-custom__modifier'
-    })
+      classes: 'air-datepicker-custom__modifier',
+    });
   }
-
 }
 
-export default AirDatepickerCustom
+export default AirDatepickerCustom;

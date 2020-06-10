@@ -21,7 +21,7 @@ class DateDropdown {
       this.isRange = true;
       this.startInputInstance = this.$startInput.datepicker().data('datepicker');
     }
-   }  
+  }
 
   initCalendar() {
     if (this.isRange) {
@@ -31,41 +31,38 @@ class DateDropdown {
         language: 'ru',
         multipleDatesSeparator: ' - ',
         clearButton: true,
-        onSelect: function (formattedDate) { 
-          $startInput.val(formattedDate.split("-")[0]);
-          $endInput.val(formattedDate.split("-")[1]);
-        }
-     });
-     new AirDatepickerCustom(this.$startInput.datepicker().data('datepicker'));
-     this.handleEndInput();
-    }
-    else {
+        onSelect(formattedDate) {
+          $startInput.val(formattedDate.split('-')[0]);
+          $endInput.val(formattedDate.split('-')[1]);
+        },
+      });
+      new AirDatepickerCustom(this.$startInput.datepicker().data('datepicker'));
+      this.handleEndInput();
+    } else {
       this.$standaloneInput.datepicker({
         range: true,
-        language: 'ru', 
+        language: 'ru',
         dateFormat: 'dd M',
         clearButton: true,
         multipleDatesSeparator: ' - ',
       });
       this.datePickercustom = new AirDatepickerCustom(this.$standaloneInput.datepicker().data('datepicker'));
-      //this.datePickercustom.handleCalendarResize();
-    };
+      // this.datePickercustom.handleCalendarResize();
+    }
+  }
 
-  }; 
-  
   _handleEndInputClick() {
     this.startInputInstance.show();
-  };
+  }
 
   handleEndInput() {
-    this.$end.on('click', this._handleEndInputClick.bind(this))
-  };
-
+    this.$end.on('click', this._handleEndInputClick.bind(this));
+  }
 }
 
-  export default DateDropdown;
+export default DateDropdown;
 
-  document.addEventListener('DOMContentLoaded', () => {
-   const dateDropdownInit = document.querySelectorAll('.js-date-dropdown');
-   dateDropdownInit.forEach((val) => new DateDropdown(val));
- }); 
+document.addEventListener('DOMContentLoaded', () => {
+  const dateDropdownInit = document.querySelectorAll('.js-date-dropdown');
+  dateDropdownInit.forEach((val) => new DateDropdown(val));
+});

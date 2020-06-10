@@ -25,16 +25,16 @@ class CardsRoomPreview {
     this.$carousel.slick({
       dots: true,
       infinite: true,
-      arrows: this.hasArrows
-    })
+      arrows: this.hasArrows,
+    });
   }
 }
 
 export default CardsRoomPreview;
 
 $(() => {
- const $roomPreview = $('.js-cards-room-preview');
- $roomPreview.each((i, val) => {
-   new CardsRoomPreview(val);
- });
+  const $roomPreview = $('.js-cards-room-preview');
+  $roomPreview.each((i, val) => {
+    new CardsRoomPreview(val);
+  });
 });

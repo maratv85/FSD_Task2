@@ -2,21 +2,21 @@ import AirDatepickerCustom from '../air-datepicker-custom/air-datepicker-custom'
 
 class InlineCalendar {
   constructor(calendar) {
-    this.$calendar = $(calendar)
+    this.$calendar = $(calendar);
     this.initCalendar();
   }
 
-  initCalendar() { 
+  initCalendar() {
     this.$calendar.datepicker({
       inline: true,
       range: true,
-      language: 'ru', 
+      language: 'ru',
       dateFormat: 'dd M',
       clearButton: true,
       multipleDatesSeparator: ' - ',
     });
-    new AirDatepickerCustom(this.$calendar.datepicker().data('datepicker'));  
-  }  
+    new AirDatepickerCustom(this.$calendar.datepicker().data('datepicker'));
+  }
 }
 
 export default InlineCalendar;

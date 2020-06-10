@@ -3,7 +3,7 @@ class RoomInfo {
   constructor(elem, periodDeclensionArr) {
     this.element = elem;
     this.periodDeclensionArr = periodDeclensionArr;
-    this.roomPrice = parseFloat(this.element.querySelector('.js-room-info__room-price').textContent); 
+    this.roomPrice = parseFloat(this.element.querySelector('.js-room-info__room-price').textContent);
     this.dayCount = parseFloat(this.element.querySelector('.js-room-info__day-count').textContent);
     this.serviceFee = parseFloat(this.element.querySelector('.js-room-info__service-fee').textContent);
     this.discount = parseFloat(this.element.querySelector('.js-room-info__number-discount').textContent);
@@ -27,31 +27,31 @@ class RoomInfo {
   }
 
   setDay() {
-    this.day = this._dayDeclension(this.dayCount); 
+    this.day = this._dayDeclension(this.dayCount);
     this.element.querySelector('.js-room-info__per-day').textContent = this.day;
   }
 
   _calcTotalRoomPrice() {
-    this.totalRoomPrice = Number(this.dayCount)*Number(this.roomPrice); 
-    return this.totalRoomPrice; 
-  } 
-  
+    this.totalRoomPrice = Number(this.dayCount) * Number(this.roomPrice);
+    return this.totalRoomPrice;
+  }
+
   _dayDeclension(num) {
-    let number = Number(num);
-    const cases = [2, 0, 1, 1, 1, 2];  
-    return this.periodDeclensionArr[ (number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 <5 ) ? number % 10 : 5] ];
+    const number = Number(num);
+    const cases = [2, 0, 1, 1, 1, 2];
+    return this.periodDeclensionArr[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
   }
 
   _calcFinalPrice() {
     this.finalPrice = this._calcTotalRoomPrice() - this.discount + this.additioanlServiceFee;
-    return this.finalPrice; 
-  }  
+    return this.finalPrice;
+  }
 }
 
 export default RoomInfo;
 
 document.addEventListener('DOMContentLoaded', () => {
-  const declensionArr = ['сутки', 'суток', 'суток']
+  const declensionArr = ['сутки', 'суток', 'суток'];
   const roomInfo = document.querySelectorAll('.js-room-info');
   roomInfo.forEach((val) => new RoomInfo(val, declensionArr));
 });

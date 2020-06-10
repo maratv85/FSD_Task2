@@ -11,20 +11,26 @@ class TextField {
       this.container,
       {
         mask: Date,
-        lazy: true, /*was false*/
-        overwrite: true, /*was true*/
+        lazy: true, /* was false */
+        overwrite: true, /* was true */
         autofix: true,
         blocks: {
-          d: {mask: IMask.MaskedRange, placeholderChar: 'Д', from: 1, to: 31, maxLength: 2},
-          m: {mask: IMask.MaskedRange, placeholderChar: 'М', from: 1, to: 12, maxLength: 2},
-          Y: {mask: IMask.MaskedRange, placeholderChar: 'Г', from: 1999, to: 2099, maxLength: 4}
-        }
-      }
+          d: {
+            mask: IMask.MaskedRange, placeholderChar: 'Д', from: 1, to: 31, maxLength: 2,
+          },
+          m: {
+            mask: IMask.MaskedRange, placeholderChar: 'М', from: 1, to: 12, maxLength: 2,
+          },
+          Y: {
+            mask: IMask.MaskedRange, placeholderChar: 'Г', from: 1999, to: 2099, maxLength: 4,
+          },
+        },
+      },
     );
-  }  
+  }
 }
-  
-export default TextField
+
+export default TextField;
 
 document.addEventListener('DOMContentLoaded', () => {
   const dateMask = document.querySelectorAll('.js-text-field_date-state');
