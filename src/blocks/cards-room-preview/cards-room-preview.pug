@@ -1,6 +1,6 @@
 include ../rate-button/rate-button.pug
 
-mixin cards-room-preview({roomNumber = 777, roomPrice = 9900, currency = '₽', roomImg = './img/image.png', roomType = '', rating = 5, reviewCount = 100, name = 'room preview', hasArrows = false})
+mixin cards-room-preview({roomNumber = 777, roomPrice = 9900, currency = '₽', roomImg = '/img/image.png', roomType = '', rating = 5, reviewCount = 100, name = 'room preview', hasArrows = false})
   section.cards-room-preview.js-cards-room-preview
     figure.cards-room-preview__carousel.js-cards-room-preview__carousel(class=hasArrows ? 'cards-room-preview__arrows' : null)
       img(class='cards-room-preview__image' src=roomImg alt='room_preview_photo')
