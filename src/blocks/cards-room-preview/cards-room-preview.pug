@@ -1,6 +1,6 @@
 include ../rate-button/rate-button.pug
 
-mixin cards-room-preview({roomNumber = 777, roomPrice = '9 900', currency = '₽', roomImg = '/img/image.png', roomType = '', rating = 5, reviewCount = 100, name = 'room preview', hasArrows = false})
+mixin cards-room-preview({roomNumber = 777, roomPrice = 9900, currency = '₽', roomImg = '/img/image.png', roomType = '', rating = 5, reviewCount = 100, name = 'room preview', hasArrows = false})
   section.cards-room-preview.js-cards-room-preview
     figure.cards-room-preview__carousel.js-cards-room-preview__carousel(class=hasArrows ? 'cards-room-preview__arrows' : null)
       img(class='cards-room-preview__image' src=roomImg alt='room_preview_photo')
@@ -15,7 +15,7 @@ mixin cards-room-preview({roomNumber = 777, roomPrice = '9 900', currency = '₽
           span.cards-room-preview__room-number=` ${roomNumber}`
           span.cards-room-preview__room-type=` ${roomType}`
         .cards-room-preview__span-wrapper
-          span.cards-room-preview__room-price=roomPrice
+          span.cards-room-preview__room-price.js-cards-room-preview__room-price=roomPrice
           span.cards-room-preview__room-price=currency
           span.cards-room-preview__per-day=' в сутки'
       .cards-room-preview__wrapper

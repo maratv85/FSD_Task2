@@ -9,6 +9,7 @@ class CardsRoomPreview {
     this.findDOMElements();
     this.checkArrows(this.$carousel);
     this.carouselSettings();
+    this.setPriceFormat();
   }
 
   findDOMElements() {
@@ -19,6 +20,12 @@ class CardsRoomPreview {
     if ($(elemWithArrows).hasClass('cards-room-preview__arrows')) {
       this.hasArrows = true;
     }
+  }
+
+  setPriceFormat() {
+    this.$price = this.$elem.find('.js-cards-room-preview__room-price').text();
+    this.$money = Number(this.$price);
+    this.$elem.find('.js-cards-room-preview__room-price').text(this.$money.toLocaleString('ru-RU'));
   }
 
   carouselSettings() {
