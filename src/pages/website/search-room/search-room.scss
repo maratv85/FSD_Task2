@@ -15,6 +15,14 @@
     margin-right: auto;
     padding-top: 30px;
     padding-bottom: 70px;
+
+    @media (max-width: 1180px) { // and min-width
+      
+    }
+
+    @media (max-width: 500px) {
+      
+    }
   }
 
   &__left-side {
@@ -82,5 +90,34 @@
 
   &__expandable-list-container {
     margin-top: 30px;
+  }
+
+  &__room-list {
+    grid-area: rooms-list;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    column-gap: 12px;
+    row-gap: 20px;
+
+    @media (max-width: 1160px) {
+      
+    }
+
+    @media (max-width: 900px) {
+      
+    }
+  }
+
+  &__room-list-header {
+    grid-area: rooms-list-header;
+    padding-bottom: 21px;
+  }
+
+  &__pagination {
+    grid-area: pagination;
+    justify-self: center;
+    padding-top: 40px;
+    margin-left: -10px;
   }
 }
