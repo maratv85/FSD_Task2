@@ -4,6 +4,21 @@ block variables
   - var pageTitle = 'Room Details'
 
 block content
-
+  
+  include ../../../blocks/room-info/room-info.pug
+  include ../../../blocks/comment/comment.pug
+  include ../../../blocks/donut-chart/donut-chart.pug
+  include ../../../blocks/cards-booking/cards-booking.pug
+  include ../../../blocks/bullet-list/bullet-list.pug
+  include ../../../blocks/heading/heading.pug
 
   main.room-details
+    section.room-details__photos
+      .room-details__photos-column-1
+        img.room-details__first-photo(src="../../../img/room_details_first_photo_large.png", alt="room photo 1")
+      .room-details__photos-column-2
+        img.room-details__second-photo(src="../../../img/room_details_second_photo_large.png", alt="room photo 2")      
+        img.room-details__third-photo(src="../../../img/room_details_third_photo_large.png", alt="room photo 3")
+
+    .room-details__donut-chart
+      +donut-chart({})

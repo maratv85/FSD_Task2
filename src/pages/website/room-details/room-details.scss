@@ -1,3 +1,72 @@
 .room-details {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid rgba(31, 32, 65, 0.25);
+
+  &__photos {
+    display: flex;
+    width: 100%;
+    max-height: 485px;
+    height: 100%;
+    justify-content: center;
+
+    @media (max-width: 740px) {
+      flex-direction: column;
+      align-items: center;
+      max-height: 550px;
+    }
+  }
+
+  &__photos-column-1 {
+    width: 68.125%;
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 740px) {   
+      width: 35%;
+    }
+  }
+
+  &__photos-column-2 {
+    width: 31.875%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (max-width: 740px) {
+      width: 35%;
+    }
+  }
+
+  &__first-photo {
+    width: 100%;
+    max-height: 485px;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__second-photo {
+    width: 100%;
+    max-height: 242.5px;
+    height: 100%;
+    object-fit: cover;
+
+    @media (max-width: 1080px) {
+      max-height: 50%;
+    }
+  }
+
+  &__third-photo {
+    width: 100%;
+    max-height: 242.5px;
+    height: 100%;
+    object-fit: cover;
+
+    @media (max-width: 1080px) {
+      max-height: 50%;
+    }
+  }
+
+
 }
