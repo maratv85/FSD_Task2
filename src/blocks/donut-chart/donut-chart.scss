@@ -8,22 +8,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-
-    &_color-outstanding {
-      color: #FFE39C;
-    }
-
-    &_color-welldone {
-      color: #6FCF97;
-    }
-
-    &_color-fine {
-      color: #BC9CFF;
-    }
-
-    &_color-disappointed {
-      color: #919191;
-    }
+    color: #BC9CFF;
   }
 
   &__text-count {
@@ -38,5 +23,6 @@
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
+    text-transform: uppercase;
   }
 }
