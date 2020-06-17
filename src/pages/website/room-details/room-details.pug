@@ -5,7 +5,7 @@ block variables
 
 block content
   
-  include ../../../blocks/room-info/room-info.pug
+  include ../../../blocks/room-information/room-information.pug
   include ../../../blocks/comment/comment.pug
   include ../../../blocks/donut-chart/donut-chart.pug
   include ../../../blocks/cards-booking/cards-booking.pug
@@ -20,5 +20,56 @@ block content
         img.room-details__second-photo(src="../../../img/room_details_second_photo_large.png", alt="room photo 2")      
         img.room-details__third-photo(src="../../../img/room_details_third_photo_large.png", alt="room photo 3")
 
-    .room-details__donut-chart
-      +donut-chart({})
+    section.room-details__container
+      .room-details__content
+        .room-details__room-info
+          +heading({type: 'h2', text: 'Сведения о номере'})
+          .room-details__room-info-text
+            +room-information({icon: 'insert_emoticon', header: 'Комфорт', description: 'Шумопоглощающие стены', hasBottomline: true})
+          .room-details__room-info-text
+            +room-information({icon: 'location_city', header: 'Удобство', description: 'Окно в каждой из спален', hasBottomline: true})
+          .room-details__room-info-text  
+            +room-information({icon: 'whatshot', header: 'Уют', description: 'Номер оснащён камином', hasBottomline: false})
+
+        .room-details__donut-chart
+          +heading({type: 'h2', text: 'Впечатления от номера'})
+          .room-details__donut-graph
+            +donut-chart({})
+            .room-details__donut-list
+              +bullet-list({
+                values: [
+                  {text: 'Великолепно', circleColor: 'yellow'},
+                  {text: 'Хорошо', circleColor: 'green'},
+                  {text: 'Удовлетворительно', circleColor: 'purple'},
+                  {text: 'Разочарован', circleColor: 'black'}
+                ] 
+              })
+
+        .room-details__booking
+          +cards-booking({})
+
+        .room-details__guest-reviews   
+          .room-details__guest-reviews-header  
+            +heading({type: 'h2', text: 'Отзывы посетителей номера'})
+            span.room-details__guest-reviews-count 2 отзыва
+          .room-details__comment
+            +comment({avatarImg: '../../../img/murad_avatar.png', likeCount: 12, isLiked: true, authorName: 'Мурад Сарафанов', daysAgo: '5 дней назад', text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'})
+          .room-details__comment
+            +comment({avatarImg: '../../../img/patricia_avatar.png', likeCount: 2, isLiked: false, authorName: 'Патрисия Стёклышкова', daysAgo: 'Неделю назад', text: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент'})
+
+        .room-details__rules
+          .room-details__rules-header
+            +heading({type: 'h2', text: 'Правила'})
+          .room-details__rules-list
+            +bullet-list({
+              values: [
+                {text: 'Нельзя с питомцами'},
+                {text: 'Без вечеринок и мероприятий'},
+                {text: 'Время прибытия — после 13:00, а выезд до 12:00'}
+              ] 
+            })  
+
+        .room-details__cancel
+          .room-details__cancel-header
+            +heading({type: 'h2', text: 'Отмена'})
+          p.room-details__cancel-text Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
