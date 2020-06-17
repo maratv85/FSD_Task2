@@ -57,5 +57,82 @@
     object-fit: cover;
   }
 
+  &__container {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    max-width: 1160px;
+    //@media (max-width: px) {
 
+    //}
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 0.9fr 1fr 1.13fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 'room-info      room-impressions  cards-booking'
+                         'guest-reviews  guest-reviews     cards-booking'
+                         'rules          cancel            cards-booking';
+    column-gap: 70px;   
+    
+    //@media (max-width: px) {
+
+    //}
+  }
+
+  &__room-info {
+    grid-area: room-info;
+  }
+
+  &__room-info-text {
+    margin-top: 23px;
+    min-width: 290px;
+  }
+
+  &__donut-chart {
+    grid-area: room-impressions;
+  }
+
+  &__donut-graph {
+    display: flex;
+    margin-top: 21px;
+  }
+
+  &__donut-list {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 30px;
+  }
+
+  &__booking {
+    grid-area: cards-booking;
+  }
+
+  &__guest-reviews  {
+    grid-area: guest-reviews;
+  }
+
+  &__guest-reviews-header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 23px;
+  }
+
+  &__guest-reviews-count {
+    font-family: $montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: $dark-shade-50;
+    line-height: 25px;
+  }
+
+  &__rules {
+    grid-area: rules;
+  }
+
+  &__cancel {
+    grid-area: cancel;
+  }
 }
