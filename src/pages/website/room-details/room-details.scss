@@ -59,25 +59,49 @@
 
   &__container {
     padding-top: 70px;
-    padding-bottom: 70px;
+    padding-bottom: 72px;
     max-width: 1160px;
-    //@media (max-width: px) {
 
-    //}
+    @media (max-width: 1180px) {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
   }
 
   &__content {
     display: grid;
-    grid-template-columns: 0.9fr 1fr 1.13fr;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: 0.89fr 1.083fr 1.18fr;
+    grid-template-rows: auto 1fr auto;
     grid-template-areas: 'room-info      room-impressions  cards-booking'
                          'guest-reviews  guest-reviews     cards-booking'
                          'rules          cancel            cards-booking';
     column-gap: 70px;   
     
-    //@media (max-width: px) {
+    @media (max-width: 900px) {
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto auto auto;
+      grid-template-areas: 'room-info      room-impressions'
+                           'guest-reviews  guest-reviews'     
+                           'rules          cancel'            
+                           'cards-booking  cards-booking';                     
+    }
 
-    //}
+    @media (max-width: 706px) {
+      grid-template-columns: auto;
+      grid-template-rows: repeat(6, auto);
+      grid-template-areas: 'room-info'      
+                           'room-impressions'
+                           'guest-reviews'       
+                           'rules'          
+                           'cancel'            
+                           'cards-booking';
+      margin-right: 0;                           
+    }
+
+    @media (max-width: 380px) {
+      grid-template-columns: 300px;
+      margin-right: 0; 
+    }
   }
 
   &__room-info {
@@ -85,12 +109,22 @@
   }
 
   &__room-info-text {
-    margin-top: 23px;
+    margin-top: 22px;
     min-width: 290px;
   }
 
   &__donut-chart {
     grid-area: room-impressions;
+    margin-top: 1px;
+    margin-left: 1px;
+
+    @media (max-width: 706px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 15px;
+    }
   }
 
   &__donut-graph {
@@ -99,13 +133,22 @@
   }
 
   &__donut-list {
-    display: flex;
-    align-items: flex-end;
-    margin-left: 30px;
+    margin-left: 31px;
+    margin-top: 29px;
   }
 
   &__booking {
     grid-area: cards-booking;
+
+    @media (max-width: 1200px) {
+      margin-top: 15px;
+    }
+
+    @media (max-width: 706px) {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+    }
   }
 
   &__guest-reviews  {
@@ -115,8 +158,10 @@
   &__guest-reviews-header {
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
-    margin-bottom: 23px;
+    margin-top: 34px;
+    margin-bottom: 20px;
+    max-width: 711px;
+    width: 100%;
   }
 
   &__guest-reviews-count {
@@ -128,11 +173,51 @@
     line-height: 25px;
   }
 
+  &__comment {
+    margin-bottom: 26px;
+
+    &:last-child {
+      margin-bottom: 37px;
+    }
+  }
+
   &__rules {
     grid-area: rules;
   }
 
+  &__rules-header {
+    margin-left: 20px;
+  }
+
+  &__rules-list {
+    margin-top: 20px;
+  }
+
   &__cancel {
     grid-area: cancel;
+
+    @media (max-width: 706px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__cancel-header {
+    margin-bottom: 18px;
+
+    @media (max-width: 706px) {
+      align-self: flex-start;
+      margin-top: 15px;
+    }
+  }
+
+  &__cancel-text {
+    font-family: $montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: $dark-shade-75;
   }
 }
