@@ -14,23 +14,25 @@
   &__service {
     width: 75%;
     position: relative;
-    padding-top: 10px;
+    padding-top: 12px;
+    padding-left: 4px;
 
     &-result {
-      padding-top: 30px;
+      padding-top: 28px;
     }
   }
 
   &__price {
     width: 25%;
     text-align: end;
-    padding-top: 10px;
+    padding-top: 12px;
     padding-bottom: 0;
+    padding-left: 6px;
     vertical-align: top;
 
     &-final {
       display: flex;
-      padding-top: 30px;
+      padding-top: 28px;
       white-space: nowrap;
     }
   }
@@ -74,7 +76,7 @@
 
   &__underline {
     width: 100%;
-    max-width: 182px;
+    max-width: 187px;
     height: 1px;
     position: absolute;
     bottom: 5px;

@@ -30,7 +30,7 @@
   }
 
   &_width {
-    padding-left: 19px;
+    padding-left: 19.5px;
     padding-right: 20px;
   }
 
@@ -49,6 +49,8 @@
 
     &.button_size-narrow {
       padding: 2px;
+      border-radius: 19%/50%;
+      min-width: 87px;
 
       & .button__pale {
         padding-top: 7px;
