@@ -1,6 +1,8 @@
 .donut-chart {
   display: inline-block;
   position: relative;
+  width: 120px;
+  height: 120px;
 
   &__text-container {
     position: absolute;
