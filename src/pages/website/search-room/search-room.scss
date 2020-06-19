@@ -42,7 +42,7 @@
   }
 
   &__dropdown-guests-header {
-    margin-top: 20.44px;
+    margin-top: 22px;
   }
 
   &__dropdown-guests {
@@ -50,17 +50,18 @@
   }
 
   &__range-slider-container {
-    margin-top: 30.44px;
+    margin-top: 27px;
   }
 
   &__range-slider-text {
+    display: inline-block;
     font-family: $montserrat;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
     line-height: 14px;
     color: $dark-shade-50;
-    margin-top: 13.56px;
+    margin-top: 3px;
   }
 
   &__checkbox-buttons-header {
@@ -77,7 +78,7 @@
   }
 
   &__rich-checkbox-buttons-header {
-    margin-top: 30.32px;
+    margin-top: 33px;
   }
 
   &__rich-checkbox-container {
@@ -85,11 +86,11 @@
   }
 
   &__rich-checkbox {
-    margin-top: 10px;
+    margin-top: 7px;
   }
 
   &__dropdown-furniture-header {
-    margin-top: 30.44px;
+    margin-top: 27px;
   }
 
   &__dropdown-furniture {
@@ -97,7 +98,7 @@
   }
 
   &__expandable-list-container {
-    margin-top: 30px;
+    margin-top: 11px;
   }
 
   &__room-list {
@@ -105,8 +106,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    column-gap: 12px;
-    row-gap: 20px;
+    column-gap: 10px;
+    row-gap: 15px;
 
     @media (max-width: 1120px) {
       grid-template-columns: repeat(2, 1fr);

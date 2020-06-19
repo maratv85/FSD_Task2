@@ -28,11 +28,11 @@ class RangeSlider {
       prettify_separator: ' ',
       onStart(data) {
         const { from, to } = data;
-        $priceRange.val(`${new Intl.NumberFormat('ru-RU').format(from)}₽ - ${new Intl.NumberFormat('ru-RU').format(to)}₽`);
+        $priceRange.text(`${new Intl.NumberFormat('ru-RU').format(from)}₽ - ${new Intl.NumberFormat('ru-RU').format(to)}₽`);
       },
       onChange(data) {
         const { from, to } = data;
-        $priceRange.val(`${new Intl.NumberFormat('ru-RU').format(from)}₽ - ${new Intl.NumberFormat('ru-RU').format(to)}₽`);
+        $priceRange.text(`${new Intl.NumberFormat('ru-RU').format(from)}₽ - ${new Intl.NumberFormat('ru-RU').format(to)}₽`);
       },
     });
   }

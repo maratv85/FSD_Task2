@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 20px 17px 19px 20px;
+    padding: 22px 20px 19px 17px;
   }
 
   &__wrapper {
@@ -74,12 +74,13 @@
     background: rgba(31, 32, 65, 0.1);
     width: 230px;
     height: 1px;
-    margin-top: 10px;
+    margin-top: 11px;
     margin-bottom: 8px;
   }
 
   &__rate-button {
     margin-top: 1px;
+    padding-left: 2px;
   }
 
   &__review-number {
@@ -90,6 +91,8 @@
     line-height: 18px;
     text-align: right;
     color: $dark-shade-50;
+    padding-right: 1.5px;
+    padding-bottom: 1.5px;
   }
 
   &__review-text {
@@ -146,16 +149,16 @@
     }
 
     .slick-dots {
-      bottom: 10px;
+      bottom: 7px;
       right: 0;
-      padding: 0 18px 12px 0;
+      padding: 0 20px 12px 0;
       text-align: right;
     }
 
     .slick-dots li {
       width: auto;
       height: auto;
-      margin-right: 5px;
+      margin-right: 5.5px;
 
       button {
         height: 0;
@@ -201,7 +204,7 @@
     // }
 
     .slick-next {
-      right: 10px;
+      right: 15px;
       z-index: 2;
 
       &::before {
