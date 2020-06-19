@@ -14,62 +14,67 @@ block content
     .headers-and-footers__logo-ui-kit 
       +logo-ui-kit({})
     section.headers-and-footers__unit
-      +header({isLogOn: false, links: [
-        {text: 'Home', isCurrent: true},
-        {text: 'About Us'},
-        {text: 'Services', isMenu: true},
-        {text: 'Careers'},
-        {text: 'News'},
-        {text: 'Documentation'}
-        ], language: 'eng'
+      +header({isLogOn: false, 
+        links: [
+          {text: 'О нас', isCurrent: true},
+          {text: 'Услуги', isMenu: true},
+          {text: 'Вакансии'},
+          {text: 'Новости'},
+          {text: 'Соглашения', isMenu: true}
+        ], 
+        loginText: 'Войти',
+        registerText: 'Зарегистрироваться',
+        language: 'rus'
       })
     section.headers-and-footers__unit 
-      +header({isLogOn: true, links: [
-        {text: 'Home', isCurrent: true},
-        {text: 'About Us'},
-        {text: 'Services', isMenu: true},
-        {text: 'Careers'},
-        {text: 'News'},
-        {text: 'Documentation'}
-        ], language: 'eng'
+      +header({isLogOn: true, 
+        links: [
+          {text: 'О нас', isCurrent: true},
+          {text: 'Услуги', isMenu: true},
+          {text: 'Вакансии'},
+          {text: 'Новости'},
+          {text: 'Соглашения', isMenu: true}
+        ], 
+        loginName: 'Юлий Цезарь',
+        language: 'rus'
       }) 
     section.headers-and-footers__unit
       +footer-extended({
-        description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.', 
+        description: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»', 
         navMenus: [
           {
-            header: 'Navigation',
+            header: 'Навигация',
             links: [
-              {text: 'About us'},
-              {text: 'News'},
-              {text: 'Support'},
-              {text: 'Products'},
+              {text: 'О нас'},
+              {text: 'Новости'},
+              {text: 'Служба поддержки'},
+              {text: 'Услуги'}
             ],
           },
           {
-            header: 'About us',
+            header: 'О нас',
             links: [
-              {text: 'Who we are'},
-              {text: 'Our team'},
-              {text: 'Careers'},
-              {text: 'Investors'},
+              {text: 'О сервисе'},
+              {text: 'Наша команда'},
+              {text: 'Вакансии'},
+              {text: 'Инвесторы'},
             ],
           },
           {
-            header: 'Support',
+            header: 'Служба поддержки',
             links: [
-              {text: 'Documentation'},
-              {text: 'Community'},
-              {text: 'Get in Touch'},
-            ],
+              {text: 'Соглашения'},
+              {text: 'Сообщества'},
+              {text: 'Связь с нами'},
+            ]
           }
         ], 
-        subsriptionHeader: 'Subscribe to our newsletter', 
-        subcriptionText: 'Receive our latest news and promotions in your inbox!', 
-        emailPlaceholder: 'Your email address',
-        copyrightText: 'Copyright © 2018 Toxin UI Kit. All rights reserved.'
+        subsriptionHeader: 'Подписка', 
+        subcriptionText: 'Получайте специальные предложения и новости сервиса', 
+        emailPlaceholder: 'Email',
+        copyrightText: 'Copyright © 2018 Toxin отель. Все права защищены.'
       })  
-    section.headers-and-footers__unit
+    section.headers-and-footers__bottom-footer
       +footer({})    
 
 
