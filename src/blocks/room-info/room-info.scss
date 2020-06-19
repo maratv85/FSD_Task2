@@ -95,9 +95,15 @@
     padding-left: 5px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 1250px) {
     .room-info__underline {
-      width: 60%;
+      width: 67%;
+    }
+  }
+
+  @media (max-width: 1102px) {
+    .room-info__underline {
+      width: 100%;
     }
   }
 }
